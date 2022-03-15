@@ -4,5 +4,5 @@
 
 | Name Surname (initials) | GUID                                     |
 | ----------------------- | ---------------------------------------- |
-| PG                      | `{OOOOOOOO-OOOO-OOOO-OOOO-OOOOOOOOOOOO}` |
+| PG                      | `{12315847-3D55-4518-BCC5-4A021BDB89F7}` |
 | OB                      | `{OOOOOOOO-OOOO-OOOO-OOOO-OOOOOOOOOOOO}` |
