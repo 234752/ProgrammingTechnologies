@@ -2,7 +2,7 @@
 {
     public class Program
     {
-        public bool isEven(int number)
+        public bool IsEven(int number)
         {
             return number % 2 == 0;
         }
