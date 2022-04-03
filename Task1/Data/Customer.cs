@@ -1,6 +1,6 @@
 ﻿namespace Data
 {
-    public class Customer
+    internal class Customer
     {
         private int Id { get; set; }
         private string Name { get; set; }
