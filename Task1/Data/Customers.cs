@@ -4,28 +4,29 @@ namespace Data
 {
     internal class Customers : ICollection<Customer>
     {
+        List<Customer> CustomersList = new List<Customer>();
         public int Count => throw new NotImplementedException();
 
         public bool IsReadOnly => throw new NotImplementedException();
 
-        public void Add(Customer item)
+        public void Add(Customer customer)
         {
-            throw new NotImplementedException();
+            CustomersList.Add(customer);
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            CustomersList.Clear();
         }
 
-        public bool Contains(Customer item)
+        public bool Contains(Customer customer)
         {
-            throw new NotImplementedException();
+            return CustomersList.Contains(customer);
         }
 
         public void CopyTo(Customer[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            CustomersList.CopyTo(array, arrayIndex);
         }
 
         public IEnumerator<Customer> GetEnumerator()
@@ -33,9 +34,9 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public bool Remove(Customer item)
+        public bool Remove(Customer customer)
         {
-            throw new NotImplementedException();
+            return CustomersList.Remove(customer);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
