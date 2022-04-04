@@ -5,7 +5,7 @@ namespace Data
     public class Customers : ICollection<Customer> //maybe internal?
     {
         List<Customer> CustomersList = new List<Customer>();
-        public int Count => throw new NotImplementedException();
+        public int Count => CustomersList.Count;
 
         public bool IsReadOnly => throw new NotImplementedException();
 

@@ -11,6 +11,8 @@ namespace UnitTests
         {
             Customers testedCollection = new Customers();
             Assert.IsTrue(testedCollection.Count == 0);
+            testedCollection.Add(new Customer(12, "Bob"));
+            Assert.IsTrue(testedCollection.Count == 1);
         }
     }
 }
