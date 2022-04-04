@@ -2,7 +2,7 @@
 
 namespace Data
 {
-    internal class Customers : ICollection<Customer>
+    public class Customers : ICollection<Customer> //maybe internal?
     {
         List<Customer> CustomersList = new List<Customer>();
         public int Count => throw new NotImplementedException();
