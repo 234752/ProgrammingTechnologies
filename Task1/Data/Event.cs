@@ -1,21 +1,21 @@
 namespace Data
 {
-    public class Event //this class must be abstract
+    internal class Event //this class must be abstract
     {
         private string Date;
         private List<Diamond> RemovedFromStorage = new List<Diamond>();
         private List<Diamond> AddedToStorage = new List<Diamond>();
         
-        public Event(string date)
+        internal Event(string date)
         {
             this.Date = date;
         }
 
-        public void NoteRemovedDiamond(Diamond diamond)
+        internal void NoteRemovedDiamond(Diamond diamond)
         {
             RemovedFromStorage.Add(diamond);
         }
-        public void NoteAddedDiamond(Diamond diamond)
+        internal void NoteAddedDiamond(Diamond diamond)
         {
             AddedToStorage.Add(diamond);
         }

@@ -1,10 +1,10 @@
 ﻿namespace Data
 {
-    public enum QualityValue { Good, VeryGood, Excellent };
+    internal enum QualityValue { Good, VeryGood, Excellent };
 
-    public enum ShapeValue { Round, Oval, Cushion, Pear };
+    internal enum ShapeValue { Round, Oval, Cushion, Pear };
 
-    public class Diamond 
+    internal class Diamond 
     {
         //public Guid Id { get; set; } //dictionary entry has a number which may be an id?
         private float Carat { get; set; }
@@ -12,7 +12,7 @@
         private QualityValue Quality { get; set; }
 		private ShapeValue Shape { get; set;}
 
-        public Diamond(float carat, float price, QualityValue quality, ShapeValue shape)
+        internal Diamond(float carat, float price, QualityValue quality, ShapeValue shape)
         {
             Carat = carat;
             Price = price;
