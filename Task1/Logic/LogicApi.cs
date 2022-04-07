@@ -8,12 +8,16 @@ namespace Logic
         {
 
         }
+
+        public void AddOrder()
+        {
+            StorageState.AddOrder(SelectedDiamond);
+        }
+
         public override void AddCatalog()
         {
             var catalog = new DiamondCatalog();
-            catalog.AddDiamondEvent += Catalog_AddDiamondEvent;
-            catalog.RemoveDiamondEvent += Catalog_RemoveDiamondEvent;
-
+            AssignEvents(catalog);
             StorageState.Add(catalog);
         }
 
@@ -21,18 +25,22 @@ namespace Logic
         {
             if (SelectedDiamondCatalog != null)
                 SelectedDiamondCatalog.AddDiamond(new Diamond(1, 1, QualityValue.VeryGood, ShapeValue.Pear));
+            // i dodac funkcje Equals jak bedzie implementowana
         }
+
         public override void RemoveCatalog()
         {
-            StorageState.Add(new DiamondCatalog());
+            if (SelectedDiamondCatalog != null)
+            {
+                StorageState.Remove(SelectedDiamondCatalog);
+                RemoveEvents(SelectedDiamondCatalog);
+            }
         }
 
         public override void RemoveDiamond()
         {
-            if (SelectedDiamondCatalog != null)
-            {
+            if (SelectedDiamondCatalog != null && SelectedDiamondCatalog.Diamonds != null)
                 SelectedDiamondCatalog.RemoveDiamond(SelectedDiamond);
-            }
         }
 
         private void Catalog_RemoveDiamondEvent(Diamond diamond)

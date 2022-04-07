@@ -22,7 +22,12 @@ namespace Data
             Add(item);
         }
         
-        
+        public void AddOrder(Diamond diamond)
+        {
+            var order = new Order(new Customer(1, ""), DateTime.Now.ToString());
+            order.AddToOrder(diamond);
+            OrderList.Add(order);
+        }
 
         public void Clear()
         {

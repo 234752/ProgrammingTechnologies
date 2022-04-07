@@ -3,13 +3,12 @@
 public class DiamondCatalog
 {
     public Guid Id { get; set; }
-    public List<Diamond> Diamonds { get; set; }
-    public Event Event { get; set; }
+    public List<Diamond> Diamonds { get; set; }//moznaby na sile wrzucic do dictonary ale troche lipa lista wygodniejsza
 
     public delegate void AddDiamondDelegate(Diamond diamond);
     public event AddDiamondDelegate AddDiamondEvent;
     public delegate void RemoveDiamondDelegate(Diamond diamond);
-    public event RemoveDiamondDelegate RemoveDiamondEvent;
+    public event RemoveDiamondDelegate RemoveDiamondEvent; // delegate tu czy gdzie trzeba przemyslec, bo nie ma dziedziczenia
 
     //Dictionary <int, Diamond> DiamondList = new Dictionary <int, Diamond>();
 
@@ -58,12 +57,8 @@ public class DiamondCatalog
             return false;
         }
 
-        //to do  return ....Comparer.Equals ??
+        //to do czy diamenty sa takie same etc etc
         return true; //not correct
     }
 
-    public override int GetHashCode()
-    {
-        return base.GetHashCode(); //return Comparer......
-    }
 }
