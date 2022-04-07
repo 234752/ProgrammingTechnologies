@@ -3,25 +3,20 @@
 public class DiamondCatalog
 {
     public Guid Id { get; set; }
-    public List<Diamond> Diamonds { get; set; }//moznaby na sile wrzucic do dictonary ale troche lipa lista wygodniejsza
+   // public List<Diamond> Diamonds { get; set; }   DIAMOND PROTECTION = DP commented in order  to build Data project
 
-    public delegate void AddDiamondDelegate(Diamond diamond);
-    public event AddDiamondDelegate AddDiamondEvent;
-    public delegate void RemoveDiamondDelegate(Diamond diamond);
-    public event RemoveDiamondDelegate RemoveDiamondEvent; // delegate tu czy gdzie trzeba przemyslec, bo nie ma dziedziczenia
-
-    //Dictionary <int, Diamond> DiamondList = new Dictionary <int, Diamond>();
-
-    //Diamond first = new Diamond(1F, 2999.99F, QualityValue.Good, ShapeValue.Oval);
-    //diamond.Add(1,first);
+   // public delegate void AddDiamondDelegate(Diamond diamond);          DP
+ //   public event AddDiamondDelegate AddDiamondEvent;
+   // public delegate void RemoveDiamondDelegate(Diamond diamond);       DP
+   // public event RemoveDiamondDelegate RemoveDiamondEvent; 
 
     public DiamondCatalog()
     {
         Id = Guid.NewGuid();
-        Diamonds = new List<Diamond>();
+      // Diamonds = new List<Diamond>();                                DP
     }
 
-    public void AddDiamond(Diamond diamond)
+   /* public void AddDiamond(Diamond diamond)
     {
         if (diamond == null)
             return;
@@ -59,6 +54,6 @@ public class DiamondCatalog
 
         //to do czy diamenty sa takie same etc etc
         return true; //not correct
-    }
+    }*/
 
 }

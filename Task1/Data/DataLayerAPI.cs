@@ -6,7 +6,7 @@ namespace Data
         private Customer Customer;
         private DiamondCatalog DiamondCatalog;
         public DiamondCatalog SelectedDiamondCatalog { get; set; }
-        public Diamond SelectedDiamond { get; set; }
+       // public Diamond SelectedDiamond { get; set; } commented due to diamond protection
         public DataLayerAPI()
         {
             _storageState = new StorageState();

@@ -14,7 +14,7 @@ namespace Data
         public void AddToOrder(Diamond diamond)
         {
             if (OrderedDiamonds != null)// czy jakis wyjatek throw exceptions 
-                throw new ArgumentNullException($"Nie przekazano diamendu z ID: {diamond.Id}");
+               // throw new ArgumentNullException($"Nie przekazano diamendu z ID: {diamond.Id}");
             
             OrderedDiamonds.Add(diamond);
         }
