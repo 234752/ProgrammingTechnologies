@@ -1,11 +1,11 @@
 namespace Data
 {
-    internal class Event
+    public class Event
     {
         private string Date;
         private List<Diamond> RemovedFromStorage = new List<Diamond>();
         private List<Diamond> AddedToStorage = new List<Diamond>();
-
+        
         public Event(string date)
         {
             this.Date = date;
