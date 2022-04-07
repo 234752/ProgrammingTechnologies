@@ -1,18 +1,21 @@
 ﻿namespace Data
 {
     enum QualityValue { Good, VeryGood, Excellent };
+    enum ShapeValue { Round, Oval, Cushion, Pear };
 
-    internal class Diamond
+   	  internal class Diamond
     {
-        private float Mass { get; set; }
+        private float Carat { get; set; }
         private float Price { get; set; }
         private QualityValue Quality { get; set; }
+		private ShapeValue Shape { get; set;}
 
-        internal Diamond(float mass, float price, QualityValue quality)
+        internal Diamond(float carat, float price, QualityValue quality, ShapeValue shape)
         {
-            Mass = mass;
+            Carat = carat;
             Price = price;
             Quality = quality;
+            Shape = shape;
         }
 
     }
