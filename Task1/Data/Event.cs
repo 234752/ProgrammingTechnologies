@@ -2,22 +2,22 @@ namespace Data
 {
     internal class Event
     {
-        private string date;
-        private List<Diamond> removedFromStorage = new List<Diamond>();
-        private List<Diamond> addedToStorage = new List<Diamond>();
+        private string Date;
+        private List<Diamond> RemovedFromStorage = new List<Diamond>();
+        private List<Diamond> AddedToStorage = new List<Diamond>();
 
         public Event(string date)
         {
-            this.date = date;
+            this.Date = date;
         }
 
         public void NoteRemovedDiamond(Diamond diamond)
         {
-            removedFromStorage.Add(diamond);
+            RemovedFromStorage.Add(diamond);
         }
         public void NoteAddedDiamond(Diamond diamond)
         {
-            addedToStorage.Add(diamond);
+            AddedToStorage.Add(diamond);
         }
     }
 }
