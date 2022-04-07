@@ -7,7 +7,7 @@ namespace Data
         List<Customer> CustomersList = new List<Customer>();
         public int Count => CustomersList.Count;
 
-        public bool IsReadOnly => throw new NotImplementedException();
+        public bool IsReadOnly => false;
 
         public void Add(Customer customer)
         {
@@ -31,7 +31,7 @@ namespace Data
 
         public IEnumerator<Customer> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return CustomersList.GetEnumerator();
         }
 
         public bool Remove(Customer customer)
@@ -41,7 +41,7 @@ namespace Data
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return CustomersList.GetEnumerator();
         }
     }
 }
