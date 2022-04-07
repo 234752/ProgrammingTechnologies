@@ -1,6 +1,6 @@
 namespace Data
 {
-    public class Event
+    public class Event //this class must be abstract
     {
         private string Date;
         private List<Diamond> RemovedFromStorage = new List<Diamond>();

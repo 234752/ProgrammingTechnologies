@@ -4,9 +4,9 @@
 
     public enum ShapeValue { Round, Oval, Cushion, Pear };
 
-   	  public class Diamond 
+    public class Diamond 
     {
-        public Guid Id { get; set; }
+        //public Guid Id { get; set; } //dictionary entry has a number which may be an id?
         private float Carat { get; set; }
         private float Price { get; set; }
         private QualityValue Quality { get; set; }
