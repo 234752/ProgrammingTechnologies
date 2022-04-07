@@ -20,14 +20,16 @@
             Diamond second = new Diamond(1F, 3999.99F, QualityValue.Good, ShapeValue.Round);
             Diamond third = new Diamond(2F, 4999.99F, QualityValue.VeryGood, ShapeValue.Pear);
             Diamond fourth = new Diamond(2F, 6999.99F, QualityValue.Excellent, ShapeValue.Cushion);
-            Diamond fith = new Diamond(3F, 1999.99F, QualityValue.Good, ShapeValue.Oval);
-            Diamond sixth = new Diamond(3F, 5999.99F, QualityValue.Excellent, ShapeValue.Pear);
+            Diamond fifth = new Diamond(3F, 1999.99F, QualityValue.Good, ShapeValue.Oval);
+            Diamond sixth = new Diamond(3F, 5999.99F, QualityValue.VeryGood, ShapeValue.Pear);
+            Diamond seventh = new Diamond(4F, 7999.99F, QualityValue.Excellent, ShapeValue.Cushion);
             _catalog.Add(1, first);
             _catalog.Add(2, second);
             _catalog.Add(3, third);
             _catalog.Add(4, fourth);
-            _catalog.Add(5, fith);
+            _catalog.Add(5, fifth);
             _catalog.Add(6, sixth);
+            _catalog.Add(7, seventh);
         }
     }
 }

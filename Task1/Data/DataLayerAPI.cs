@@ -3,7 +3,7 @@ namespace Data
     public abstract class DataLayerAPI
     {
         private StorageState _storageState;
-        private Customers Customers;
+        private Customer Customer;
         private DiamondCatalog DiamondCatalog;
         public DiamondCatalog SelectedDiamondCatalog { get; set; }
         public Diamond SelectedDiamond { get; set; }
