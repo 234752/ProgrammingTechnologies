@@ -31,5 +31,21 @@
             _catalog.Add(6, sixth);
             _catalog.Add(7, seventh);
         }
+        internal void addCustomer(Customer customer)
+        {
+            _customers.Add(customer);
+        }
+        internal void addStorageEntry(StorageEntry storageEntry)
+        {
+            _storageState.Add(storageEntry);
+        }
+        internal void addEvent(Event addedEvent)
+        {
+            _events.Add(addedEvent);
+        }
+        internal void addDictionaryEntry(int catalogNumber, Diamond diamond)
+        {
+            _catalog.Add(catalogNumber, diamond);
+        }
     }
 }
