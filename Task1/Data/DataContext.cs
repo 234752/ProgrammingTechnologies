@@ -47,21 +47,21 @@
         {
             _catalog.Add(catalogNumber, new Diamond(carat, price, (QualityValue)quality, (ShapeValue)shape));
         }
-        internal bool removeCustomer(Customer customer)
+        internal bool removeCustomer(int customerIndex)
         {
-            return _customers.Remove(customer);
+            return _customers.Remove(_customers.ElementAt(customerIndex));
         }
-        internal bool removeStorageEntry(StorageEntry storageEntry)
+        internal bool removeStorageEntry(int storageEntryIndex)
         {
-            return _storageState.Remove(storageEntry);
+            return _storageState.Remove(_storageState.ElementAt(storageEntryIndex));
         }
-        internal bool removeEvent(Event removedEvent)
+        internal bool removeEvent(int eventIndex)
         {
-            return _events.Remove(removedEvent);
+            return _events.Remove(_events.ElementAt(eventIndex));
         }
-        internal bool removeCatalogEntry(int catalogNumber)
+        internal bool removeCatalogEntry(int entryIndex)
         {
-            return _storageState.Remove(_storageState.ElementAt(catalogNumber));
+            return _storageState.Remove(_storageState.ElementAt(entryIndex));
         }
     }
 }
