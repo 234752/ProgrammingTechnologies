@@ -39,9 +39,13 @@
         {
             _storageState.Add(new StorageEntry(catalogNumberOfNewItem));
         }
-        internal void addEvent(Event addedEvent)
+        internal void addDeliveryEvent(string date, int entryIndex)
         {
-            _events.Add(addedEvent);
+            _events.Add(new EventDiamondDelivery(date, _storageState.ElementAt(entryIndex)));
+        }
+        internal void addSoldEvent(string date, int entryIndex, int customerIndex)
+        {
+            _events.Add(new EventDiamondSold(date, _storageState.ElementAt(entryIndex), _customers.ElementAt(customerIndex)));
         }
         internal void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
         {
