@@ -9,38 +9,50 @@
             return new MyDataLayer();
         }
 
-        public abstract void addCustomer(Customer customer);
-        public abstract void addStorageEntry(StorageEntry storageEntry);
-        public abstract void addEvent(Event addedEvent);
-        public abstract void addCatalogEntry(int catalogNumber, Diamond diamond);
+        public abstract void addCustomer(int id, string name);
+        public abstract void addStorageEntry(int catalogNumberOfNewItem);
+        public abstract void addDeliveryEvent(string date, int entryIndex);
+        public abstract void addSoldEvent(string date, int entryIndex, int customerIndex);
+        public abstract void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
 
 
         private class MyDataLayer : DataLayerAbstractAPI
         {
-            public override void addCatalogEntry(int catalogNumber, Diamond diamond)
-            {
-                throw new NotImplementedException();
-            }
-
-            public override void addCustomer(Customer customer)
-            {
-                throw new NotImplementedException();
-            }
-
-            public override void addEvent(Event addedEvent)
-            {
-                throw new NotImplementedException();
-            }
-
-            public override void addStorageEntry(StorageEntry storageEntry)
-            {
-                throw new NotImplementedException();
-            }
-
+            public DataContext DataContext { get; set; }
             public override void InitializeDataContext()
             {
-                DataContext myData = new DataContext();
+                DataContext = new DataContext();
             }
+            public override void addCustomer(int id, string name)
+            {
+                DataContext.addCustomer(id, name);
+            }
+            public override void addStorageEntry(int catalogNumberOfNewItem)
+            {
+                DataContext.addStorageEntry(catalogNumberOfNewItem);
+            }
+            public override void addDeliveryEvent(string date, int entryIndex)
+            {
+                DataContext.addDeliveryEvent(date, entryIndex);
+            }
+            public override void addSoldEvent(string date, int entryIndex, int customerIndex)
+            {
+                DataContext.addSoldEvent(date, entryIndex, customerIndex);
+            }
+            public override void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
+            {
+                DataContext.addCatalogEntry(catalogNumber, carat, price, quality, shape);
+            }
+
+            
+
+            
+
+            
+
+            
+
+            
 
         }
     }
