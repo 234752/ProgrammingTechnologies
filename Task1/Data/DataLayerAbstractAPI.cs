@@ -9,6 +9,12 @@
             return new MyDataLayer();
         }
 
+
+
+
+
+
+
         #region Layer implementation
 
         private class MyDataLayer : DataLayerAbstractAPI
@@ -17,6 +23,8 @@
             {
                 DataContext myData = new DataContext();
             }
+
+
 
             #endregion Layer implementation
         }
