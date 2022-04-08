@@ -43,9 +43,25 @@
         {
             _events.Add(addedEvent);
         }
-        internal void addDictionaryEntry(int catalogNumber, Diamond diamond)
+        internal void addCatalogEntry(int catalogNumber, Diamond diamond)
         {
             _catalog.Add(catalogNumber, diamond);
+        }
+        internal bool removeCustomer(Customer customer)
+        {
+            return _customers.Remove(customer);
+        }
+        internal bool removeStorageEntry(StorageEntry storageEntry)
+        {
+            return _storageState.Remove(storageEntry);
+        }
+        internal bool removeEvent(Event removedEvent)
+        {
+            return _events.Remove(removedEvent);
+        }
+        internal bool removeCatalogEntry(int catalogNumber)
+        {
+            return _storageState.Remove(_storageState.ElementAt(catalogNumber));
         }
     }
 }
