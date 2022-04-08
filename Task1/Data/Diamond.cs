@@ -1,8 +1,8 @@
 ﻿namespace Data
 {
-    internal enum QualityValue { Good, VeryGood, Excellent };
+    internal enum QualityValue { Good = 1, VeryGood = 2, Excellent = 3 };
 
-    internal enum ShapeValue { Round, Oval, Cushion, Pear };
+    internal enum ShapeValue { Round = 1, Oval = 2, Cushion = 3, Pear = 4 };
 
     internal class Diamond 
     {

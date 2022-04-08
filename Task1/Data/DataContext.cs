@@ -31,21 +31,21 @@
             _catalog.Add(6, sixth);
             _catalog.Add(7, seventh);
         }
-        internal void addCustomer(Customer customer)
+        internal void addCustomer(int id, string name)
         {
-            _customers.Add(customer);
+            _customers.Add(new Customer(id, name));
         }
-        internal void addStorageEntry(StorageEntry storageEntry)
+        internal void addStorageEntry(int catalogNumberOfNewItem)
         {
-            _storageState.Add(storageEntry);
+            _storageState.Add(new StorageEntry(catalogNumberOfNewItem));
         }
         internal void addEvent(Event addedEvent)
         {
             _events.Add(addedEvent);
         }
-        internal void addCatalogEntry(int catalogNumber, Diamond diamond)
+        internal void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
         {
-            _catalog.Add(catalogNumber, diamond);
+            _catalog.Add(catalogNumber, new Diamond(carat, price, (QualityValue)quality, (ShapeValue)shape));
         }
         internal bool removeCustomer(Customer customer)
         {
