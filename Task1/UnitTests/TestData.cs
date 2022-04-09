@@ -38,5 +38,18 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.getAmountOfCatalogItem(2), 2);
             Assert.AreEqual(testedDataLayer.getAmountOfCatalogItem(3), 1);
         }
+
+        [TestMethod]
+        public void EventsSummary()
+            {
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
+            testedDataLayer.InitializeDataContext();
+            testedDataLayer.addStorageEntry(1);
+            testedDataLayer.addDeliveryEvent("09.04.22", 1);
+            testedDataLayer.addCustomer(0, "Paul");
+
+
+        }
+
     }
 }
