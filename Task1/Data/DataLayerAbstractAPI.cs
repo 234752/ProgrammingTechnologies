@@ -25,33 +25,37 @@
             {
                 DataContext = new DataContext();
             }
+            //CUSTOMER
             public override void addCustomer(int id, string name)
             {
-                DataContext.addCustomer(id, name);
+                DataContext._customers.Add(new Customer(id, name));
             }
             public override int getCustomerCount()
             {
-                return DataContext.getCustomerCount();
+                return DataContext._customers.Count;
             }
             public override bool removeCustomer(int customerIndex)
             {
-                return DataContext.removeCustomer(customerIndex);
+                return DataContext._customers.Remove(DataContext._customers.ElementAt(customerIndex));
             }
+            //STORAGE
             public override void addStorageEntry(int catalogNumberOfNewItem)
             {
-                DataContext.addStorageEntry(catalogNumberOfNewItem);
+                DataContext._storageState.Add(new StorageEntry(catalogNumberOfNewItem));
             }
+            //EVENTS
             public override void addDeliveryEvent(string date, int entryIndex)
             {
-                DataContext.addDeliveryEvent(date, entryIndex);
+                DataContext._events.Add(new EventDiamondDelivery(date, DataContext._storageState.ElementAt(entryIndex)));
             }
             public override void addSoldEvent(string date, int entryIndex, int customerIndex)
             {
-                DataContext.addSoldEvent(date, entryIndex, customerIndex);
+                DataContext._events.Add(new EventDiamondSold(date, DataContext._storageState.ElementAt(entryIndex), DataContext._customers.ElementAt(customerIndex)));
             }
+            //CATALOG
             public override void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
             {
-                DataContext.addCatalogEntry(catalogNumber, carat, price, quality, shape);
+                DataContext._catalog.Add(catalogNumber, new Diamond(carat, price, (QualityValue)quality, (ShapeValue)shape));
             }
 
         }
