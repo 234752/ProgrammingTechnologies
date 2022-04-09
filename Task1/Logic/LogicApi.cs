@@ -1,5 +1,7 @@
 ﻿using Data;
 
+public class LogicApi { }
+/*
 namespace Logic
 {
     public class LogicApi : DataLayerAPI
@@ -66,3 +68,4 @@ namespace Logic
         }
     }
 }
+*/

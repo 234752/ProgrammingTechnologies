@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Data;
+using Logic;
 
 namespace UnitTests
 {
@@ -8,14 +9,10 @@ namespace UnitTests
     {
         [TestMethod]
         public void AddCustomer()
-        {/*
-          * customer is inaccesible due to protection
-          * 
-            Customers testedCollection = new Customers();
-            Assert.IsTrue(testedCollection.Count == 0);
-            testedCollection.Add(new Customer(12, "Bob"));
-            Assert.IsTrue(testedCollection.Count == 1);
-            */ 
+        {
+            LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(null);
+            testedLogicLayer.addCustomer(1, "Bob");
+            
         }
     }
 }
