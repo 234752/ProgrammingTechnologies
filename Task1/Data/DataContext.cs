@@ -14,7 +14,7 @@
             _events = new List<Event>();
             _catalog = new Dictionary<int, Diamond>();
         }
-        internal void InitializeCatalog()
+        internal void InitializeCatalog() //possible DI, with empty or full initializer
         {
             Diamond first = new Diamond(1F, 2999.99F, QualityValue.Good, ShapeValue.Oval);
             Diamond second = new Diamond(1F, 3999.99F, QualityValue.Good, ShapeValue.Round);
@@ -30,19 +30,6 @@
             _catalog.Add(5, fifth);
             _catalog.Add(6, sixth);
             _catalog.Add(7, seventh);
-        }
-
-        internal bool removeStorageEntry(int storageEntryIndex)
-        {
-            return _storageState.Remove(_storageState.ElementAt(storageEntryIndex));
-        }
-        internal bool removeEvent(int eventIndex)
-        {
-            return _events.Remove(_events.ElementAt(eventIndex));
-        }
-        internal bool removeCatalogEntry(int entryIndex)
-        {
-            return _storageState.Remove(_storageState.ElementAt(entryIndex));
         }
     }
 }
