@@ -22,6 +22,7 @@ namespace Data
         public abstract void addDeliveryEvent(string date, int entryIndex);
         public abstract void addSoldEvent(string date, int entryIndex, int customerIndex);
         public abstract bool removeEvent(int eventIndex); //will event history ever be deleted?
+        public abstract int getEventCount();
         //CATALOG
         public abstract void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
         public abstract bool removeCatalogEntry(int catalogEntryIndex);
@@ -73,6 +74,10 @@ namespace Data
             public override bool removeEvent(int eventIndex)
             {
                 return DataContext.Events.Remove(DataContext.Events.ElementAt(eventIndex));
+            }
+            public override int getEventCount()
+            {
+                return DataContext.Events.Count;
             }
             //CATALOG
             public override void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
