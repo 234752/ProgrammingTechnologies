@@ -46,8 +46,11 @@ namespace UnitTests
             testedDataLayer.InitializeDataContext();
             testedDataLayer.addStorageEntry(1);
             testedDataLayer.addDeliveryEvent("09.04.22", 1);
-            testedDataLayer.addCustomer(0, "Paul");
-
+            testedDataLayer.addCustomer(1, "Paul");
+            testedDataLayer.addSoldEvent("10.04.22",1,1);
+            testedDataLayer.addDeliveryEvent("11.04.22", 1);
+            testedDataLayer.addSoldEvent("11.04.22", 1, 1);
+            testedDataLayer.removeEvent(3);
 
         }
 
