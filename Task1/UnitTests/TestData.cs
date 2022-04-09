@@ -62,9 +62,9 @@ namespace UnitTests
             testedDataLayer.InitializeDataContext();
             testedDataLayer.addStorageEntry(1);
             testedDataLayer.addCatalogEntry(8,2F,3898.99F,1,1);
-            testedDataLayer.removeCatalogEntry(0);
+            Assert.IsTrue(testedDataLayer.removeCatalogEntry(0));
 
-    }
+        }
 
 
     }
