@@ -17,5 +17,9 @@ namespace Logic
         {
             return _dataLayer.getCustomerCount();
         }
+        internal bool removeCustomer(int customerIndex)
+        {
+            return _dataLayer.removeCustomer(customerIndex);
+        }
     }
 }

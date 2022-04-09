@@ -11,6 +11,7 @@
 
         public abstract void addCustomer(int id, string name);
         public abstract int getCustomerCount();
+        public abstract bool removeCustomer(int id);
         public abstract void addStorageEntry(int catalogNumberOfNewItem);
         public abstract void addDeliveryEvent(string date, int entryIndex);
         public abstract void addSoldEvent(string date, int entryIndex, int customerIndex);
@@ -31,6 +32,10 @@
             public override int getCustomerCount()
             {
                 return DataContext.getCustomerCount();
+            }
+            public override bool removeCustomer(int customerIndex)
+            {
+                return DataContext.removeCustomer(customerIndex);
             }
             public override void addStorageEntry(int catalogNumberOfNewItem)
             {

@@ -10,6 +10,7 @@ namespace Logic
         }
         public abstract void addCustomer(int id, string name);
         public abstract int getCustomerCount();
+        public abstract bool removeCustomer(int customerIndex);
 
         private class MyLogicLayer : LogicLayerAbstractAPI
         {
@@ -31,6 +32,10 @@ namespace Logic
             public override int getCustomerCount()
             {
                 return _service.getCustomerCount();
+            }
+            public override bool removeCustomer(int customerIndex)
+            {
+                return _service.removeCustomer(customerIndex);
             }
         }
     }
