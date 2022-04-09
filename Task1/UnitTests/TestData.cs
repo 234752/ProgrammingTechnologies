@@ -51,5 +51,19 @@ namespace UnitTests
 
         }
 
+        [TestMethod]
+        public void CatalogSummary()
+        {
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
+            testedDataLayer.InitializeDataContext();
+            testedDataLayer.addStorageEntry(1);
+            testedDataLayer.addCatalogEntry(1,2F,3898.99F,1,1);
+            testedDataLayer.removeCatalogEntry(1);
+
+
+
+    }
+
+
     }
 }
