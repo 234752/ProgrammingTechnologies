@@ -9,6 +9,7 @@ namespace Logic
             return new MyLogicLayer(data == null ? DataLayerAbstractAPI.CreateMyDataLayer() : data);
         }
         public abstract void addCustomer(int id, string name);
+        public abstract int getCustomerCount();
 
         private class MyLogicLayer : LogicLayerAbstractAPI
         {
@@ -25,6 +26,11 @@ namespace Logic
             public override void addCustomer(int id, string name)
             {
                 _service.addCustomer(id, name);
+            }
+
+            public override int getCustomerCount()
+            {
+                return _service.getCustomerCount();
             }
         }
     }

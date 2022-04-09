@@ -10,6 +10,7 @@
         }
 
         public abstract void addCustomer(int id, string name);
+        public abstract int getCustomerCount();
         public abstract void addStorageEntry(int catalogNumberOfNewItem);
         public abstract void addDeliveryEvent(string date, int entryIndex);
         public abstract void addSoldEvent(string date, int entryIndex, int customerIndex);
@@ -27,6 +28,10 @@
             {
                 DataContext.addCustomer(id, name);
             }
+            public override int getCustomerCount()
+            {
+                return DataContext.getCustomerCount();
+            }
             public override void addStorageEntry(int catalogNumberOfNewItem)
             {
                 DataContext.addStorageEntry(catalogNumberOfNewItem);
@@ -43,16 +48,6 @@
             {
                 DataContext.addCatalogEntry(catalogNumber, carat, price, quality, shape);
             }
-
-            
-
-            
-
-            
-
-            
-
-            
 
         }
     }

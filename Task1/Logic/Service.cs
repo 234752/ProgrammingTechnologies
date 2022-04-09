@@ -13,5 +13,9 @@ namespace Logic
         {
             _dataLayer.addCustomer(id, name);
         }
+        internal int getCustomerCount()
+        {
+            return _dataLayer.getCustomerCount();
+        }
     }
 }

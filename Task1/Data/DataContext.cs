@@ -35,6 +35,10 @@
         {
             _customers.Add(new Customer(id, name));
         }
+        internal int getCustomerCount()
+        {
+            return _customers.Count;
+        }
         internal void addStorageEntry(int catalogNumberOfNewItem)
         {
             _storageState.Add(new StorageEntry(catalogNumberOfNewItem));

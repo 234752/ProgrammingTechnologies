@@ -12,7 +12,7 @@ namespace UnitTests
         {
             LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(null);
             testedLogicLayer.addCustomer(1, "Bob");
-            
+            Assert.AreEqual(1, testedLogicLayer.getCustomerCount());
         }
     }
 }
