@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Data;
-using Logic;
 
 namespace UnitTests
 {
@@ -10,13 +9,20 @@ namespace UnitTests
         [TestMethod]
         public void AddRemoveCustomer()
         {
-            LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(null);
-            testedLogicLayer.addCustomer(1, "Bob");
-            Assert.AreEqual(1, testedLogicLayer.getCustomerCount());
-            testedLogicLayer.addCustomer(2, "Bob2");
-            Assert.AreEqual(2, testedLogicLayer.getCustomerCount());
-            Assert.IsTrue(testedLogicLayer.removeCustomer(0));
-            Assert.AreEqual(1, testedLogicLayer.getCustomerCount());
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
+            testedDataLayer.InitializeDataContext();
+            testedDataLayer.addCustomer(0, "Bob");
+            testedDataLayer.addCustomer(123, "Average Diamond Enjoyer");
+            Assert.AreEqual(testedDataLayer.getCustomerCount(), 2);
+            Assert.IsTrue(testedDataLayer.removeCustomer(1));
+            Assert.AreEqual(testedDataLayer.getCustomerCount(), 1);
+            try
+            {
+                testedDataLayer.removeCustomer(1);
+                Assert.Fail("Exception was expected");
+            }
+            catch (System.Exception ex) { }
+
         }
     }
 }
