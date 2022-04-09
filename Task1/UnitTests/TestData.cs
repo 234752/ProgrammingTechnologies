@@ -24,5 +24,19 @@ namespace UnitTests
             catch (System.Exception ex) { }
 
         }
+
+        [TestMethod]
+        public void StorageSummary()
+        {
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
+            testedDataLayer.InitializeDataContext();
+            testedDataLayer.addStorageEntry(1);
+            testedDataLayer.addStorageEntry(2);
+            testedDataLayer.addStorageEntry(2);
+            testedDataLayer.addStorageEntry(3);
+            Assert.AreEqual(testedDataLayer.getAmountOfCatalogItem(1), 1);
+            Assert.AreEqual(testedDataLayer.getAmountOfCatalogItem(2), 2);
+            Assert.AreEqual(testedDataLayer.getAmountOfCatalogItem(3), 1);
+        }
     }
 }

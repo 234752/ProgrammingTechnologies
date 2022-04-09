@@ -2,11 +2,12 @@
 {
     internal class StorageEntry
     { //represents single diamond that is in the storage and avaiable for customers
-        private int _catalogNumber;
+        internal int CatalogNumber;
 
         internal StorageEntry(int catalogNumber)
         {
-            _catalogNumber = catalogNumber;
+            CatalogNumber = catalogNumber;
         }
+
     }
 }

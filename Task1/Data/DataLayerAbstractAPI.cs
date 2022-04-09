@@ -1,4 +1,6 @@
-﻿namespace Data
+﻿using System.Linq;
+
+namespace Data
 {
     public abstract class DataLayerAbstractAPI
     {
@@ -14,6 +16,7 @@
         public abstract bool removeCustomer(int id);
         //STORAGE
         public abstract void addStorageEntry(int catalogNumberOfNewItem);
+        public abstract int getAmountOfCatalogItem(int catalogNumberOfItem);
         public abstract bool removeStorageEntry(int entryIndex);
         //EVENTS
         public abstract void addDeliveryEvent(string date, int entryIndex);
@@ -30,6 +33,7 @@
             public override void InitializeDataContext()
             {
                 DataContext = new DataContext();
+                DataContext.InitializeCatalog();
             }
             //CUSTOMER
             public override void addCustomer(int id, string name)
@@ -48,6 +52,10 @@
             public override void addStorageEntry(int catalogNumberOfNewItem)
             {
                 DataContext.StorageState.Add(new StorageEntry(catalogNumberOfNewItem));
+            }
+            public override int getAmountOfCatalogItem(int catalogNumberOfItem)
+            {
+                return DataContext.StorageState.Count(entry => entry.CatalogNumber == catalogNumberOfItem);
             }
             public override bool removeStorageEntry(int storageEntryIndex)
             {
