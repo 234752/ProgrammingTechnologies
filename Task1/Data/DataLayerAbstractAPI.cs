@@ -55,7 +55,7 @@ namespace Data
             }
             public override int getAmountOfCatalogItem(int catalogNumberOfItem)
             {
-                return DataContext.StorageState.Count(entry => entry.CatalogNumber == catalogNumberOfItem);
+                return DataContext.StorageState.Count(entry => entry.getCatalogNumber() == catalogNumberOfItem);
             }
             public override bool removeStorageEntry(int storageEntryIndex)
             {
