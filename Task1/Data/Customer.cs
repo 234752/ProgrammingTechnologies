@@ -12,8 +12,11 @@
         }
         public override bool Equals(object? obj)
         {
-            Customer other = obj as Customer;
-            return this.Id == other.Id;
+
+              
+                Customer? other = obj as Customer;
+                return this.Id == other.Id;
+            
         }
         public override int GetHashCode()
         {

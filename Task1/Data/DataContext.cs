@@ -31,5 +31,9 @@
             Catalog.Add(6, sixth);
             Catalog.Add(7, seventh);
         }
+
+        // returns value if exists
+        public string this[int key] => Catalog[key].ToString();
+
     }
 }

@@ -30,7 +30,7 @@ namespace Data
         //CATALOG
         public abstract void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
         public abstract bool RemoveCatalogEntry(int catalogEntryIndex);
-
+        public abstract void GetDiamondPrice(int catalogNumber);
 
         private class MyDataLayer : DataLayerAbstractAPI
         {
@@ -108,7 +108,10 @@ namespace Data
             {
                 return DataContext.StorageState.Remove(DataContext.StorageState.ElementAt(catalogEntryIndex));
             }
-
+            public override void GetDiamondPrice(int catalogNumber)
+            {
+                
+            }
         }
     }
 }
