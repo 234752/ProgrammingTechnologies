@@ -4,7 +4,7 @@ using Data;
 namespace UnitTests
 {
     [TestClass]
-    public class TestData
+    public class DataUnitTests
     {
         [TestMethod]
         public void AddRemoveCustomer()
