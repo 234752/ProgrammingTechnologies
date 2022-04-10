@@ -9,7 +9,7 @@
         }
         internal override string GetEventType()
         {
-            return "delivery";
+            return "Delivery";
         }
     }
 }
