@@ -110,7 +110,7 @@ namespace Data
             }
             public override void GetDiamondPrice(int catalogNumber)
             {
-                
+               
             }
         }
     }
