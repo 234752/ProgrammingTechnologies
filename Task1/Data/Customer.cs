@@ -15,6 +15,9 @@
             Customer other = obj as Customer;
             return this.Id == other.Id;
         }
-
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
