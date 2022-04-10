@@ -12,7 +12,7 @@
         }
         internal override string GetEventType()
         {
-            return "sold";
+            return "Sold";
         }
     }
 }
