@@ -37,5 +37,20 @@ namespace Logic
             }
             return true;
         }
+        internal bool RegisterSale(string date, int catalogNumberOfDesiredItem, int customerIndex)
+        {
+            try
+            {
+                if (_dataLayer.GetAmountOfCatalogItem(catalogNumberOfDesiredItem) <= 0) return false;
+                int storageIndexOfSoldItem = _dataLayer.GetStorageIndexOfCatalogItem(catalogNumberOfDesiredItem);
+                _dataLayer.AddSoldEvent(date, storageIndexOfSoldItem, customerIndex);
+                _dataLayer.RemoveStorageEntry(storageIndexOfSoldItem);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

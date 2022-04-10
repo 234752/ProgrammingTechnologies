@@ -20,6 +20,7 @@ namespace UnitTests
         internal int RemoveCustomerC;
         internal int RemoveEventC;
         internal int RemoveStorageEntryC;
+        internal int GetStorageIndexOfCatalogItemC;
 
         public override void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
         {
@@ -79,6 +80,12 @@ namespace UnitTests
         public override int GetSoldCount(int catalogNumberOfItem)
         {
             GetSoldCountC++;
+            return 1;
+        }
+
+        public override int GetStorageIndexOfCatalogItem(int catalogNumberOfDesiredItem)
+        {
+            GetStorageIndexOfCatalogItemC++;
             return 1;
         }
 

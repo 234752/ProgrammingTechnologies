@@ -19,6 +19,7 @@ namespace Data
         public abstract int GetAmountOfCatalogItem(int catalogNumberOfItem);
         public abstract int GetAmountOfAllItems();
         public abstract bool RemoveStorageEntry(int entryIndex);
+        public abstract int GetStorageIndexOfCatalogItem(int catalogNumberOfDesiredItem);
         //EVENTS
         public abstract void AddDeliveryEvent(string date, int entryIndex);
         public abstract void AddSoldEvent(string date, int entryIndex, int customerIndex);
@@ -68,6 +69,10 @@ namespace Data
             public override bool RemoveStorageEntry(int storageEntryIndex)
             {
                 return DataContext.StorageState.Remove(DataContext.StorageState.ElementAt(storageEntryIndex));
+            }
+            public override int GetStorageIndexOfCatalogItem(int catalogNumberOfDesiredItem)
+            {
+                return DataContext.StorageState.IndexOf(DataContext.StorageState.Last(entry => entry.GetCatalogNumber() == catalogNumberOfDesiredItem));
             }
             //EVENTS
             public override void AddDeliveryEvent(string date, int entryIndex)

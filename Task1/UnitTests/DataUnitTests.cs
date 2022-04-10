@@ -53,11 +53,10 @@ namespace UnitTests
             testedDataLayer.AddCustomer(0, "Paul");
             testedDataLayer.AddSoldEvent("10.04.22", 3, 0);
             testedDataLayer.AddSoldEvent("11.04.22", 2, 0);
-            //testedDataLayer.RemoveEvent(1);
             Assert.AreEqual(testedDataLayer.GetEventCount(), 4);
-            //Assert.AreEqual(testedDataLayer.GetDeliveryCount(1), 1);
+            Assert.AreEqual(testedDataLayer.GetDeliveryCount(1), 1);
             Assert.AreEqual(testedDataLayer.GetDeliveryCount(3), 0);
-            //Assert.AreEqual(testedDataLayer.GetSoldCount(3), 1);
+            Assert.AreEqual(testedDataLayer.GetSoldCount(3), 1);
             Assert.AreEqual(testedDataLayer.GetSoldCount(0), 0);
 
         }
