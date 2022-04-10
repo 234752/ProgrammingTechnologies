@@ -5,6 +5,10 @@ namespace Data
         protected string DateTime;
         protected StorageEntry Entry;
         internal abstract string GetEventType();
+        internal int GetCatalogNumberOfEntry()
+        {
+            return Entry.getCatalogNumber();
+        }
 
     }
 }

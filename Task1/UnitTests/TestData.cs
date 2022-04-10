@@ -45,15 +45,18 @@ namespace UnitTests
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
             testedDataLayer.InitializeDataContext();
             testedDataLayer.addStorageEntry(1);
+            testedDataLayer.addStorageEntry(2);
             testedDataLayer.addDeliveryEvent("09.04.22", 0);
             testedDataLayer.addCustomer(0, "Paul");
             testedDataLayer.addSoldEvent("10.04.22",0,0);
-            testedDataLayer.addDeliveryEvent("11.04.22", 0);
+            testedDataLayer.addDeliveryEvent("11.04.22", 1);
             testedDataLayer.addSoldEvent("11.04.22", 0, 0);
             testedDataLayer.removeEvent(1);
             Assert.AreEqual(testedDataLayer.getEventCount(), 3);
-            Assert.AreEqual(testedDataLayer.getDeliveryCount(1), 2);
+            Assert.AreEqual(testedDataLayer.getDeliveryCount(1), 1);
+            Assert.AreEqual(testedDataLayer.getDeliveryCount(3), 0);
             Assert.AreEqual(testedDataLayer.getSoldCount(1), 1);
+            Assert.AreEqual(testedDataLayer.getSoldCount(2), 0);
 
         }
 

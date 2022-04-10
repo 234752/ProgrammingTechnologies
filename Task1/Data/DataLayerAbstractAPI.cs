@@ -83,11 +83,11 @@ namespace Data
             }
             public override int getDeliveryCount(int catalogNumberOfItem)
             {
-                return DataContext.Events.Count(ev => ev.GetEventType()=="delivery");
+                return DataContext.Events.Count(ev => ev.GetEventType()=="delivery" && ev.GetCatalogNumberOfEntry()==catalogNumberOfItem);
             }
             public override int getSoldCount(int catalogNumberOfItem)
             {
-                return DataContext.Events.Count(ev => ev.GetEventType() == "sold");
+                return DataContext.Events.Count(ev => ev.GetEventType() == "sold" && ev.GetCatalogNumberOfEntry() == catalogNumberOfItem);
             }
             //CATALOG
             public override void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
