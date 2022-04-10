@@ -7,5 +7,9 @@
             DateTime = date;
             Entry = entry;
         }
+        internal override string GetEventType()
+        {
+            return "delivery";
+        }
     }
 }

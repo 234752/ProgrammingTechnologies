@@ -4,6 +4,7 @@ namespace Data
     {
         protected string DateTime;
         protected StorageEntry Entry;
+        internal abstract string GetEventType();
 
     }
 }

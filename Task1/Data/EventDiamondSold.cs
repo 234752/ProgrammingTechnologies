@@ -10,5 +10,9 @@
             Entry = entry;
             _customer = customer;
         }
+        internal override string GetEventType()
+        {
+            return "sold";
+        }
     }
 }

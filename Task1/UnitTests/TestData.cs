@@ -52,6 +52,7 @@ namespace UnitTests
             testedDataLayer.addSoldEvent("11.04.22", 0, 0);
             testedDataLayer.removeEvent(1);
             Assert.AreEqual(testedDataLayer.getEventCount(), 3);
+            Assert.AreEqual(testedDataLayer.getDeliveryCount(1), 2);
 
         }
 

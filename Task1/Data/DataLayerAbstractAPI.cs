@@ -23,6 +23,8 @@ namespace Data
         public abstract void addSoldEvent(string date, int entryIndex, int customerIndex);
         public abstract bool removeEvent(int eventIndex); //will event history ever be deleted?
         public abstract int getEventCount();
+        public abstract int getDeliveryCount(int catalogNumberOfItem);
+        public abstract int getSoldCount(int catalogNumberOfItem);
         //CATALOG
         public abstract void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
         public abstract bool removeCatalogEntry(int catalogEntryIndex);
@@ -78,6 +80,14 @@ namespace Data
             public override int getEventCount()
             {
                 return DataContext.Events.Count;
+            }
+            public override int getDeliveryCount(int catalogNumberOfItem)
+            {
+                return DataContext.Events.Count(ev => ev.GetEventType()=="delivery");
+            }
+            public override int getSoldCount(int catalogNumberOfItem)
+            {
+                throw new NotImplementedException();
             }
             //CATALOG
             public override void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
