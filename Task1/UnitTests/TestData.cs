@@ -53,6 +53,7 @@ namespace UnitTests
             testedDataLayer.removeEvent(1);
             Assert.AreEqual(testedDataLayer.getEventCount(), 3);
             Assert.AreEqual(testedDataLayer.getDeliveryCount(1), 2);
+            Assert.AreEqual(testedDataLayer.getSoldCount(1), 1);
 
         }
 

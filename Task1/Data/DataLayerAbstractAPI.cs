@@ -87,7 +87,7 @@ namespace Data
             }
             public override int getSoldCount(int catalogNumberOfItem)
             {
-                throw new NotImplementedException();
+                return DataContext.Events.Count(ev => ev.GetEventType() == "sold");
             }
             //CATALOG
             public override void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
