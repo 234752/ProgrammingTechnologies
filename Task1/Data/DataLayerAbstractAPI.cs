@@ -17,6 +17,7 @@ namespace Data
         //STORAGE
         public abstract void AddStorageEntry(int catalogNumberOfNewItem);
         public abstract int GetAmountOfCatalogItem(int catalogNumberOfItem);
+        public abstract int GetAmountOfAllItems();
         public abstract bool RemoveStorageEntry(int entryIndex);
         //EVENTS
         public abstract void AddDeliveryEvent(string date, int entryIndex);
@@ -59,6 +60,10 @@ namespace Data
             public override int GetAmountOfCatalogItem(int catalogNumberOfItem)
             {
                 return DataContext.StorageState.Count(entry => entry.GetCatalogNumber() == catalogNumberOfItem);
+            }
+            public override int GetAmountOfAllItems()
+            {
+                return DataContext.StorageState.Count();
             }
             public override bool RemoveStorageEntry(int storageEntryIndex)
             {

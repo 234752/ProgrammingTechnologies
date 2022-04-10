@@ -21,5 +21,21 @@ namespace Logic
         {
             return _dataLayer.RemoveCustomer(customerIndex);
         }
+        internal bool RegisterDelivery(string date, int catalogNumberOfDeliveredProduct, int amount)
+        {
+            try
+            {
+                for (int i = 0; i < amount; i++)
+                {
+                    _dataLayer.AddStorageEntry(catalogNumberOfDeliveredProduct);
+                    _dataLayer.AddDeliveryEvent(date, _dataLayer.GetAmountOfAllItems() - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
