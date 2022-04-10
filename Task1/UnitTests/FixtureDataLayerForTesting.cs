@@ -49,31 +49,37 @@ namespace UnitTests
         public override int GetAmountOfAllItems()
         {
             GetAmountOfAllItemsC++;
+            return 1;
         }
 
         public override int GetAmountOfCatalogItem(int catalogNumberOfItem)
         {
             GetAmountOfCatalogItemC++;
+            return 1;
         }
 
         public override int GetCustomerCount()
         {
             GetCustomerCountC++;
+            return 1;
         }
 
         public override int GetDeliveryCount(int catalogNumberOfItem)
         {
             GetDeliveryCountC++;
+            return 1;
         }
 
         public override int GetEventCount()
         {
             GetEventCountC++;
+            return 1;
         }
 
         public override int GetSoldCount(int catalogNumberOfItem)
         {
             GetSoldCountC++;
+            return 1;
         }
 
         public override void InitializeDataContext()
@@ -84,21 +90,25 @@ namespace UnitTests
         public override bool RemoveCatalogEntry(int catalogEntryIndex)
         {
             RemoveCatalogEntryC++;
+            return true;
         }
 
         public override bool RemoveCustomer(int id)
         {
             RemoveCustomerC++;
+            return true;
         }
 
         public override bool RemoveEvent(int eventIndex)
         {
             RemoveEventC++;
+            return true;
         }
 
         public override bool RemoveStorageEntry(int entryIndex)
         {
             RemoveStorageEntryC++;
+            return true;
         }
     }
 }

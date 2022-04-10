@@ -11,6 +11,7 @@ namespace Logic
         public abstract void AddCustomer(int id, string name);
         public abstract int GetCustomerCount();
         public abstract bool RemoveCustomer(int customerIndex);
+        public abstract bool RegisterDelivery(string date, int catalogNumberOfDeliveredProduct, int amount);
 
         private class MyLogicLayer : LogicLayerAbstractAPI
         {
@@ -36,6 +37,10 @@ namespace Logic
             public override bool RemoveCustomer(int customerIndex)
             {
                 return _service.RemoveCustomer(customerIndex);
+            }
+            public override bool RegisterDelivery(string date, int catalogNumberOfDeliveredProduct, int amount)
+            {
+                return _service.RegisterDelivery(date, catalogNumberOfDeliveredProduct, amount);
             }
         }
     }
