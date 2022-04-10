@@ -10,5 +10,11 @@
             Id = id;
             Name = name;
         }
+        public override bool Equals(object? obj)
+        {
+            Customer other = obj as Customer;
+            return this.Id == other.Id;
+        }
+
     }
 }
