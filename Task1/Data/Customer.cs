@@ -19,5 +19,9 @@
         {
             return base.GetHashCode();
         }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
