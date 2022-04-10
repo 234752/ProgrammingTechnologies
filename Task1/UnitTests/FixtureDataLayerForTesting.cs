@@ -4,84 +4,101 @@ namespace UnitTests
 {
     internal class FixtureDataLayerForTesting : DataLayerAbstractAPI
     {
+        internal int AddCatalogEntryC;
+        internal int AddCustomerC;
+        internal int AddDeliveryEventC;
+        internal int AddSoldEventC;
+        internal int AddStorageEntryC;
+        internal int GetAmountOfAllItemsC;
+        internal int GetAmountOfCatalogItemC;
+        internal int GetCustomerCountC;
+        internal int GetDeliveryCountC;
+        internal int GetEventCountC;
+        internal int GetSoldCountC;
+        internal int InitializeDataContextC;
+        internal int RemoveCatalogEntryC;
+        internal int RemoveCustomerC;
+        internal int RemoveEventC;
+        internal int RemoveStorageEntryC;
+
         public override void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
         {
-            throw new System.NotImplementedException();
+            AddCatalogEntryC++;
         }
 
         public override void AddCustomer(int id, string name)
         {
-            throw new System.NotImplementedException();
+            AddCustomerC++;
         }
 
         public override void AddDeliveryEvent(string date, int entryIndex)
         {
-            throw new System.NotImplementedException();
+            AddDeliveryEventC++;
         }
 
         public override void AddSoldEvent(string date, int entryIndex, int customerIndex)
         {
-            throw new System.NotImplementedException();
+            AddSoldEventC++;
         }
 
         public override void AddStorageEntry(int catalogNumberOfNewItem)
         {
-            throw new System.NotImplementedException();
+            AddStorageEntryC++;
         }
 
         public override int GetAmountOfAllItems()
         {
-            throw new System.NotImplementedException();
+            GetAmountOfAllItemsC++;
         }
 
         public override int GetAmountOfCatalogItem(int catalogNumberOfItem)
         {
-            throw new System.NotImplementedException();
+            GetAmountOfCatalogItemC++;
         }
 
         public override int GetCustomerCount()
         {
-            throw new System.NotImplementedException();
+            GetCustomerCountC++;
         }
 
         public override int GetDeliveryCount(int catalogNumberOfItem)
         {
-            throw new System.NotImplementedException();
+            GetDeliveryCountC++;
         }
 
         public override int GetEventCount()
         {
-            throw new System.NotImplementedException();
+            GetEventCountC++;
         }
 
         public override int GetSoldCount(int catalogNumberOfItem)
         {
-            throw new System.NotImplementedException();
+            GetSoldCountC++;
         }
 
         public override void InitializeDataContext()
         {
-            throw new System.NotImplementedException();
+            InitializeDataContextC++;
         }
 
         public override bool RemoveCatalogEntry(int catalogEntryIndex)
         {
-            throw new System.NotImplementedException();
+            RemoveCatalogEntryC++;
         }
 
         public override bool RemoveCustomer(int id)
         {
-            throw new System.NotImplementedException();
+            RemoveCustomerC++;
         }
 
         public override bool RemoveEvent(int eventIndex)
         {
-            throw new System.NotImplementedException();
+            RemoveEventC++;
         }
 
         public override bool RemoveStorageEntry(int entryIndex)
         {
-            throw new System.NotImplementedException();
+            RemoveStorageEntryC++;
         }
     }
 }
