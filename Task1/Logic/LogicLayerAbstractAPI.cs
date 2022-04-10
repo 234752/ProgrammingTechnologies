@@ -8,9 +8,9 @@ namespace Logic
         {
             return new MyLogicLayer(data == null ? DataLayerAbstractAPI.CreateMyDataLayer() : data);
         }
-        public abstract void addCustomer(int id, string name);
-        public abstract int getCustomerCount();
-        public abstract bool removeCustomer(int customerIndex);
+        public abstract void AddCustomer(int id, string name);
+        public abstract int GetCustomerCount();
+        public abstract bool RemoveCustomer(int customerIndex);
 
         private class MyLogicLayer : LogicLayerAbstractAPI
         {
@@ -24,18 +24,18 @@ namespace Logic
             //service class here, TODO
             private Service _service;
 
-            public override void addCustomer(int id, string name)
+            public override void AddCustomer(int id, string name)
             {
-                _service.addCustomer(id, name);
+                _service.AddCustomer(id, name);
             }
 
-            public override int getCustomerCount()
+            public override int GetCustomerCount()
             {
-                return _service.getCustomerCount();
+                return _service.GetCustomerCount();
             }
-            public override bool removeCustomer(int customerIndex)
+            public override bool RemoveCustomer(int customerIndex)
             {
-                return _service.removeCustomer(customerIndex);
+                return _service.RemoveCustomer(customerIndex);
             }
         }
     }

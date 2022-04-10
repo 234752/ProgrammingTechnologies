@@ -7,7 +7,7 @@ namespace Data
         internal abstract string GetEventType();
         internal int GetCatalogNumberOfEntry()
         {
-            return Entry.getCatalogNumber();
+            return Entry.GetCatalogNumber();
         }
 
     }

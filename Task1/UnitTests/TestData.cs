@@ -11,14 +11,14 @@ namespace UnitTests
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
             testedDataLayer.InitializeDataContext();
-            testedDataLayer.addCustomer(0, "Bob");
-            testedDataLayer.addCustomer(123, "Average Diamond Enjoyer");
-            Assert.AreEqual(testedDataLayer.getCustomerCount(), 2);
-            Assert.IsTrue(testedDataLayer.removeCustomer(1));
-            Assert.AreEqual(testedDataLayer.getCustomerCount(), 1);
+            testedDataLayer.AddCustomer(0, "Bob");
+            testedDataLayer.AddCustomer(123, "Average Diamond Enjoyer");
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 2);
+            Assert.IsTrue(testedDataLayer.RemoveCustomer(1));
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 1);
             try
             {
-                testedDataLayer.removeCustomer(1);
+                testedDataLayer.RemoveCustomer(1);
                 Assert.Fail("Exception was expected");
             }
             catch (System.Exception ex) { }
@@ -30,13 +30,13 @@ namespace UnitTests
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
             testedDataLayer.InitializeDataContext();
-            testedDataLayer.addStorageEntry(1);
-            testedDataLayer.addStorageEntry(2);
-            testedDataLayer.addStorageEntry(2);
-            testedDataLayer.addStorageEntry(3);
-            Assert.AreEqual(testedDataLayer.getAmountOfCatalogItem(1), 1);
-            Assert.AreEqual(testedDataLayer.getAmountOfCatalogItem(2), 2);
-            Assert.AreEqual(testedDataLayer.getAmountOfCatalogItem(3), 1);
+            testedDataLayer.AddStorageEntry(1);
+            testedDataLayer.AddStorageEntry(2);
+            testedDataLayer.AddStorageEntry(2);
+            testedDataLayer.AddStorageEntry(3);
+            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 1);
+            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(2), 2);
+            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(3), 1);
         }
 
         [TestMethod]
@@ -44,19 +44,19 @@ namespace UnitTests
             {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
             testedDataLayer.InitializeDataContext();
-            testedDataLayer.addStorageEntry(1);
-            testedDataLayer.addStorageEntry(2);
-            testedDataLayer.addDeliveryEvent("09.04.22", 0);
-            testedDataLayer.addCustomer(0, "Paul");
-            testedDataLayer.addSoldEvent("10.04.22",0,0);
-            testedDataLayer.addDeliveryEvent("11.04.22", 1);
-            testedDataLayer.addSoldEvent("11.04.22", 0, 0);
-            testedDataLayer.removeEvent(1);
-            Assert.AreEqual(testedDataLayer.getEventCount(), 3);
-            Assert.AreEqual(testedDataLayer.getDeliveryCount(1), 1);
-            Assert.AreEqual(testedDataLayer.getDeliveryCount(3), 0);
-            Assert.AreEqual(testedDataLayer.getSoldCount(1), 1);
-            Assert.AreEqual(testedDataLayer.getSoldCount(2), 0);
+            testedDataLayer.AddStorageEntry(1);
+            testedDataLayer.AddStorageEntry(2);
+            testedDataLayer.AddDeliveryEvent("09.04.22", 0);
+            testedDataLayer.AddCustomer(0, "Paul");
+            testedDataLayer.AddSoldEvent("10.04.22",0,0);
+            testedDataLayer.AddDeliveryEvent("11.04.22", 1);
+            testedDataLayer.AddSoldEvent("11.04.22", 0, 0);
+            testedDataLayer.RemoveEvent(1);
+            Assert.AreEqual(testedDataLayer.GetEventCount(), 3);
+            Assert.AreEqual(testedDataLayer.GetDeliveryCount(1), 1);
+            Assert.AreEqual(testedDataLayer.GetDeliveryCount(3), 0);
+            Assert.AreEqual(testedDataLayer.GetSoldCount(1), 1);
+            Assert.AreEqual(testedDataLayer.GetSoldCount(2), 0);
 
         }
 
@@ -65,9 +65,9 @@ namespace UnitTests
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
             testedDataLayer.InitializeDataContext();
-            testedDataLayer.addStorageEntry(1);
-            testedDataLayer.addCatalogEntry(8,2F,3898.99F,1,1);
-            Assert.IsTrue(testedDataLayer.removeCatalogEntry(0));
+            testedDataLayer.AddStorageEntry(1);
+            testedDataLayer.AddCatalogEntry(8,2F,3898.99F,1,1);
+            Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
 
         }
 

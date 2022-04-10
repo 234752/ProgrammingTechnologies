@@ -11,23 +11,23 @@ namespace Data
             return new MyDataLayer();
         }
         //CUSTOMER
-        public abstract void addCustomer(int id, string name);
-        public abstract int getCustomerCount();
-        public abstract bool removeCustomer(int id);
+        public abstract void AddCustomer(int id, string name);
+        public abstract int GetCustomerCount();
+        public abstract bool RemoveCustomer(int id);
         //STORAGE
-        public abstract void addStorageEntry(int catalogNumberOfNewItem);
-        public abstract int getAmountOfCatalogItem(int catalogNumberOfItem);
-        public abstract bool removeStorageEntry(int entryIndex);
+        public abstract void AddStorageEntry(int catalogNumberOfNewItem);
+        public abstract int GetAmountOfCatalogItem(int catalogNumberOfItem);
+        public abstract bool RemoveStorageEntry(int entryIndex);
         //EVENTS
-        public abstract void addDeliveryEvent(string date, int entryIndex);
-        public abstract void addSoldEvent(string date, int entryIndex, int customerIndex);
-        public abstract bool removeEvent(int eventIndex); //will event history ever be deleted?
-        public abstract int getEventCount();
-        public abstract int getDeliveryCount(int catalogNumberOfItem);
-        public abstract int getSoldCount(int catalogNumberOfItem);
+        public abstract void AddDeliveryEvent(string date, int entryIndex);
+        public abstract void AddSoldEvent(string date, int entryIndex, int customerIndex);
+        public abstract bool RemoveEvent(int eventIndex); //will event history ever be deleted?
+        public abstract int GetEventCount();
+        public abstract int GetDeliveryCount(int catalogNumberOfItem);
+        public abstract int GetSoldCount(int catalogNumberOfItem);
         //CATALOG
-        public abstract void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
-        public abstract bool removeCatalogEntry(int catalogEntryIndex);
+        public abstract void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
+        public abstract bool RemoveCatalogEntry(int catalogEntryIndex);
 
 
         private class MyDataLayer : DataLayerAbstractAPI
@@ -39,62 +39,62 @@ namespace Data
                 DataContext.InitializeCatalog();
             }
             //CUSTOMER
-            public override void addCustomer(int id, string name)
+            public override void AddCustomer(int id, string name)
             {
                 DataContext.Customers.Add(new Customer(id, name));
             }
-            public override int getCustomerCount()
+            public override int GetCustomerCount()
             {
                 return DataContext.Customers.Count;
             }
-            public override bool removeCustomer(int customerIndex)
+            public override bool RemoveCustomer(int customerIndex)
             {
                 return DataContext.Customers.Remove(DataContext.Customers.ElementAt(customerIndex));
             }
             //STORAGE
-            public override void addStorageEntry(int catalogNumberOfNewItem)
+            public override void AddStorageEntry(int catalogNumberOfNewItem)
             {
                 DataContext.StorageState.Add(new StorageEntry(catalogNumberOfNewItem));
             }
-            public override int getAmountOfCatalogItem(int catalogNumberOfItem)
+            public override int GetAmountOfCatalogItem(int catalogNumberOfItem)
             {
-                return DataContext.StorageState.Count(entry => entry.getCatalogNumber() == catalogNumberOfItem);
+                return DataContext.StorageState.Count(entry => entry.GetCatalogNumber() == catalogNumberOfItem);
             }
-            public override bool removeStorageEntry(int storageEntryIndex)
+            public override bool RemoveStorageEntry(int storageEntryIndex)
             {
                 return DataContext.StorageState.Remove(DataContext.StorageState.ElementAt(storageEntryIndex));
             }
             //EVENTS
-            public override void addDeliveryEvent(string date, int entryIndex)
+            public override void AddDeliveryEvent(string date, int entryIndex)
             {
                 DataContext.Events.Add(new EventDiamondDelivery(date, DataContext.StorageState.ElementAt(entryIndex)));
             }
-            public override void addSoldEvent(string date, int entryIndex, int customerIndex)
+            public override void AddSoldEvent(string date, int entryIndex, int customerIndex)
             {
                 DataContext.Events.Add(new EventDiamondSold(date, DataContext.StorageState.ElementAt(entryIndex), DataContext.Customers.ElementAt(customerIndex)));
             }
-            public override bool removeEvent(int eventIndex)
+            public override bool RemoveEvent(int eventIndex)
             {
                 return DataContext.Events.Remove(DataContext.Events.ElementAt(eventIndex));
             }
-            public override int getEventCount()
+            public override int GetEventCount()
             {
                 return DataContext.Events.Count;
             }
-            public override int getDeliveryCount(int catalogNumberOfItem)
+            public override int GetDeliveryCount(int catalogNumberOfItem)
             {
                 return DataContext.Events.Count(ev => ev.GetEventType()=="delivery" && ev.GetCatalogNumberOfEntry()==catalogNumberOfItem);
             }
-            public override int getSoldCount(int catalogNumberOfItem)
+            public override int GetSoldCount(int catalogNumberOfItem)
             {
                 return DataContext.Events.Count(ev => ev.GetEventType() == "sold" && ev.GetCatalogNumberOfEntry() == catalogNumberOfItem);
             }
             //CATALOG
-            public override void addCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
+            public override void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
             {
                 DataContext.Catalog.Add(catalogNumber, new Diamond(carat, price, (QualityValue)quality, (ShapeValue)shape));
             }
-            public override bool removeCatalogEntry(int catalogEntryIndex)
+            public override bool RemoveCatalogEntry(int catalogEntryIndex)
             {
                 return DataContext.StorageState.Remove(DataContext.StorageState.ElementAt(catalogEntryIndex));
             }

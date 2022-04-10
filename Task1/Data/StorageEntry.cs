@@ -8,7 +8,7 @@
         {
             _catalogNumber = catalogNumber;
         }
-        internal int getCatalogNumber()
+        internal int GetCatalogNumber()
         {
             return _catalogNumber;
         }

@@ -9,17 +9,17 @@ namespace Logic
         {
             _dataLayer = dataLayer;
         }
-        internal void addCustomer(int id, string name)
+        internal void AddCustomer(int id, string name)
         {
-            _dataLayer.addCustomer(id, name);
+            _dataLayer.AddCustomer(id, name);
         }
-        internal int getCustomerCount()
+        internal int GetCustomerCount()
         {
-            return _dataLayer.getCustomerCount();
+            return _dataLayer.GetCustomerCount();
         }
-        internal bool removeCustomer(int customerIndex)
+        internal bool RemoveCustomer(int customerIndex)
         {
-            return _dataLayer.removeCustomer(customerIndex);
+            return _dataLayer.RemoveCustomer(customerIndex);
         }
     }
 }
