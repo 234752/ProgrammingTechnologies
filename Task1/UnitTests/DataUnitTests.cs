@@ -16,12 +16,7 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.GetCustomerCount(), 2);
             Assert.IsTrue(testedDataLayer.RemoveCustomer(1));
             Assert.AreEqual(testedDataLayer.GetCustomerCount(), 1);
-            try
-            {
-                testedDataLayer.RemoveCustomer(1);
-                Assert.Fail("Exception was expected");
-            }
-            catch (System.Exception ex) { }
+            Assert.ThrowsException<System.ArgumentOutOfRangeException>(() => testedDataLayer.RemoveCustomer(1));
 
         }
 
@@ -72,6 +67,14 @@ namespace UnitTests
 
         }
 
+        [TestMethod]
+        public void TestEmptyGenerator()
+        {
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
+            testedDataLayer.InitializeEmpty();
+            testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1);
+            Assert.ThrowsException<System.ArgumentOutOfRangeException>(() => testedDataLayer.RemoveCatalogEntry(1));
+        }
 
     }
 }
