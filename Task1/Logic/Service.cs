@@ -9,9 +9,18 @@ namespace Logic
         {
             _dataLayer = dataLayer;
         }
-        internal void AddCustomer(int id, string name)
+        internal bool AddCustomer(int id, string name)
         {
-            _dataLayer.AddCustomer(id, name);
+            try
+            {
+                if (!_dataLayer.IsCustomerIdFree(id)) throw new Exception();
+                else _dataLayer.AddCustomer(id, name);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
         internal int GetCustomerCount()
         {
@@ -19,7 +28,14 @@ namespace Logic
         }
         internal bool RemoveCustomer(int customerIndex)
         {
-            return _dataLayer.RemoveCustomer(customerIndex);
+            try
+            {
+                return _dataLayer.RemoveCustomer(customerIndex);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
         internal bool RegisterDelivery(string date, int catalogNumberOfDeliveredProduct, int amount)
         {

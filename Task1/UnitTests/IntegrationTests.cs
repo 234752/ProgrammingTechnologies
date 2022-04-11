@@ -18,7 +18,7 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.GetAmountOfAllItems(), 5);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(3), 2);
-            testedLogicLayer.AddCustomer(1, "BOB");
+            Assert.IsTrue(testedLogicLayer.AddCustomer(1, "BOB"));
             testedLogicLayer.RegisterSale("12-12-2020", 3, 0);
             Assert.AreEqual(testedDataLayer.GetAmountOfAllItems(), 4);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);

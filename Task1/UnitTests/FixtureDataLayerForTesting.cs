@@ -24,6 +24,7 @@ namespace UnitTests
         internal int GetDiamondInfoC;
         internal int GetCatalogSizeC;
         internal int GetPriceOfCatalogItemC;
+        internal int IsCustomerIdFreeC;
 
         public override void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
         {
@@ -113,6 +114,12 @@ namespace UnitTests
         public override void InitializeDataContext()
         {
             InitializeDataContextC++;
+        }
+
+        public override bool IsCustomerIdFree(int id)
+        {
+            IsCustomerIdFreeC++;
+            return true;
         }
 
         public override bool RemoveCatalogEntry(int catalogEntryIndex)

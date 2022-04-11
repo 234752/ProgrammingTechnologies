@@ -14,6 +14,7 @@ namespace Data
         public abstract void AddCustomer(int id, string name);
         public abstract int GetCustomerCount();
         public abstract bool RemoveCustomer(int id);
+        public abstract bool IsCustomerIdFree(int id);
         //STORAGE
         public abstract void AddStorageEntry(int catalogNumberOfNewItem);
         public abstract int GetAmountOfCatalogItem(int catalogNumberOfItem);
@@ -54,6 +55,11 @@ namespace Data
             public override bool RemoveCustomer(int customerIndex)
             {
                 return DataContext.Customers.Remove(DataContext.Customers.ElementAt(customerIndex));
+            }
+            public override bool IsCustomerIdFree(int id)
+            {
+                if (DataContext.Customers.Count(customer => customer.GetId() == id) == 0) return true;
+                else return false;
             }
             //STORAGE
             public override void AddStorageEntry(int catalogNumberOfNewItem)
