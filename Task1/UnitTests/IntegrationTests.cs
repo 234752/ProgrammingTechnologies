@@ -37,6 +37,9 @@ namespace UnitTests
             testedLogicLayer.RegisterSale("13/12/2020", 0, 0);
             testedLogicLayer.RegisterSale("14/12/2020", 0, 0);
             Assert.AreEqual(testedLogicLayer.CountRevenueFromSales(), 2999.99F * 3);
+            testedLogicLayer.RegisterDelivery("14/12/2020", 1, 1);
+            testedLogicLayer.RegisterSale("15/12/2020", 1, 0);
+            Assert.AreEqual(testedLogicLayer.CountRevenueFromSales(),2999.99F * 3 + 3999.99F);
         }
     }
 }
