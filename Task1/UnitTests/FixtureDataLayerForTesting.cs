@@ -22,6 +22,8 @@ namespace UnitTests
         internal int RemoveStorageEntryC;
         internal int GetStorageIndexOfCatalogItemC;
         internal int GetDiamondInfoC;
+        internal int GetCatalogSizeC;
+        internal int GetPriceOfCatalogItemC;
 
         public override void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
         {
@@ -62,7 +64,8 @@ namespace UnitTests
 
         public override int GetCatalogSize()
         {
-            throw new System.NotImplementedException();
+            GetCatalogSizeC++;
+            return 1;
         }
 
         public override int GetCustomerCount()
@@ -91,7 +94,8 @@ namespace UnitTests
 
         public override float GetPriceOfCatalogItem(int catalogNumberOfItem)
         {
-            throw new System.NotImplementedException();
+            GetPriceOfCatalogItemC++;
+            return 1;
         }
 
         public override int GetSoldCount(int catalogNumberOfItem)
