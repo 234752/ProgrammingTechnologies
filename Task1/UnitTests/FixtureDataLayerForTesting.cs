@@ -21,6 +21,7 @@ namespace UnitTests
         internal int RemoveEventC;
         internal int RemoveStorageEntryC;
         internal int GetStorageIndexOfCatalogItemC;
+        internal int GetDiamondInfoC;
 
         public override void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
         {
@@ -69,6 +70,12 @@ namespace UnitTests
         {
             GetDeliveryCountC++;
             return 1;
+        }
+
+        public override string GetDiamondInfo(int catalogNumber)
+        {
+            GetDiamondInfoC++;
+            return "1";
         }
 
         public override int GetEventCount()

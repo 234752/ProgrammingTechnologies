@@ -19,6 +19,10 @@
             Quality = quality;
             Shape = shape;
         }
+        public override string ToString()
+        {
+            return "Carat: " + Carat + ", Price: " + Price + ", Quality: " + Quality + ", Shape: " + Shape;
+        }
 
     }
 }

@@ -23,7 +23,6 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.GetAmountOfAllItems(), 4);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(3), 1);
-
         }
     }
 }

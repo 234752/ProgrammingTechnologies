@@ -33,7 +33,7 @@
         }
 
         // returns value if exists
-        public string GetDiamond (int key) => Catalog[key].ToString();
+        //public string GetDiamond (int key) => Catalog[key].ToString();
             
 
     }
