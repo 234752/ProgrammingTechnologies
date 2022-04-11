@@ -58,6 +58,7 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.GetDeliveryCount(3), 0);
             Assert.AreEqual(testedDataLayer.GetSoldCount(3), 1);
             Assert.AreEqual(testedDataLayer.GetSoldCount(0), 0);
+            Assert.IsTrue(testedDataLayer.RemoveEvent(1));
 
         }
 
