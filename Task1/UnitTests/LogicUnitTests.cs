@@ -26,5 +26,21 @@ namespace UnitTests
             Assert.AreEqual(fakeDataLayer.RemoveStorageEntryC, 1);
             Assert.AreEqual(fakeDataLayer.AddSoldEventC, 1);
         }
+        
+        [TestMethod]
+        public void TestRevenue()
+        {
+            FixtureDataLayerForTesting fakeDataLayer = new FixtureDataLayerForTesting();
+            LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(fakeDataLayer);
+            testedLogicLayer.RegisterDelivery("12-12-2020", 0, 3);
+
+            testedLogicLayer.AddCustomer(0, "BOB");
+            Assert.IsTrue(testedLogicLayer.RegisterSale("12-12-2020", 0, 0));
+            testedLogicLayer.RegisterSale("12-12-2020", 0, 0);
+            testedLogicLayer.RegisterSale("12-12-2020", 0, 0);
+            Assert.AreEqual(testedLogicLayer.CountRevenueFromSales(), 1);
+            Assert.AreEqual(fakeDataLayer.GetPriceOfCatalogItemC, 1);
+            Assert.AreEqual(fakeDataLayer.GetSoldCountC, 1);
+        }
     }
 }
