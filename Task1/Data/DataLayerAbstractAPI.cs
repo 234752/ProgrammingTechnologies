@@ -1,11 +1,11 @@
 ﻿using System.Linq;
+using Data.DataGenerators;
 
 namespace Data
 {
     public abstract class DataLayerAbstractAPI
     {
         public abstract void InitializeDataContext();
-        public abstract void InitializeEmptyDataContext();
 
         public static DataLayerAbstractAPI CreateMyDataLayer()
         {
@@ -41,13 +41,8 @@ namespace Data
             public DataContext DataContext { get; set; }
             public override void InitializeDataContext()
             {
-                DataContext = new DataContext();
-                DataContext.InitializeCatalog();
-            }
-            public override void InitializeEmptyDataContext()
-            {
-                DataContext = new DataContext();
-                DataContext.InitializeEmptyCatalog();
+                DataContext = new DataContext(new CatalogGenerator());
+                DataContext.InitializeDataContext();
             }
             //CUSTOMER
             public override void AddCustomer(int id, string name)
