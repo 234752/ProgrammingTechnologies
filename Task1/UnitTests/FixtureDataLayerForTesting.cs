@@ -54,7 +54,7 @@ namespace UnitTests
         public override int GetAmountOfAllItems()
         {
             GetAmountOfAllItemsC++;
-            return 1;
+            return AddDeliveryEventC - AddSoldEventC;
         }
 
         public override int GetAmountOfCatalogItem(int catalogNumberOfItem)
@@ -66,13 +66,13 @@ namespace UnitTests
         public override int GetCatalogSize()
         {
             GetCatalogSizeC++;
-            return 1;
+            return AddCatalogEntryC;
         }
 
         public override int GetCustomerCount()
         {
             GetCustomerCountC++;
-            return 1;
+            return AddCustomerC;
         }
 
         public override int GetDeliveryCount(int catalogNumberOfItem)
@@ -90,7 +90,7 @@ namespace UnitTests
         public override int GetEventCount()
         {
             GetEventCountC++;
-            return 1;
+            return AddDeliveryEventC + AddSoldEventC;
         }
 
         public override float GetPriceOfCatalogItem(int catalogNumberOfItem)
@@ -114,6 +114,7 @@ namespace UnitTests
         public override void InitializeDataContext()
         {
             InitializeDataContextC++;
+            AddCatalogEntryC += 7;
         }
 
         public override bool IsCustomerIdFree(int id)
@@ -125,25 +126,29 @@ namespace UnitTests
         public override bool RemoveCatalogEntry(int catalogEntryIndex)
         {
             RemoveCatalogEntryC++;
-            return true;
+            if (AddCatalogEntryC > catalogEntryIndex && catalogEntryIndex >= 0) return true;
+            else return false;
         }
 
-        public override bool RemoveCustomer(int id)
+        public override bool RemoveCustomer(int customerIndex)
         {
             RemoveCustomerC++;
-            return true;
+            if (AddCustomerC > customerIndex && customerIndex >= 0)  return true;
+            else return false;
         }
 
         public override bool RemoveEvent(int eventIndex)
         {
             RemoveEventC++;
-            return true;
+            if(AddSoldEventC + AddDeliveryEventC - RemoveEventC > eventIndex && eventIndex >=0) return true;
+            else return false;
         }
 
         public override bool RemoveStorageEntry(int entryIndex)
         {
             RemoveStorageEntryC++;
-            return true;
+            if (AddStorageEntryC > entryIndex && entryIndex >= 0) return true;
+            else return false;
         }
     }
 }

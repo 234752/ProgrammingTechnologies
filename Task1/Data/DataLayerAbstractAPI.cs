@@ -13,7 +13,7 @@ namespace Data
         //CUSTOMER
         public abstract void AddCustomer(int id, string name);
         public abstract int GetCustomerCount();
-        public abstract bool RemoveCustomer(int id);
+        public abstract bool RemoveCustomer(int customerIndex);
         public abstract bool IsCustomerIdFree(int id);
         //STORAGE
         public abstract void AddStorageEntry(int catalogNumberOfNewItem);
