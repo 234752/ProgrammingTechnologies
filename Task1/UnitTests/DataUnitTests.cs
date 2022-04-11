@@ -70,6 +70,7 @@ namespace UnitTests
             testedDataLayer.InitializeDataContext();
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddCatalogEntry(8,2F,3898.99F,1,1);
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 8);
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
             try
             {
