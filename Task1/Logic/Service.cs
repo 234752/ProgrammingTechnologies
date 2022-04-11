@@ -2,7 +2,7 @@
 
 namespace Logic
 {
-    internal class Service //whole logic should be in this class
+    internal class Service
     {
         private DataLayerAbstractAPI _dataLayer;
         internal Service(DataLayerAbstractAPI dataLayer)

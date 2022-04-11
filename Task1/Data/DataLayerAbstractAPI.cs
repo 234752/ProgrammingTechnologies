@@ -27,7 +27,7 @@ namespace Data
         //EVENTS
         public abstract void AddDeliveryEvent(string date, int entryIndex);
         public abstract void AddSoldEvent(string date, int entryIndex, int customerIndex);
-        public abstract bool RemoveEvent(int eventIndex); //will event history ever be deleted?
+        public abstract bool RemoveEvent(int eventIndex); 
         public abstract int GetEventCount();
         public abstract int GetDeliveryCount(int catalogNumberOfItem);
         public abstract int GetSoldCount(int catalogNumberOfItem);

@@ -1,6 +1,6 @@
 namespace Data
 {
-    internal abstract class Event //this class must be abstract
+    internal abstract class Event
     {
         protected string DateTime;
         protected StorageEntry Entry;

@@ -4,7 +4,7 @@ namespace Logic
 {
     public abstract class LogicLayerAbstractAPI
     {
-        public static LogicLayerAbstractAPI CreateMyLogicLayer(DataLayerAbstractAPI data = default(DataLayerAbstractAPI)) //will it work as DI?
+        public static LogicLayerAbstractAPI CreateMyLogicLayer(DataLayerAbstractAPI data = default(DataLayerAbstractAPI)) 
         {
             return new MyLogicLayer(data == null ? DataLayerAbstractAPI.CreateMyDataLayer() : data);
         }
@@ -24,7 +24,7 @@ namespace Logic
                 _service = new Service(dataLayer);
             }
             private readonly DataLayerAbstractAPI _dataLayer;
-            //service class here, TODO
+
             private Service _service;
 
             public override bool AddCustomer(int id, string name)
