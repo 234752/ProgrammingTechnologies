@@ -69,7 +69,12 @@ namespace UnitTests
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddCatalogEntry(8,2F,3898.99F,1,1);
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
-
+            try
+            {
+                testedDataLayer.RemoveCatalogEntry(0);
+                Assert.Fail("Exception was expected");
+            }
+            catch (System.Exception ex) { }
         }
 
 
