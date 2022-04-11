@@ -37,6 +37,7 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 1);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(2), 2);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(3), 1);
+            Assert.IsTrue(testedDataLayer.RemoveStorageEntry(0));
         }
 
         [TestMethod]
@@ -77,6 +78,7 @@ namespace UnitTests
             }
             catch (System.Exception ex) { }
         }
+
 
 
     }
