@@ -52,5 +52,14 @@ namespace Logic
             }
             return true;
         }
+        internal float CountRevenueFromSales()
+        {
+            float revenue = 0;
+            for(int i=0; i<_dataLayer.GetCatalogSize(); i++)
+            {
+                revenue += _dataLayer.GetSoldCount(i) * _dataLayer.GetPriceOfCatalogItem(i);
+            }
+            return revenue;
+        }
     }
 }

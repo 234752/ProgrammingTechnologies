@@ -23,13 +23,13 @@
             Diamond fifth = new Diamond(3F, 1999.99F, QualityValue.Good, ShapeValue.Oval);
             Diamond sixth = new Diamond(3F, 5999.99F, QualityValue.VeryGood, ShapeValue.Pear);
             Diamond seventh = new Diamond(4F, 7999.99F, QualityValue.Excellent, ShapeValue.Cushion);
-            Catalog.Add(1, first);
-            Catalog.Add(2, second);
-            Catalog.Add(3, third);
-            Catalog.Add(4, fourth);
-            Catalog.Add(5, fifth);
-            Catalog.Add(6, sixth);
-            Catalog.Add(7, seventh);
+            Catalog.Add(0, first);
+            Catalog.Add(1, second);
+            Catalog.Add(2, third);
+            Catalog.Add(3, fourth);
+            Catalog.Add(4, fifth);
+            Catalog.Add(5, sixth);
+            Catalog.Add(6, seventh);
         }
 
         // returns value if exists

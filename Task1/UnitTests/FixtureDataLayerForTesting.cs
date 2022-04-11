@@ -60,6 +60,11 @@ namespace UnitTests
             return 1;
         }
 
+        public override int GetCatalogSize()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override int GetCustomerCount()
         {
             GetCustomerCountC++;
@@ -82,6 +87,11 @@ namespace UnitTests
         {
             GetEventCountC++;
             return 1;
+        }
+
+        public override float GetPriceOfCatalogItem(int catalogNumberOfItem)
+        {
+            throw new System.NotImplementedException();
         }
 
         public override int GetSoldCount(int catalogNumberOfItem)

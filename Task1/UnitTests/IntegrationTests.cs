@@ -24,5 +24,19 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(3), 1);
         }
+        [TestMethod]
+        public void TestRevenue()
+        {
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
+            testedDataLayer.InitializeDataContext();
+            LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(testedDataLayer);
+            testedLogicLayer.RegisterDelivery("12-12-2020", 0, 3);
+
+            testedLogicLayer.AddCustomer(0, "BOB");
+            testedLogicLayer.RegisterSale("12-12-2020", 0, 0);
+            testedLogicLayer.RegisterSale("12-12-2020", 0, 0);
+            testedLogicLayer.RegisterSale("12-12-2020", 0, 0);
+            Assert.AreEqual(testedLogicLayer.CountRevenueFromSales(), 2999.99F * 3);
+        }
     }
 }

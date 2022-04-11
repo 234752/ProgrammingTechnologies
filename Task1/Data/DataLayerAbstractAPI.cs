@@ -32,7 +32,7 @@ namespace Data
         public abstract bool RemoveCatalogEntry(int catalogEntryIndex);
         public abstract string GetDiamondInfo(int catalogNumber);
         public abstract float GetPriceOfCatalogItem(int catalogNumberOfItem);
-        public abstract int GetAmountOfCatalogItems();
+        public abstract int GetCatalogSize();
 
         private class MyDataLayer : DataLayerAbstractAPI
         {
@@ -115,7 +115,7 @@ namespace Data
             {
                 return DataContext.Catalog[catalogNumberOfItem].GetPrice();
             }
-            public override int GetAmountOfCatalogItems()
+            public override int GetCatalogSize()
             {
                 return DataContext.Catalog.Count();
             }
