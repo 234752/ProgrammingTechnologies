@@ -48,11 +48,11 @@ namespace UnitTests
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddStorageEntry(2);
             testedDataLayer.AddStorageEntry(3);
-            testedDataLayer.AddDeliveryEvent("09.04.22", 0);
-            testedDataLayer.AddDeliveryEvent("11.04.22", 1);
+            testedDataLayer.AddDeliveryEvent("09/04/2022", 0);
+            testedDataLayer.AddDeliveryEvent("11/04/2022", 1);
             testedDataLayer.AddCustomer(0, "Paul");
-            testedDataLayer.AddSoldEvent("10.04.22", 3, 0);
-            testedDataLayer.AddSoldEvent("11.04.22", 2, 0);
+            testedDataLayer.AddSoldEvent("10/04/2022", 3, 0);
+            testedDataLayer.AddSoldEvent("11/04/2022", 2, 0);
             Assert.AreEqual(testedDataLayer.GetEventCount(), 4);
             Assert.AreEqual(testedDataLayer.GetDeliveryCount(1), 1);
             Assert.AreEqual(testedDataLayer.GetDeliveryCount(3), 0);

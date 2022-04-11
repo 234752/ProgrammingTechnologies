@@ -53,6 +53,7 @@ namespace UnitTests
             testedLogicLayer.AddCustomer(0, "BOB");
             testedLogicLayer.AddCustomer(1, "BOB2");
             Assert.IsFalse(testedLogicLayer.RemoveCustomer(3));
+            Assert.IsTrue(testedLogicLayer.RemoveCustomer(1));
         }
     }
 }
