@@ -111,12 +111,21 @@ namespace UnitTests
             return 1;
         }
 
-        public override void InitializeDataContext()
+        public override void InitializeCatalog()
         {
             InitializeDataContextC++;
             AddCatalogEntryC += 7;
         }
-
+        public override void InitializeCatalogAndCustomers()
+        {
+            InitializeDataContextC++;
+            AddCatalogEntryC += 7;
+            AddCustomerC += 3;
+        }
+        public override void InitializeEmpty()
+        {
+            InitializeDataContextC++;
+        }
         public override bool IsCustomerIdFree(int id)
         {
             IsCustomerIdFreeC++;

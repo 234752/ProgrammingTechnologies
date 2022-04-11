@@ -11,7 +11,7 @@ namespace UnitTests
         public void TestDeliveryAndSale()
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
-            testedDataLayer.InitializeDataContext();
+            testedDataLayer.InitializeCatalog();
             LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(testedDataLayer);
             testedLogicLayer.RegisterDelivery("12/12/2020", 1, 3);
             testedLogicLayer.RegisterDelivery("13/12/2020", 3, 2);
@@ -28,7 +28,7 @@ namespace UnitTests
         public void TestRevenue()
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
-            testedDataLayer.InitializeDataContext();
+            testedDataLayer.InitializeCatalog();
             LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(testedDataLayer);
             testedLogicLayer.RegisterDelivery("12/12/2020", 0, 3);
 

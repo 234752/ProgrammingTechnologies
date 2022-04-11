@@ -20,7 +20,7 @@ namespace Logic
             public MyLogicLayer(DataLayerAbstractAPI dataLayer)
             {
                 _dataLayer = dataLayer;
-                _dataLayer.InitializeDataContext();
+                _dataLayer.InitializeCatalog();
                 _service = new Service(dataLayer);
             }
             private readonly DataLayerAbstractAPI _dataLayer;

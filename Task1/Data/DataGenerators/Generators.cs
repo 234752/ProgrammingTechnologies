@@ -1,5 +1,4 @@
-﻿
-namespace Data.DataGenerators
+﻿namespace Data.DataGenerators
 {
     internal interface IGenerator
     {

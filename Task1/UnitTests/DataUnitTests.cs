@@ -10,7 +10,7 @@ namespace UnitTests
         public void AddRemoveCustomer()
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
-            testedDataLayer.InitializeDataContext();
+            testedDataLayer.InitializeCatalog();
             testedDataLayer.AddCustomer(0, "Bob");
             testedDataLayer.AddCustomer(123, "Average Diamond Enjoyer");
             Assert.AreEqual(testedDataLayer.GetCustomerCount(), 2);
@@ -29,7 +29,7 @@ namespace UnitTests
         public void StorageSummary()
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
-            testedDataLayer.InitializeDataContext();
+            testedDataLayer.InitializeCatalog();
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddStorageEntry(2);
             testedDataLayer.AddStorageEntry(2);
@@ -43,7 +43,7 @@ namespace UnitTests
         public void EventsSummary()
             {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
-            testedDataLayer.InitializeDataContext();
+            testedDataLayer.InitializeCatalog();
             testedDataLayer.AddStorageEntry(0);
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddStorageEntry(2);
@@ -65,7 +65,7 @@ namespace UnitTests
         public void CatalogSummary()
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
-            testedDataLayer.InitializeDataContext();
+            testedDataLayer.InitializeCatalog();
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddCatalogEntry(8,2F,3898.99F,1,1);
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
