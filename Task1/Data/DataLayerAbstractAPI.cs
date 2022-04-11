@@ -5,6 +5,7 @@ namespace Data
     public abstract class DataLayerAbstractAPI
     {
         public abstract void InitializeDataContext();
+        public abstract void InitializeEmptyDataContext();
 
         public static DataLayerAbstractAPI CreateMyDataLayer()
         {
@@ -42,6 +43,11 @@ namespace Data
             {
                 DataContext = new DataContext();
                 DataContext.InitializeCatalog();
+            }
+            public override void InitializeEmptyDataContext()
+            {
+                DataContext = new DataContext();
+                DataContext.InitializeEmptyCatalog();
             }
             //CUSTOMER
             public override void AddCustomer(int id, string name)

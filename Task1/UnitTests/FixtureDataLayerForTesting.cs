@@ -25,6 +25,7 @@ namespace UnitTests
         internal int GetCatalogSizeC;
         internal int GetPriceOfCatalogItemC;
         internal int IsCustomerIdFreeC;
+        internal int InitializeEmptyDataContextC;
 
         public override void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
         {
@@ -115,6 +116,11 @@ namespace UnitTests
         {
             InitializeDataContextC++;
             AddCatalogEntryC += 7;
+        }
+
+        public override void InitializeEmptyDataContext()
+        {
+            InitializeEmptyDataContextC++;
         }
 
         public override bool IsCustomerIdFree(int id)
