@@ -12,10 +12,10 @@
             Customers = new List<Customer>();
             StorageState = new List<StorageEntry>();
             Events = new List<Event>();
+            Catalog = new Dictionary<int, Diamond>();
         }
         internal void InitializeCatalog() 
         {
-            Catalog = new Dictionary<int, Diamond>();
             Diamond first = new Diamond(1F, 2999.99F, QualityValue.Good, ShapeValue.Oval);
             Diamond second = new Diamond(1F, 3999.99F, QualityValue.Good, ShapeValue.Round);
             Diamond third = new Diamond(2F, 4999.99F, QualityValue.VeryGood, ShapeValue.Pear);
