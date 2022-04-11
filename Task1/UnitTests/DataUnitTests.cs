@@ -17,7 +17,6 @@ namespace UnitTests
             Assert.IsTrue(testedDataLayer.RemoveCustomer(1));
             Assert.AreEqual(testedDataLayer.GetCustomerCount(), 1);
             Assert.ThrowsException<System.ArgumentOutOfRangeException>(() => testedDataLayer.RemoveCustomer(1));
-
         }
 
         [TestMethod]
@@ -53,7 +52,6 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.GetDeliveryCount(3), 0);
             Assert.AreEqual(testedDataLayer.GetSoldCount(3), 1);
             Assert.AreEqual(testedDataLayer.GetSoldCount(0), 0);
-
         }
 
         [TestMethod]
@@ -64,7 +62,6 @@ namespace UnitTests
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddCatalogEntry(8,2F,3898.99F,1,1);
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
-
         }
 
         [TestMethod]
@@ -73,7 +70,22 @@ namespace UnitTests
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
             testedDataLayer.InitializeEmpty();
             testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1);
-            Assert.ThrowsException<System.ArgumentOutOfRangeException>(() => testedDataLayer.RemoveCatalogEntry(1));
+            Assert.IsFalse(testedDataLayer.RemoveCatalogEntry(1));
+            Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
+        }
+
+        [TestMethod]
+        public void TestCatalogAndCustomerGenerator()
+        {
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
+            testedDataLayer.InitializeCatalogAndCustomers();
+            Assert.ThrowsException<System.ArgumentException>(() => testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1));
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 3);
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 7);
+            Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(6));
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 6);
+            testedDataLayer.AddCatalogEntry(6, 1F, 2999.99F, 2,3);
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 7);
         }
 
     }

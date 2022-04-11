@@ -127,7 +127,7 @@ namespace Data
             }
             public override bool RemoveCatalogEntry(int catalogEntryIndex)
             {
-                return DataContext.StorageState.Remove(DataContext.StorageState.ElementAt(catalogEntryIndex));
+                return DataContext.Catalog.Remove(catalogEntryIndex);
             }
             public override string GetDiamondInfo(int catalogNumber) => DataContext.Catalog[catalogNumber].ToString();
             public override float GetPriceOfCatalogItem(int catalogNumberOfItem)
