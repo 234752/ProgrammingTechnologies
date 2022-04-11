@@ -23,6 +23,9 @@
         {
             return "Carat: " + Carat + ", Price: " + Price + ", Quality: " + Quality + ", Shape: " + Shape;
         }
-
+        internal float GetPrice()
+        {
+            return Price;
+        }
     }
 }

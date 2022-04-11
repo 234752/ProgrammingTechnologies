@@ -31,6 +31,8 @@ namespace Data
         public abstract void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
         public abstract bool RemoveCatalogEntry(int catalogEntryIndex);
         public abstract string GetDiamondInfo(int catalogNumber);
+        public abstract float GetPriceOfCatalogItem(int catalogNumberOfItem);
+        public abstract int GetAmountOfCatalogItems();
 
         private class MyDataLayer : DataLayerAbstractAPI
         {
@@ -109,6 +111,14 @@ namespace Data
                 return DataContext.StorageState.Remove(DataContext.StorageState.ElementAt(catalogEntryIndex));
             }
             public override string GetDiamondInfo(int catalogNumber) => DataContext.Catalog[catalogNumber].ToString();
+            public override float GetPriceOfCatalogItem(int catalogNumberOfItem)
+            {
+                return DataContext.Catalog[catalogNumberOfItem].GetPrice();
+            }
+            public override int GetAmountOfCatalogItems()
+            {
+                return DataContext.Catalog.Count();
+            }
         }
     }
 }
