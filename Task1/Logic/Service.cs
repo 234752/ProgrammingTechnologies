@@ -54,12 +54,20 @@ namespace Logic
         }
         internal float CountRevenueFromSales()
         {
-            float revenue = 0;
-            for(int i=0; i<_dataLayer.GetCatalogSize(); i++)
+            try
             {
-                revenue += _dataLayer.GetSoldCount(i) * _dataLayer.GetPriceOfCatalogItem(i);
+                float revenue = 0;
+                for (int i = 0; i < _dataLayer.GetCatalogSize(); i++)
+                {
+                    revenue += _dataLayer.GetSoldCount(i) * _dataLayer.GetPriceOfCatalogItem(i);
+                }
+                return revenue;
             }
-            return revenue;
+            catch (Exception ex)
+            {
+                return 404;
+            }
+            
         }
     }
 }
