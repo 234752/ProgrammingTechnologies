@@ -1,6 +1,6 @@
-﻿using Data;
+﻿using Data.API;
 
-namespace Logic
+namespace Logic.API
 {
     public abstract class LogicLayerAbstractAPI
     {

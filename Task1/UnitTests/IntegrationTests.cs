@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Data;
-using Logic;
+using Data.API;
+using Logic.API;
 
 namespace UnitTests
 {

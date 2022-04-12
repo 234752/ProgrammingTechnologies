@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Data.DataGenerators;
 
-namespace Data
+namespace Data.API
 {
     public abstract class DataLayerAbstractAPI
     {
