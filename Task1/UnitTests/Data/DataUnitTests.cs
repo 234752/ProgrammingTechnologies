@@ -6,6 +6,7 @@ namespace UnitTests
     [TestClass]
     public class DataUnitTests
     {
+        /*
         [TestMethod]
         public void AddRemoveCustomer()
         {
@@ -90,6 +91,17 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 6);
             testedDataLayer.AddCatalogEntry(6, 1F, 2999.99F, 2,3);
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 7);
+        }
+        */
+        [TestMethod]
+        public void TestEmptyDataLayer()
+        {
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
+            testedDataLayer.InitializeCatalog();
+            testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1);
+            Assert.AreEqual(1, testedDataLayer.GetCatalogSize());
+            Assert.IsFalse(testedDataLayer.RemoveCatalogEntry(1));
+            Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
         }
 
     }
