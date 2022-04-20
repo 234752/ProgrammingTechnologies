@@ -3,15 +3,25 @@ using Data.DataGenerators;
 
 namespace Data.API
 {
+    public interface IGenerator
+    {
+        public void GenerateData();
+    }
     public abstract class DataLayerAbstractAPI
     {
         public abstract void InitializeCatalog();
-        public abstract void InitializeCatalogAndCustomers();
-        public abstract void InitializeEmpty();
 
-        public static DataLayerAbstractAPI CreateMyDataLayer()
+        public static DataLayerAbstractAPI CreateMyDataLayer(IGenerator generator = default(IGenerator))
         {
-            return new MyDataLayer();
+            return new MyDataLayer(generator == null ? DataLayerAbstractAPI.CreateEmptyGenerator() : generator);
+        }
+        public class EmptyGenerator : IGenerator
+        {
+            void IGenerator.GenerateData() { }
+        }
+        public static IGenerator CreateEmptyGenerator()
+        {
+            return new EmptyGenerator();
         }
         //CUSTOMER
         public abstract void AddCustomer(int id, string name);
@@ -43,17 +53,7 @@ namespace Data.API
             public DataContext DataContext { get; set; }
             public override void InitializeCatalog()
             {
-                DataContext = new DataContext(new CatalogGenerator());
-                DataContext.InitializeDataContext();
-            }
-            public override void InitializeCatalogAndCustomers()
-            {
-                DataContext = new DataContext(new CatalogAndCustomersGenerator());
-                DataContext.InitializeDataContext();
-            }
-            public override void InitializeEmpty()
-            {
-                DataContext = new DataContext(new EmptyGenerator());
+                DataContext = new DataContext();
                 DataContext.InitializeDataContext();
             }
             //CUSTOMER

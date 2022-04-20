@@ -1,20 +1,13 @@
-﻿namespace Data.DataGenerators
+﻿using Data.API;
+
+namespace Data.DataGenerators
 {
-    internal interface IGenerator
-    {
-        internal void GenerateData(DataContext context);
-    }
 
     internal class EmptyGenerator : IGenerator
     {
-        void IGenerator.GenerateData(DataContext context)
-        {
-            context.Customers = new List<Customer>();
-            context.StorageState = new List<StorageEntry>();
-            context.Events = new List<Event>();
-            context.Catalog = new Dictionary<int, Diamond>();
-        }
+        void IGenerator.GenerateData() { }
     }
+    /*
     internal class CatalogGenerator : IGenerator
     {
         void IGenerator.GenerateData(DataContext context)
@@ -69,5 +62,5 @@
             context.Customers.Add(new Customer(1, "Paul"));
             context.Customers.Add(new Customer(2, "Daniel"));
         }
-    }
+    }*/
 }
