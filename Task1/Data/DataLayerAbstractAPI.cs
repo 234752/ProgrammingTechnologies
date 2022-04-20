@@ -5,7 +5,7 @@ namespace Data.API
 {
     public interface IGenerator
     {
-        public void GenerateData();
+        public void GenerateData(DataLayerAbstractAPI dataLayer);
     }
     public abstract class DataLayerAbstractAPI
     {
@@ -14,10 +14,6 @@ namespace Data.API
         public static DataLayerAbstractAPI CreateMyDataLayer(IGenerator generator = default(IGenerator))
         {
             return new MyDataLayer(generator == null ? DataLayerAbstractAPI.CreateEmptyGenerator() : generator);
-        }
-        public class EmptyGenerator : IGenerator
-        {
-            void IGenerator.GenerateData() { }
         }
         public static IGenerator CreateEmptyGenerator()
         {
@@ -59,7 +55,7 @@ namespace Data.API
             public override void InitializeCatalog()
             {
                 DataContext = new DataContext();
-                _generator.GenerateData();
+                _generator.GenerateData(this);
             }
             //CUSTOMER
             public override void AddCustomer(int id, string name)

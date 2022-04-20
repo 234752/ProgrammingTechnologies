@@ -5,7 +5,7 @@ namespace Data.DataGenerators
 
     internal class EmptyGenerator : IGenerator
     {
-        void IGenerator.GenerateData() { }
+        void IGenerator.GenerateData(DataLayerAbstractAPI dataLayer) { }
     }
     /*
     internal class CatalogGenerator : IGenerator
