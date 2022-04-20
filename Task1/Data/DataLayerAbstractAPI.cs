@@ -50,11 +50,16 @@ namespace Data.API
 
         private class MyDataLayer : DataLayerAbstractAPI
         {
+            internal MyDataLayer(IGenerator generator)
+            {
+                _generator = generator;
+            }
+            private IGenerator _generator;
             public DataContext DataContext { get; set; }
             public override void InitializeCatalog()
             {
                 DataContext = new DataContext();
-                DataContext.InitializeDataContext();
+                _generator.GenerateData();
             }
             //CUSTOMER
             public override void AddCustomer(int id, string name)
