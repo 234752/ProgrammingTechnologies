@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Data.API;
 
-namespace UnitTests
+namespace UnitTests.Data
 {
     [TestClass]
     public class DataUnitTests
@@ -102,6 +102,19 @@ namespace UnitTests
             Assert.AreEqual(1, testedDataLayer.GetCatalogSize());
             Assert.IsFalse(testedDataLayer.RemoveCatalogEntry(1));
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
+        }
+        [TestMethod]
+        public void TestDataLayerWithCatalogGenerator()
+        {
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer(new CatalogGenerator());
+            testedDataLayer.InitializeCatalog();
+            Assert.ThrowsException<System.ArgumentException>(() => testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1));
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 0);
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
+            Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(1));
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 4);
+            testedDataLayer.AddCatalogEntry(1, 2F, 3898.99F, 1, 1);
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
         }
 
     }
