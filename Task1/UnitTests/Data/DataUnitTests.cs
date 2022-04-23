@@ -98,6 +98,13 @@ namespace UnitTests.Data
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
             testedDataLayer.InitializeCatalog();
+
+            //customers
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 0);
+            testedDataLayer.AddCustomer(4, "bob2");
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 1);
+
+            //catalog
             testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1);
             Assert.AreEqual(1, testedDataLayer.GetCatalogSize());
             Assert.IsFalse(testedDataLayer.RemoveCatalogEntry(1));
@@ -108,12 +115,37 @@ namespace UnitTests.Data
         {
             DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer(new CatalogGenerator());
             testedDataLayer.InitializeCatalog();
-            Assert.ThrowsException<System.ArgumentException>(() => testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1));
+
+            //customers
             Assert.AreEqual(testedDataLayer.GetCustomerCount(), 0);
+            testedDataLayer.AddCustomer(4, "bob2");
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 1);
+
+            //catalog
+            Assert.ThrowsException<System.ArgumentException>(() => testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1));
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(1));
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 4);
             testedDataLayer.AddCatalogEntry(1, 2F, 3898.99F, 1, 1);
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
+        }
+        [TestMethod]
+        public void TestCatalogAndCustomerGenerator()
+        {
+            DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer(new CatalogAndCustomersGenerator());
+            testedDataLayer.InitializeCatalog();
+
+            //customers
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 3);
+            testedDataLayer.AddCustomer(4, "bob2");
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 4);
+
+            //catalog
+            Assert.ThrowsException<System.ArgumentException>(() => testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1));
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
+            Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(1));
+            Assert.AreEqual(testedDataLayer.GetCatalogSize(), 4);
+            testedDataLayer.AddCatalogEntry(1, 1F, 2999.99F, 2, 3);
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
         }
 
