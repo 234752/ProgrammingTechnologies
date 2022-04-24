@@ -109,17 +109,30 @@ namespace UnitTests.Data
             Assert.AreEqual(1, testedDataLayer.GetCatalogSize());
             Assert.IsFalse(testedDataLayer.RemoveCatalogEntry(1));
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
+
+            //storage
             testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1);
             testedDataLayer.AddCatalogEntry(1, 2F, 3898.99F, 1, 1);
 
-            //storage
             testedDataLayer.AddStorageEntry(0);
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddStorageEntry(1);
-            testedDataLayer.AddStorageEntry(1);
+            testedDataLayer.AddStorageEntry(2);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(0), 1);
-            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);
+            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 2);
             Assert.IsTrue(testedDataLayer.RemoveStorageEntry(0));
+
+            //events
+            testedDataLayer.AddDeliveryEvent("09/04/2022", 0);
+            testedDataLayer.AddDeliveryEvent("11/04/2022", 1);
+            testedDataLayer.AddCustomer(0, "Paul");
+            testedDataLayer.AddSoldEvent("10/04/2022", 1, 0);
+            testedDataLayer.AddSoldEvent("11/04/2022", 2, 0);
+            Assert.AreEqual(testedDataLayer.GetEventCount(), 4);
+            Assert.AreEqual(testedDataLayer.GetDeliveryCount(1), 2);
+            Assert.AreEqual(testedDataLayer.GetSoldCount(1), 1);
+            Assert.AreEqual(testedDataLayer.GetSoldCount(2), 1);
+            Assert.IsTrue(testedDataLayer.RemoveEvent(1));
         }
         [TestMethod]
         public void TestDataLayerWithCatalogGenerator()
@@ -144,10 +157,22 @@ namespace UnitTests.Data
             testedDataLayer.AddStorageEntry(0);
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddStorageEntry(1);
-            testedDataLayer.AddStorageEntry(1);
+            testedDataLayer.AddStorageEntry(2);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(0), 1);
-            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);
+            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 2);
             Assert.IsTrue(testedDataLayer.RemoveStorageEntry(0));
+
+            //events
+            testedDataLayer.AddDeliveryEvent("09/04/2022", 0);
+            testedDataLayer.AddDeliveryEvent("11/04/2022", 1);
+            testedDataLayer.AddCustomer(0, "Paul");
+            testedDataLayer.AddSoldEvent("10/04/2022", 1, 0);
+            testedDataLayer.AddSoldEvent("11/04/2022", 2, 0);
+            Assert.AreEqual(testedDataLayer.GetEventCount(), 4);
+            Assert.AreEqual(testedDataLayer.GetDeliveryCount(1), 2);
+            Assert.AreEqual(testedDataLayer.GetSoldCount(1), 1);
+            Assert.AreEqual(testedDataLayer.GetSoldCount(2), 1);
+            Assert.IsTrue(testedDataLayer.RemoveEvent(1));
         }
         [TestMethod]
         public void TestCatalogAndCustomerGenerator()
@@ -172,10 +197,22 @@ namespace UnitTests.Data
             testedDataLayer.AddStorageEntry(0);
             testedDataLayer.AddStorageEntry(1);
             testedDataLayer.AddStorageEntry(1);
-            testedDataLayer.AddStorageEntry(1);
+            testedDataLayer.AddStorageEntry(2);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(0), 1);
-            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);
+            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 2);
             Assert.IsTrue(testedDataLayer.RemoveStorageEntry(0));
+
+            //events
+            testedDataLayer.AddDeliveryEvent("09/04/2022", 0);
+            testedDataLayer.AddDeliveryEvent("11/04/2022", 1);
+            testedDataLayer.AddCustomer(0, "Paul");
+            testedDataLayer.AddSoldEvent("10/04/2022", 1, 0);
+            testedDataLayer.AddSoldEvent("11/04/2022", 2, 0);
+            Assert.AreEqual(testedDataLayer.GetEventCount(), 4);
+            Assert.AreEqual(testedDataLayer.GetDeliveryCount(1), 2);
+            Assert.AreEqual(testedDataLayer.GetSoldCount(1), 1);
+            Assert.AreEqual(testedDataLayer.GetSoldCount(2), 1);
+            Assert.IsTrue(testedDataLayer.RemoveEvent(1));
         }
 
     }
