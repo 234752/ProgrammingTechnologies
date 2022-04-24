@@ -37,6 +37,18 @@ namespace Logic
                 return false;
             }
         }
+        internal bool AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
+        {
+            try
+            {
+                _dataLayer.AddCatalogEntry(catalogNumber, carat, price, quality, shape);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         internal bool RegisterDelivery(string date, int catalogNumberOfDeliveredProduct, int amount)
         {
             try

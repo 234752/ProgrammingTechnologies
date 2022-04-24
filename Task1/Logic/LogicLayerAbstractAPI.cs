@@ -11,6 +11,7 @@ namespace Logic.API
         public abstract bool AddCustomer(int id, string name);
         public abstract int GetCustomerCount();
         public abstract bool RemoveCustomer(int customerIndex);
+        public abstract bool AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
         public abstract bool RegisterDelivery(string date, int catalogNumberOfDeliveredProduct, int amount);
         public abstract bool RegisterSale(string date, int catalogNumberOfDesiredItem, int customerIndex);
         public abstract float CountRevenueFromSales();
@@ -39,6 +40,10 @@ namespace Logic.API
             public override bool RemoveCustomer(int customerIndex)
             {
                 return _service.RemoveCustomer(customerIndex);
+            }
+            public override bool AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
+            {
+                return _service.AddCatalogEntry(catalogNumber, carat, price, quality, shape);
             }
             public override bool RegisterDelivery(string date, int catalogNumberOfDeliveredProduct, int amount)
             {

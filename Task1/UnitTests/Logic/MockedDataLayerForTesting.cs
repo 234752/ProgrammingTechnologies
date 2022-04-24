@@ -1,8 +1,8 @@
 ﻿using Data.API;
 
-namespace UnitTests
+namespace UnitTests.Logic
 {
-    internal class FixtureDataLayerForTesting : DataLayerAbstractAPI
+    internal class MockedDataLayerForTesting : DataLayerAbstractAPI
     {
         internal int AddCatalogEntryC;
         internal int AddCustomerC;

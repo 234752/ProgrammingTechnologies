@@ -2,7 +2,7 @@
 using Logic.API;
 
 
-namespace UnitTests
+namespace UnitTests.Logic
 {
     [TestClass]
     public class LogicUnitTests
@@ -10,7 +10,7 @@ namespace UnitTests
         [TestMethod]
         public void TestDelivery()
         {
-            FixtureDataLayerForTesting fakeDataLayer = new FixtureDataLayerForTesting();
+            MockedDataLayerForTesting fakeDataLayer = new MockedDataLayerForTesting();
             LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(fakeDataLayer);
             testedLogicLayer.RegisterDelivery("12/12/2020", 1, 3);
             Assert.AreEqual(fakeDataLayer.AddStorageEntryC, 3);
@@ -20,7 +20,7 @@ namespace UnitTests
         [TestMethod]
         public void TestPurchase()
         {
-            FixtureDataLayerForTesting fakeDataLayer = new FixtureDataLayerForTesting();
+            MockedDataLayerForTesting fakeDataLayer = new MockedDataLayerForTesting();
             LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(fakeDataLayer);
             testedLogicLayer.RegisterSale("12/12/2020", 2, 0);
             Assert.AreEqual(fakeDataLayer.RemoveStorageEntryC, 1);
@@ -30,7 +30,7 @@ namespace UnitTests
         [TestMethod]
         public void TestRevenue()
         {
-            FixtureDataLayerForTesting fakeDataLayer = new FixtureDataLayerForTesting();
+            MockedDataLayerForTesting fakeDataLayer = new MockedDataLayerForTesting();
             LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(fakeDataLayer);
             testedLogicLayer.RegisterDelivery("12/12/2020", 0, 3);
 
@@ -46,7 +46,7 @@ namespace UnitTests
         [TestMethod]
         public void TestRemoveAddCustomer()
         {
-            FixtureDataLayerForTesting fakeDataLayer = new FixtureDataLayerForTesting();
+            MockedDataLayerForTesting fakeDataLayer = new MockedDataLayerForTesting();
             LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(fakeDataLayer);
             testedLogicLayer.RegisterDelivery("12/12/2020", 0, 3);
 

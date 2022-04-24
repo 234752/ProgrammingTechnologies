@@ -13,8 +13,8 @@ namespace UnitTests.Data
             dataLayer.AddCatalogEntry(4, 3F, 1999.99F, 4, 4);
 
             dataLayer.AddCustomer(0, "Bob");
-            dataLayer.AddCustomer(0, "Paul");
-            dataLayer.AddCustomer(0, "Daniel");
+            dataLayer.AddCustomer(1, "Paul");
+            dataLayer.AddCustomer(2, "Daniel");
         }
     }
 }
