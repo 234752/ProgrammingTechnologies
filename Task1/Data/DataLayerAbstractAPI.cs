@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using Data.DataGenerators;
-
-namespace Data.API
+﻿namespace Data.API
 {
     public interface IGenerator
     {

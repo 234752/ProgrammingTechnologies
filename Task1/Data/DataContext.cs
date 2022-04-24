@@ -1,6 +1,4 @@
-﻿using Data.API;
-
-namespace Data
+﻿namespace Data
 {
     internal class DataContext
     {
