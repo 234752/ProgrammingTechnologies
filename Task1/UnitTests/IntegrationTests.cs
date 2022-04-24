@@ -29,8 +29,6 @@ namespace UnitTests
         [TestMethod]
         public void TestRevenue()
         {
-            //DataLayerAbstractAPI testedDataLayer = DataLayerAbstractAPI.CreateMyDataLayer();
-            //testedDataLayer.InitializeCatalog();
             LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer();
             testedLogicLayer.AddCatalogEntry(0, 1F, 1999.99F, 2, 2);
             testedLogicLayer.AddCatalogEntry(1, 1F, 3999.99F, 1, 1);
