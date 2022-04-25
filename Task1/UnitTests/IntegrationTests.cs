@@ -18,15 +18,16 @@ namespace UnitTests
             testedLogicLayer.AddCatalogEntry(4, 1F, 3999.99F, 1, 1);
             testedLogicLayer.RegisterDelivery("12/12/2020", 1, 3);
             testedLogicLayer.RegisterDelivery("13/12/2020", 3, 2);
-            Assert.AreEqual(testedDataLayer.GetAmountOfAllItems(), 5);
+            testedLogicLayer.RegisterDelivery("13/12/2020", 4, 1);
+            Assert.AreEqual(testedDataLayer.GetAmountOfAllItems(), 6);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(3), 2);
             Assert.IsTrue(testedLogicLayer.AddCustomer(0, "BOB"));
             testedLogicLayer.RegisterSale("14/12/2020", 3, 0);
-            Assert.AreEqual(testedDataLayer.GetAmountOfAllItems(), 4);
+            Assert.AreEqual(testedDataLayer.GetAmountOfAllItems(), 5);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(3), 1);
-            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(4), 0);
+            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(4), 1);
         }
         [TestMethod]
         public void TestRevenue()
