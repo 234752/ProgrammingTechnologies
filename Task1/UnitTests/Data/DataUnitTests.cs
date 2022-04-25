@@ -15,7 +15,8 @@ namespace UnitTests.Data
             //customers
             Assert.AreEqual(testedDataLayer.GetCustomerCount(), 0);
             testedDataLayer.AddCustomer(4, "bob2");
-            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 1);
+            testedDataLayer.AddCustomer(4, "bob3");
+            Assert.AreEqual(testedDataLayer.GetCustomerCount(), 2);
 
             //catalog
             testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1);
