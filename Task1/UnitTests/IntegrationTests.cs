@@ -15,6 +15,7 @@ namespace UnitTests
             LogicLayerAbstractAPI testedLogicLayer = LogicLayerAbstractAPI.CreateMyLogicLayer(testedDataLayer);
             testedLogicLayer.AddCatalogEntry(1, 1F, 1999.99F, 2, 2);
             testedLogicLayer.AddCatalogEntry(3, 1F, 3999.99F, 1, 1);
+            testedLogicLayer.AddCatalogEntry(4, 1F, 3999.99F, 1, 1);
             testedLogicLayer.RegisterDelivery("12/12/2020", 1, 3);
             testedLogicLayer.RegisterDelivery("13/12/2020", 3, 2);
             Assert.AreEqual(testedDataLayer.GetAmountOfAllItems(), 5);
@@ -25,6 +26,7 @@ namespace UnitTests
             Assert.AreEqual(testedDataLayer.GetAmountOfAllItems(), 4);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(1), 3);
             Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(3), 1);
+            Assert.AreEqual(testedDataLayer.GetAmountOfCatalogItem(4), 0);
         }
         [TestMethod]
         public void TestRevenue()
