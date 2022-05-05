@@ -37,7 +37,7 @@ namespace Logic
                 return false;
             }
         }
-        internal bool AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
+        internal bool AddCatalogEntry(int catalogNumber, decimal carat, decimal price, int quality, int shape)
         {
             try
             {
@@ -80,11 +80,11 @@ namespace Logic
             }
             return true;
         }
-        internal float CountRevenueFromSales()
+        internal decimal CountRevenueFromSales()
         {
             try
             {
-                float revenue = 0;
+                decimal revenue = 0;
                 for (int i = 0; i < _dataLayer.GetCatalogSize(); i++)
                 {
                     revenue += _dataLayer.GetSoldCount(i) * _dataLayer.GetPriceOfCatalogItem(i);

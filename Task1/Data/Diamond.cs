@@ -6,12 +6,12 @@
 
     internal class Diamond 
     {
-        private float Carat { get; set; }
-        private float Price { get; set; }
+        private decimal Carat { get; set; }
+        private decimal Price { get; set; }
         private QualityValue Quality { get; set; }
 		private ShapeValue Shape { get; set;}
 
-        internal Diamond(float carat, float price, QualityValue quality, ShapeValue shape)
+        internal Diamond(decimal carat, decimal price, QualityValue quality, ShapeValue shape)
         {
             Carat = carat;
             Price = price;
@@ -22,7 +22,7 @@
         {
             return "Carat: " + Carat + ", Price: " + Price + ", Quality: " + Quality + ", Shape: " + Shape;
         }
-        internal float GetPrice()
+        internal decimal GetPrice()
         {
             return Price;
         }

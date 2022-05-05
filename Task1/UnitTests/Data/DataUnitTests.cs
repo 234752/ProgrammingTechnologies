@@ -19,14 +19,14 @@ namespace UnitTests.Data
             Assert.AreEqual(testedDataLayer.GetCustomerCount(), 2);
 
             //catalog
-            testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1);
+            testedDataLayer.AddCatalogEntry(0, 2M, 3898.99M, 1, 1);
             Assert.AreEqual(1, testedDataLayer.GetCatalogSize());
             Assert.IsFalse(testedDataLayer.RemoveCatalogEntry(1));
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(0));
 
             //storage
-            testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1);
-            testedDataLayer.AddCatalogEntry(1, 2F, 3898.99F, 1, 1);
+            testedDataLayer.AddCatalogEntry(0, 2M, 3898.99M, 1, 1);
+            testedDataLayer.AddCatalogEntry(1, 2M, 3898.99M, 1, 1);
 
             testedDataLayer.AddStorageEntry(0);
             testedDataLayer.AddStorageEntry(1);
@@ -60,11 +60,11 @@ namespace UnitTests.Data
             Assert.AreEqual(testedDataLayer.GetCustomerCount(), 1);
 
             //catalog
-            Assert.ThrowsException<System.ArgumentException>(() => testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1));
+            Assert.ThrowsException<System.ArgumentException>(() => testedDataLayer.AddCatalogEntry(0, 2M, 3898.99M, 1, 1));
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(1));
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 4);
-            testedDataLayer.AddCatalogEntry(1, 2F, 3898.99F, 1, 1);
+            testedDataLayer.AddCatalogEntry(1, 2M, 3898.99M, 1, 1);
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
 
             //storage
@@ -100,11 +100,11 @@ namespace UnitTests.Data
             Assert.AreEqual(testedDataLayer.GetCustomerCount(), 4);
 
             //catalog
-            Assert.ThrowsException<System.ArgumentException>(() => testedDataLayer.AddCatalogEntry(0, 2F, 3898.99F, 1, 1));
+            Assert.ThrowsException<System.ArgumentException>(() => testedDataLayer.AddCatalogEntry(0, 2M, 3898.99M, 1, 1));
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
             Assert.IsTrue(testedDataLayer.RemoveCatalogEntry(1));
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 4);
-            testedDataLayer.AddCatalogEntry(1, 1F, 2999.99F, 2, 3);
+            testedDataLayer.AddCatalogEntry(1, 1M, 2999.99M, 2, 3);
             Assert.AreEqual(testedDataLayer.GetCatalogSize(), 5);
 
             //storage

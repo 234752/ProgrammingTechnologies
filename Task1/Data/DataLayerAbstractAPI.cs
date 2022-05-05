@@ -35,10 +35,10 @@
         public abstract int GetDeliveryCount(int catalogNumberOfItem);
         public abstract int GetSoldCount(int catalogNumberOfItem);
         //CATALOG
-        public abstract void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
+        public abstract void AddCatalogEntry(int catalogNumber, decimal carat, decimal price, int quality, int shape);
         public abstract bool RemoveCatalogEntry(int catalogEntryIndex);
         public abstract string GetDiamondInfo(int catalogNumber);
-        public abstract float GetPriceOfCatalogItem(int catalogNumberOfItem);
+        public abstract decimal GetPriceOfCatalogItem(int catalogNumberOfItem);
         public abstract int GetCatalogSize();
 
         private class MyDataLayer : DataLayerAbstractAPI
@@ -119,7 +119,7 @@
                 return DataContext.Events.Count(ev => ev.GetEventType() == "Sold" && ev.GetCatalogNumberOfEntry() == catalogNumberOfItem);
             }
             //CATALOG
-            public override void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
+            public override void AddCatalogEntry(int catalogNumber, decimal carat, decimal price, int quality, int shape)
             {
                 DataContext.Catalog.Add(catalogNumber, new Diamond(carat, price, (QualityValue)quality, (ShapeValue)shape));
             }
@@ -128,7 +128,7 @@
                 return DataContext.Catalog.Remove(catalogEntryIndex);
             }
             public override string GetDiamondInfo(int catalogNumber) => DataContext.Catalog[catalogNumber].ToString();
-            public override float GetPriceOfCatalogItem(int catalogNumberOfItem)
+            public override decimal GetPriceOfCatalogItem(int catalogNumberOfItem)
             {
                 return DataContext.Catalog[catalogNumberOfItem].GetPrice();
             }

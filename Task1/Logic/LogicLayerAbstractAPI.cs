@@ -11,10 +11,10 @@ namespace Logic.API
         public abstract bool AddCustomer(int id, string name);
         public abstract int GetCustomerCount();
         public abstract bool RemoveCustomer(int customerIndex);
-        public abstract bool AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape);
+        public abstract bool AddCatalogEntry(int catalogNumber, decimal carat, decimal price, int quality, int shape);
         public abstract bool RegisterDelivery(string date, int catalogNumberOfDeliveredProduct, int amount);
         public abstract bool RegisterSale(string date, int catalogNumberOfDesiredItem, int customerIndex);
-        public abstract float CountRevenueFromSales();
+        public abstract decimal CountRevenueFromSales();
 
         private class MyLogicLayer : LogicLayerAbstractAPI
         {
@@ -41,7 +41,7 @@ namespace Logic.API
             {
                 return _service.RemoveCustomer(customerIndex);
             }
-            public override bool AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
+            public override bool AddCatalogEntry(int catalogNumber, decimal carat, decimal price, int quality, int shape)
             {
                 return _service.AddCatalogEntry(catalogNumber, carat, price, quality, shape);
             }
@@ -53,7 +53,7 @@ namespace Logic.API
             {
                 return _service.RegisterSale(date, catalogNumberOfDesiredItem, customerIndex);
             }
-            public override float CountRevenueFromSales()
+            public override decimal CountRevenueFromSales()
             {
                 return _service.CountRevenueFromSales();
             }

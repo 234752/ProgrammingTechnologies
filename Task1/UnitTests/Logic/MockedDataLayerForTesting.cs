@@ -26,7 +26,7 @@ namespace UnitTests.Logic
         internal int GetPriceOfCatalogItemC;
         internal int IsCustomerIdFreeC;
 
-        public override void AddCatalogEntry(int catalogNumber, float carat, float price, int quality, int shape)
+        public override void AddCatalogEntry(int catalogNumber, decimal carat, decimal price, int quality, int shape)
         {
             AddCatalogEntryC++;
         }
@@ -93,7 +93,7 @@ namespace UnitTests.Logic
             return AddDeliveryEventC + AddSoldEventC;
         }
 
-        public override float GetPriceOfCatalogItem(int catalogNumberOfItem)
+        public override decimal GetPriceOfCatalogItem(int catalogNumberOfItem)
         {
             GetPriceOfCatalogItemC++;
             return 1;
