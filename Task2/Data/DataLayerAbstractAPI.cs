@@ -35,7 +35,7 @@
         public abstract int GetDeliveryCount(int catalogNumberOfItem);
         public abstract int GetSoldCount(int catalogNumberOfItem);
         //CATALOG
-        public abstract void AddCatalogEntry(int catalogNumber, decimal carat, decimal price, int quality, int shape);
+        public abstract void AddCatalogEntry(int catalogNumber, decimal price, string quality);
         public abstract bool RemoveCatalogEntry(int catalogEntryIndex);
         public abstract string GetDiamondInfo(int catalogNumber);
         public abstract decimal GetPriceOfCatalogItem(int catalogNumberOfItem);
@@ -119,9 +119,9 @@
                 return DataContext.Events.Count(ev => ev.GetEventType() == "Sold" && ev.GetCatalogNumberOfEntry() == catalogNumberOfItem);
             }
             //CATALOG
-            public override void AddCatalogEntry(int catalogNumber, decimal carat, decimal price, int quality, int shape)
+            public override void AddCatalogEntry(int catalogNumber, decimal price, string quality)
             {
-                DataContext.Catalog.Add(catalogNumber, new Diamond(carat, price, (QualityValue)quality, (ShapeValue)shape));
+                DataContext.Catalog.Add(catalogNumber, new Diamond(price, quality));
             }
             public override bool RemoveCatalogEntry(int catalogEntryIndex)
             {

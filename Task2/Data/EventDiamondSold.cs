@@ -6,7 +6,7 @@
 
         internal EventDiamondSold(string date, StorageEntry entry, Customer customer)
         {
-            DateTime = date;
+            Date = date;
             Entry = entry;
             _customer = customer;
         }

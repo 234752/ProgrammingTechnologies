@@ -4,7 +4,7 @@
     {
         internal EventDiamondDelivery(string date, StorageEntry entry)
         {
-            DateTime = date;
+            Date = date;
             Entry = entry;
         }
         internal override string GetEventType()
