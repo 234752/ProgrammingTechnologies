@@ -22,7 +22,7 @@ namespace Presentation.Views
     {
         public CustomerView()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
     }
 }

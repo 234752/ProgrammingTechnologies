@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentation.Views"
-        xmlns:vm="clr-namespace:Presentation.ViewModel"
+        xmlns:VM="clr-namespace:Presentation.ViewModel"
         mc:Ignorable="d"
         Height="450" Width="800">
     <UserControl.DataContext>
-        <vm:CustomerViewModel />
+        <VM:CustomerViewModel />
     </UserControl.DataContext>
     <Grid>
         <TextBox x:Name="CustomerIdTB" HorizontalAlignment="Left" Margin="112,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" Height="62" Text="{Binding Id}"/>
