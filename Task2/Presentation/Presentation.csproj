@@ -59,10 +59,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\Diamond.cs" />
-    <Compile Include="Model\Event.cs" />
-    <Compile Include="View\MainView.xaml.cs">
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\DataModel.cs" />
+    <Compile Include="Models\DiamondModel.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -93,7 +94,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\MainView.xaml">
+    <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

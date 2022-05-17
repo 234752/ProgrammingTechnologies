@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Presentation.Model
+namespace Presentation.Models
 {
-    internal class Diamond
+    internal class DiamondModel
     {
         internal int Id { get; set; }
         internal string Name { get; set; }
