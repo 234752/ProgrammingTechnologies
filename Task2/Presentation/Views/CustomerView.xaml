@@ -12,6 +12,8 @@
     </Window.DataContext>
     <Grid>
         <TextBox x:Name="CustomerIdTB" HorizontalAlignment="Left" Margin="112,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" Height="62" Text="{Binding Id}"/>
+        <TextBox x:Name="CustomerFirstNameTB" HorizontalAlignment="Left" Margin="280,162,0,0" TextWrapping="Wrap" Text="{Binding FirstName}" VerticalAlignment="Top" Width="120" Height="48"/>
+        <TextBox x:Name="CustomerLastNameTB" HorizontalAlignment="Left" Margin="454,162,0,0" TextWrapping="Wrap" Text="{Binding LastName}" VerticalAlignment="Top" Width="120" Height="55"/>
 
     </Grid>
 </Window>

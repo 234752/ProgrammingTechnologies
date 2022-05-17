@@ -11,10 +11,14 @@ namespace Presentation.ViewModel
     {
         
         private DataModel model = new DataModel();
-        private int _Id = 7;
+        private int _Id;
+        private string _FirstName;
+        private string _LastName;
         public CustomerViewModel()
         {
-            Id = model.Customers.ElementAt(1).Id;
+            _Id = model.Customers.ElementAt(0).Id;
+            _FirstName = model.Customers.ElementAt(0).FirstName;
+            _LastName = model.Customers.ElementAt(0).LastName;
         }
 
         public int Id 
@@ -28,5 +32,28 @@ namespace Presentation.ViewModel
                 _Id = value;
             }
         }
+        public string FirstName
+        { 
+            get 
+            { 
+                return _FirstName; 
+            } 
+            set 
+            { 
+                _FirstName = value; 
+            } 
+        }
+        public string LastName
+        {
+            get
+            {
+                return _LastName;
+            }
+            set
+            {
+                _LastName = value;
+            }
+        }
+
     }
 }
