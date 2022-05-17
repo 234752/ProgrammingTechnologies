@@ -62,11 +62,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.cs" />
+    <Compile Include="DataContext.cs" />
+    <Compile Include="Diamond.cs" />
+    <Compile Include="Event.cs" />
+    <Compile Include="EventDiamondDelivery.cs" />
+    <Compile Include="EventDiamondSold.cs" />
     <Compile Include="LINQtoSQL.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LINQtoSQL.dbml</DependentUpon>
     </Compile>
+    <Compile Include="StorageEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
