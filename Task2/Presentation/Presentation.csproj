@@ -64,6 +64,7 @@
     <Compile Include="Models\DiamondModel.cs" />
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Views\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>

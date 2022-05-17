@@ -20,7 +20,6 @@ namespace Presentation.ViewModel
             _FirstName = model.Customers.ElementAt(0).FirstName;
             _LastName = model.Customers.ElementAt(0).LastName;
         }
-
         public int Id 
         { 
             get 

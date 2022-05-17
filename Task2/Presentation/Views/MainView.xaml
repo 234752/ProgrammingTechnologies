@@ -4,9 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentation.View"
+        xmlns:VM="clr-namespace:Presentation.ViewModel"
+        xmlns:VIEW="clr-namespace:Presentation.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
+        Title="MainView" Height="700" Width="1200">
+    <Window.DataContext>
+        <VM:MainViewModel />
+    </Window.DataContext>
     <Grid>
-        
+        <Grid Grid.Column="2" Grid.Row="4" Margin="220.6,26.2,112,244.2" Grid.ColumnSpan="2" >
+            <ContentControl Content="{Binding InnerView}"/>
+        </Grid>
+
     </Grid>
 </Window>
