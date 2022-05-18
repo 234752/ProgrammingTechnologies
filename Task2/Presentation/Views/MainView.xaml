@@ -12,8 +12,11 @@
         <VM:MainViewModel />
     </Window.DataContext>
     <Grid>
-        <Grid Margin="100,30,100,240" >
-            <ContentControl Content="{Binding InnerView}" />
+        <Grid Margin="100,30,100,342" >
+            <ContentControl Content="{Binding InnerView}"  />
+        </Grid>
+        <Grid Margin="100,342,100,95" >
+            <ContentControl Content="{Binding InnerView2}"  />
         </Grid>
 
     </Grid>
