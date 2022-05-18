@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,13 @@ namespace Presentation.ViewModel
     internal class CustomerListViewModel
     {
         private DataModel model = new DataModel();
-        private List<String> _Customers = new List<string>() { "customer1", "customer2" };
+        private ObservableCollection<CustomerModel> _Customers = new ObservableCollection<CustomerModel>();
 
         public CustomerListViewModel()
         {
-           
+            _Customers = new ObservableCollection<CustomerModel>(model.Customers);
         }
-        public List<String> Customers
+        public ObservableCollection<CustomerModel> Customers
         {
             get
             {

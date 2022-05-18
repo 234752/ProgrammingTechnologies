@@ -5,21 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Presentation.Views"
              xmlns:VM="clr-namespace:Presentation.ViewModel"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" d:DesignWidth="800" Height="241">
     <UserControl.DataContext>
         <VM:CustomerListViewModel />
     </UserControl.DataContext>
-    <Grid>
-        <ListView d:ItemsSource="{Binding Customers}" Margin="28,188,48,51">
+    <Grid Height="225" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
+        <ListView 
+                  ItemsSource="{Binding Customers}" >
+
             <ListView.View>
-                <GridView ColumnHeaderToolTip="id">
-                    <GridViewColumn DisplayMemberBinding="{Binding}">
-                        
-                    </GridViewColumn>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="250" />
+                    <GridViewColumn Header="Name" Width="250"/>
+                    <GridViewColumn Header="Surname" Width="250"/>
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </UserControl>

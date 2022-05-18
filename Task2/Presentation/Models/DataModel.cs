@@ -15,7 +15,8 @@ namespace Presentation.Models
                 List<CustomerModel> Customers = new List<CustomerModel>()
                 {
                     new CustomerModel() { Id = 1, FirstName = "Bob", LastName = "Bob's last name" },
-                    new CustomerModel() { Id = 2, FirstName = "Bob2", LastName = "Bob2's last name" }
+                    new CustomerModel() { Id = 2, FirstName = "Bob2", LastName = "Bob2's last name" },
+                    new CustomerModel() { Id = 3, FirstName = "Bob3", LastName = "Bob3's last name" }
                 };
                 return Customers;
             }
