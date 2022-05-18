@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Presentation.ViewModel.MVVMLight
+namespace Presentation.ViewModels.MVVMLight
 {
     public class RelayCommand : ICommand
     {

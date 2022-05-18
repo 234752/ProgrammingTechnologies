@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Presentation.Views;
 
-namespace Presentation.ViewModel
+namespace Presentation.ViewModels
 {
     public class MainViewModel
     {

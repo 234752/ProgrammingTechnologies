@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Presentation.Models;
+using Presentation.ViewModels.MVVMLight;
 
-namespace Presentation.ViewModel
+namespace Presentation.ViewModels
 {
-    public class CustomerListViewModel
+    public class CustomerListViewModel : ViewModelBase
     {
         private DataModel model = new DataModel();
         private ObservableCollection<CustomerModel> _Customers = new ObservableCollection<CustomerModel>();

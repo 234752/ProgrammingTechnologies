@@ -63,10 +63,11 @@
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\DiamondModel.cs" />
     <Compile Include="Models\EventModel.cs" />
-    <Compile Include="ViewModel\CustomerListViewModel.cs" />
-    <Compile Include="ViewModel\CustomerViewModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\MVVMLight\RelayCommand.cs" />
+    <Compile Include="ViewModels\CustomerListViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MVVMLight\RelayCommand.cs" />
+    <Compile Include="ViewModels\MVVMLight\ViewModelBase.cs" />
     <Compile Include="Views\CustomerListView.xaml.cs">
       <DependentUpon>CustomerListView.xaml</DependentUpon>
     </Compile>

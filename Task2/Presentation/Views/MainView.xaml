@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentation.Views"
-        xmlns:VM="clr-namespace:Presentation.ViewModel"
+        xmlns:VM="clr-namespace:Presentation.ViewModels"
         mc:Ignorable="d"
         Title="MainView" Height="700" Width="1200">
     <Window.DataContext>
