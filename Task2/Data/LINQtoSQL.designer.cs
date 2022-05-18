@@ -22,6 +22,7 @@ namespace Data
 	using System;
 	
 	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DiamondShop")]
 	public partial class LINQtoSQLDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -53,6 +54,112 @@ namespace Data
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Customer> Customers
+		{
+			get
+			{
+				return this.GetTable<Customer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Diamond> Diamonds
+		{
+			get
+			{
+				return this.GetTable<Diamond>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customers")]
+	public partial class Customer
+	{
+		
+		private System.Nullable<int> _CustomerID;
+		
+		private string _FirstName;
+		
+		public Customer()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerID", DbType="Int")]
+		public System.Nullable<int> CustomerID
+		{
+			get
+			{
+				return this._CustomerID;
+			}
+			set
+			{
+				if ((this._CustomerID != value))
+				{
+					this._CustomerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(255)")]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Diamonds")]
+	public partial class Diamond
+	{
+		
+		private System.Nullable<decimal> _Price;
+		
+		private string _Quality;
+		
+		public Diamond()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this._Price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quality", DbType="VarChar(255)")]
+		public string Quality
+		{
+			get
+			{
+				return this._Quality;
+			}
+			set
+			{
+				if ((this._Quality != value))
+				{
+					this._Quality = value;
+				}
+			}
 		}
 	}
 }
