@@ -4,13 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Presentation.Views"
+             xmlns:VM="clr-namespace:Presentation.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <VM:CustomerListViewModel />
+    </UserControl.DataContext>
     <Grid>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,188,38,51">
+        <ListView d:ItemsSource="{Binding Customers}" Margin="28,188,48,51">
             <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
+                <GridView ColumnHeaderToolTip="id">
+                    <GridViewColumn DisplayMemberBinding="{Binding}">
+                        
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

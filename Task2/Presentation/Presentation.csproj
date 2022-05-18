@@ -63,6 +63,7 @@
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\DiamondModel.cs" />
     <Compile Include="Models\EventModel.cs" />
+    <Compile Include="ViewModel\CustomerListViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Views\CustomerListView.xaml.cs">
