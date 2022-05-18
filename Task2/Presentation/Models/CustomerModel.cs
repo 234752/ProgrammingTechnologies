@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Presentation.Models
 {
-    internal class CustomerModel
+    public class CustomerModel
     {
-        internal int Id { get; set; }
-        internal string FirstName { get; set; }
-        internal string LastName { get; set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public override string ToString()
         {
             return Id + "  " + FirstName + "  " + LastName;

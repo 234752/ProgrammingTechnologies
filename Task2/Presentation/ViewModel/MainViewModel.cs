@@ -7,7 +7,7 @@ using Presentation.Views;
 
 namespace Presentation.ViewModel
 {
-    internal class MainViewModel
+    public class MainViewModel
     {
         private CustomerListView _InnerView;
         public MainViewModel()

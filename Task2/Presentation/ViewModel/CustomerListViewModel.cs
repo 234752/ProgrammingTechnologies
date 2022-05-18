@@ -8,7 +8,7 @@ using Presentation.Models;
 
 namespace Presentation.ViewModel
 {
-    internal class CustomerListViewModel
+    public class CustomerListViewModel
     {
         private DataModel model = new DataModel();
         private ObservableCollection<CustomerModel> _Customers = new ObservableCollection<CustomerModel>();

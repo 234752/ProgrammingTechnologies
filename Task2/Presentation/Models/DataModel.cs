@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.Models
 {
-    internal class DataModel
+    public class DataModel
     {
         public IEnumerable<CustomerModel> Customers
         {

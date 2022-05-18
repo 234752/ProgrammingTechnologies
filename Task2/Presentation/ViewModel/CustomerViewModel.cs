@@ -7,7 +7,7 @@ using Presentation.Models;
 
 namespace Presentation.ViewModel
 {
-    internal class CustomerViewModel
+    public class CustomerViewModel
     {
         
         private DataModel model = new DataModel();

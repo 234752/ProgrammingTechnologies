@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Presentation.Models
 {
-    internal class DiamondModel
+    public class DiamondModel
     {
-        internal int Id { get; set; }
-        internal string Name { get; set; }
-        internal string Quality { get; set; }
-        internal decimal Price { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Quality { get; set; }
+        public decimal Price { get; set; }
 
         public override string ToString()
         {
