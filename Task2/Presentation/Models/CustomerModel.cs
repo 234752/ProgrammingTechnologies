@@ -13,7 +13,7 @@ namespace Presentation.Models
         internal string LastName { get; set; }
         public override string ToString()
         {
-            return Id + " " + FirstName + " " + LastName;
+            return Id + "  " + FirstName + "  " + LastName;
         }
     }
 }
