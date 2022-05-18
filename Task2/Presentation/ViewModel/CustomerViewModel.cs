@@ -14,12 +14,13 @@ namespace Presentation.ViewModel
         private int _Id;
         private string _FirstName;
         private string _LastName;
-        public CustomerViewModel()
+        public CustomerViewModel(int id, string first, string last)
         {
-            _Id = model.Customers.ElementAt(0).Id;
-            _FirstName = model.Customers.ElementAt(0).FirstName;
-            _LastName = model.Customers.ElementAt(0).LastName;
+            _Id = id;
+            _FirstName = first;
+            _LastName = last;
         }
+        public CustomerViewModel() { }
         public int Id 
         { 
             get 

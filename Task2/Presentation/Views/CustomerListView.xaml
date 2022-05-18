@@ -19,7 +19,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <local:CustomerView Margin="-75,336,-75,-186">
+        <local:CustomerView Margin="-75,336,-75,-186" DataContext="{Binding CurrentCustomer}">
             
         </local:CustomerView>
     </Grid>
