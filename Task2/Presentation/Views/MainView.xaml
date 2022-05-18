@@ -12,11 +12,7 @@
     </Window.DataContext>
     <Grid>
         <Grid>
-            <ContentControl Content="{Binding InnerView2}" Margin="0,0,0,342"  />
-        </Grid>
-        <Grid>
-            <ContentControl Content="{Binding InnerView}" Margin="0,446,0,0"  />
-        </Grid>
-
+            <ContentControl Content="{Binding InnerView}" Margin="0,0,0,184"  />
+        </Grid>       
     </Grid>
 </Window>

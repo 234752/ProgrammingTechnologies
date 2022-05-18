@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Presentation.Views"
              xmlns:VM="clr-namespace:Presentation.ViewModel"
-             mc:Ignorable="d" d:DesignWidth="350" Height="250">
+             mc:Ignorable="d" d:DesignWidth="800" Height="500">
     <UserControl.DataContext>
         <VM:CustomerListViewModel />
     </UserControl.DataContext>
@@ -19,5 +19,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <local:CustomerView Margin="-75,336,-75,-186">
+            
+        </local:CustomerView>
     </Grid>
 </UserControl>

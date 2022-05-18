@@ -9,14 +9,11 @@ namespace Presentation.ViewModel
 {
     internal class MainViewModel
     {
-        private CustomerView _InnerView;
-        private CustomerListView _InnerView2;
+        private CustomerListView _InnerView;
         public MainViewModel()
         {
-            _InnerView = new CustomerView();
-            _InnerView2 = new CustomerListView();
+            _InnerView = new CustomerListView();
         }
-        public CustomerView InnerView { get { return _InnerView; } set { _InnerView = value; } }
-        public CustomerListView InnerView2 { get { return _InnerView2; } set { _InnerView2 = value; } }
+        public CustomerListView InnerView { get { return _InnerView; } set { _InnerView = value; } }
     }
 }
