@@ -12,15 +12,19 @@ namespace Presentation.ViewModels
     public class CustomerListViewModel : ViewModelBase
     {
         private DataModel model = new DataModel();
-        private ObservableCollection<CustomerModel> _Customers = new ObservableCollection<CustomerModel>();
+        private ObservableCollection<CustomerViewModel> _Customers = new ObservableCollection<CustomerViewModel>();
         private CustomerViewModel _CurrentCustomer;
-
+        
         public CustomerListViewModel()
         {
-            _Customers = new ObservableCollection<CustomerModel>(model.Customers);
+            _Customers = new ObservableCollection<CustomerViewModel>();
+            foreach(CustomerModel customer in model.Customers)
+            {
+                _Customers.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName));
+            }
             _CurrentCustomer = new CustomerViewModel(model.Customers.ElementAt(2).Id, model.Customers.ElementAt(2).FirstName, model.Customers.ElementAt(2).LastName);
         }
-        public ObservableCollection<CustomerModel> Customers
+        public ObservableCollection<CustomerViewModel> Customers
         {
             get
             {

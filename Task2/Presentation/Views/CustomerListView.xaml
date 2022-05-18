@@ -11,11 +11,14 @@
     </UserControl.DataContext>
     <Grid Height="250" VerticalAlignment="Top" HorizontalAlignment="Center" Width="350">
         <ListView 
-                  ItemsSource="{Binding Customers}" >
+                  ItemsSource="{Binding Customers}" 
+            >
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Customers" Width="300" />
+                    <GridViewColumn Header="id" Width="100" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="first" Width="100" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="last" Width="100" DisplayMemberBinding="{Binding LastName}"/>
                 </GridView>
             </ListView.View>
         </ListView>
