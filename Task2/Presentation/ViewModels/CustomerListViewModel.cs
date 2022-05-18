@@ -21,8 +21,7 @@ namespace Presentation.ViewModels
             foreach(CustomerModel customer in model.Customers)
             {
                 _Customers.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName));
-            }
-            _CurrentCustomer = new CustomerViewModel(model.Customers.ElementAt(2).Id, model.Customers.ElementAt(2).FirstName, model.Customers.ElementAt(2).LastName);
+            }            
         }
         public ObservableCollection<CustomerViewModel> Customers
         {
@@ -44,6 +43,7 @@ namespace Presentation.ViewModels
             set
             {
                 _CurrentCustomer = value;
+                RaisePropertyChanged(nameof(CurrentCustomer));
             }
         }
     }

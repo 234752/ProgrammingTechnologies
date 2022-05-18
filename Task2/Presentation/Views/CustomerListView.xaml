@@ -12,6 +12,7 @@
     <Grid Height="250" VerticalAlignment="Top" HorizontalAlignment="Center" Width="350">
         <ListView 
                   ItemsSource="{Binding Customers}" 
+            SelectedItem="{Binding CurrentCustomer}"
             >
 
             <ListView.View>
