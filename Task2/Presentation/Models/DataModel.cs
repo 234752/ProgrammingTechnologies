@@ -35,5 +35,19 @@ namespace Presentation.Models
                 return Diamonds;
             }
         }
+
+        public IEnumerable<EventModel> Events
+        {
+            get
+            {
+                List<EventModel> Events = new List<EventModel>()
+                {
+                    new EventModel() { Id = 1, Date = "11/11/2011", IsDelivery = true, CatalogId = 1 },
+                    new EventModel() { Id = 2, Date = "22/22/2022", IsDelivery = false, CatalogId = 2 },
+                    new EventModel() { Id = 3, Date = "33/33/2033", IsDelivery = true, CatalogId = 3 }
+                };
+                return Events;
+            }
+        }
     }
 }
