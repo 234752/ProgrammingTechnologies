@@ -23,7 +23,7 @@ namespace Presentation.ViewModels
                 _Diamonds.Add(new DiamondViewModel(diamond.Id, diamond.Name, diamond.Quality, diamond.Price));
             }
         }
-        public ObservableCollection<DiamondViewModel> Customers
+        public ObservableCollection<DiamondViewModel> Diamonds
         {
             get
             {

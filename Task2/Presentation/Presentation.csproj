@@ -63,6 +63,7 @@
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\DiamondModel.cs" />
     <Compile Include="Models\EventModel.cs" />
+    <Compile Include="ViewModels\DiamondListViewModel.cs" />
     <Compile Include="ViewModels\DiamondViewModel.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
@@ -74,6 +75,9 @@
     </Compile>
     <Compile Include="Views\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiamondListView.xaml.cs">
+      <DependentUpon>DiamondListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DiamondView.xaml.cs">
       <DependentUpon>DiamondView.xaml</DependentUpon>
@@ -114,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiamondListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

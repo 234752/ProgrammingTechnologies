@@ -22,7 +22,7 @@ namespace Presentation.ViewModels
         public ICommand ChangeInnerView { get { return _ChangeInnerView; } }
         public void ChangeView()
         {
-            InnerView = new CustomerListView();
+            InnerView = new DiamondListView();
         }
     }
 }
