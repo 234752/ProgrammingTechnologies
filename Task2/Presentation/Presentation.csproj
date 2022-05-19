@@ -67,6 +67,7 @@
     <Compile Include="ViewModels\DiamondViewModel.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\EventListViewModel.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MVVMLight\RelayCommand.cs" />
@@ -82,6 +83,9 @@
     </Compile>
     <Compile Include="Views\DiamondView.xaml.cs">
       <DependentUpon>DiamondView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EventListView.xaml.cs">
+      <DependentUpon>EventListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EventView.xaml.cs">
       <DependentUpon>EventView.xaml</DependentUpon>
@@ -130,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DiamondView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EventListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
