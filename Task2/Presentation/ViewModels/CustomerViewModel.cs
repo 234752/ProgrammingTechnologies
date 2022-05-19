@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Presentation.Models;
+using Presentation.ViewModels.MVVMLight;
 
 namespace Presentation.ViewModels
 {
-    public class CustomerViewModel
+    public class CustomerViewModel : BaseViewModel
     {
         
         private DataModel model = new DataModel();
