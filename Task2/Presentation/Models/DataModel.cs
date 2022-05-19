@@ -21,5 +21,19 @@ namespace Presentation.Models
                 return Customers;
             }
         }
+
+        public IEnumerable<DiamondModel> Diamonds
+        {
+            get
+            {
+                List<DiamondModel> Diamonds = new List<DiamondModel>()
+                {
+                    new DiamondModel() { Id = 1, Name = "d1", Quality = "q1", Price = 12.12M },
+                    new DiamondModel() { Id = 2, Name = "d2", Quality = "q2", Price = 22.12M },
+                    new DiamondModel() { Id = 3, Name = "d3", Quality = "q3", Price = 32.12M }
+                };
+                return Diamonds;
+            }
+        }
     }
 }
