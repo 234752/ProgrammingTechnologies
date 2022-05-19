@@ -8,7 +8,7 @@ using Presentation.ViewModels.MVVMLight;
 
 namespace Presentation.ViewModels
 {
-    internal class DiamondViewModel : BaseViewModel
+    public class DiamondViewModel : BaseViewModel
     {
         private int _Id;
         private string _Name;
@@ -21,6 +21,7 @@ namespace Presentation.ViewModels
             _Quality = quality;
             _Price = price;
         }
+        public DiamondViewModel() { }
 
         public int Id { get { return _Id; } set { _Id = value; } }
         public string Name { get { return _Name; } set { _Name = value; } }
