@@ -9,7 +9,7 @@
     <UserControl.DataContext>
         <VM:EventListViewModel />
     </UserControl.DataContext>
-    <Grid Height="250" VerticalAlignment="Top" HorizontalAlignment="Center" Width="450">
+    <Grid Height="250" VerticalAlignment="Top" HorizontalAlignment="Center" Width="610">
         <ListView 
                   ItemsSource="{Binding Events}" 
             SelectedItem="{Binding CurrentEvent}"
@@ -17,10 +17,10 @@
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="id" Width="100" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="date" Width="100" DisplayMemberBinding="{Binding Date}"/>
-                    <GridViewColumn Header="delivery?" Width="100" DisplayMemberBinding="{Binding IsDelivery}"/>
-                    <GridViewColumn Header="catalog item id" Width="100" DisplayMemberBinding="{Binding CatalogId}"/>
+                    <GridViewColumn Header="id" Width="150" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="date" Width="150" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Header="delivery?" Width="150" DisplayMemberBinding="{Binding IsDelivery}"/>
+                    <GridViewColumn Header="catalog item id" Width="150" DisplayMemberBinding="{Binding CatalogId}"/>
                 </GridView>
             </ListView.View>
         </ListView>

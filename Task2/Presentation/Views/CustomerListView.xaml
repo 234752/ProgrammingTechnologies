@@ -9,7 +9,7 @@
     <UserControl.DataContext>
         <VM:CustomerListViewModel />
     </UserControl.DataContext>
-    <Grid Height="250" VerticalAlignment="Top" HorizontalAlignment="Center" Width="350">
+    <Grid Height="250" VerticalAlignment="Top" HorizontalAlignment="Center" Width="610">
         <ListView 
                   ItemsSource="{Binding Customers}" 
             SelectedItem="{Binding CurrentCustomer}"
@@ -17,9 +17,9 @@
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="id" Width="100" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="first" Width="100" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="last" Width="100" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="id" Width="200" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="first" Width="200" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="last" Width="200" DisplayMemberBinding="{Binding LastName}"/>
                 </GridView>
             </ListView.View>
         </ListView>

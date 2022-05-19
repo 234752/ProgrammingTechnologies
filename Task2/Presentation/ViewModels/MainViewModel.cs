@@ -21,7 +21,6 @@ namespace Presentation.ViewModels
             _ChangeInnerViewToCustomers = new RelayCommand(() => ChangeViewToCustomers());
             _ChangeInnerViewToDiamonds = new RelayCommand(() => ChangeViewToDiamonds());
             _ChangeInnerViewToEvents = new RelayCommand(() => ChangeViewToEvents());
-            ChangeViewToEvents();
         }
         public UserControl InnerView { get { return _InnerView; } set { _InnerView = value; RaisePropertyChanged(nameof(InnerView)); } }
         public ICommand ChangeInnerViewToCustomers { get { return _ChangeInnerViewToCustomers; } }
