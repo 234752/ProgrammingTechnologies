@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Presentation.ViewModels.MVVMLight
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

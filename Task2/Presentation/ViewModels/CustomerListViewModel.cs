@@ -9,7 +9,7 @@ using Presentation.ViewModels.MVVMLight;
 
 namespace Presentation.ViewModels
 {
-    public class CustomerListViewModel : ViewModelBase
+    public class CustomerListViewModel : BaseViewModel
     {
         private DataModel model = new DataModel();
         private ObservableCollection<CustomerViewModel> _Customers = new ObservableCollection<CustomerViewModel>();

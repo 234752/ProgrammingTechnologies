@@ -11,7 +11,7 @@ namespace Presentation.Models
         public int Id { get; set; }
         public string Date { get; set; }
         public bool IsDelivery { get; set; }
-        public bool CatalogId { get; set; }
+        public int CatalogId { get; set; }
         public override string ToString()
         {
             return Id + " " + Date + " " + CatalogId + " " + IsDelivery;

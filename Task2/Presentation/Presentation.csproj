@@ -67,7 +67,7 @@
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MVVMLight\RelayCommand.cs" />
-    <Compile Include="ViewModels\MVVMLight\ViewModelBase.cs" />
+    <Compile Include="ViewModels\MVVMLight\BaseViewModel.cs" />
     <Compile Include="Views\CustomerListView.xaml.cs">
       <DependentUpon>CustomerListView.xaml</DependentUpon>
     </Compile>

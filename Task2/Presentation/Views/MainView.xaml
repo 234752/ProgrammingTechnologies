@@ -12,7 +12,10 @@
     </Window.DataContext>
     <Grid>
         <Grid>
-            <ContentControl Content="{Binding InnerView}" Margin="0,0,0,184"  />
-        </Grid>       
+
+            <ContentControl Content="{Binding InnerView}" Margin="394,180,0,0" />
+            <Button Content="Click ME!" Command="{Binding ChangeInnerView}" HorizontalAlignment="Left" Width="256" Margin="70,125,0,459"/>
+
+        </Grid>
     </Grid>
 </Window>
