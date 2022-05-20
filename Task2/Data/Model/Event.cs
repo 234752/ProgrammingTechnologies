@@ -2,8 +2,10 @@ namespace Data
 {
     internal abstract class Event
     {
-        protected string Date;
-        protected StorageEntry Entry;
+        public int Id;
+        public string Date;
+        public bool IsDelivery;
+        public int CatalogId;
         internal abstract string GetEventType();
         internal int GetCatalogNumberOfEntry()
         {
