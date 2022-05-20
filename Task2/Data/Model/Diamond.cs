@@ -1,4 +1,4 @@
-﻿namespace Data
+﻿namespace Data.Model
 {
     internal class Diamond 
     {

@@ -8,7 +8,7 @@ namespace Data.API
 {
     public interface ICustomer
     {
-        int Id { get; set; }
+        int Id { get; }
         string Name { get; set; }
     }
 }

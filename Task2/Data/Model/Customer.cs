@@ -1,12 +1,12 @@
 ﻿using Data.API;
 
-namespace Data
+namespace Data.Model
 
 {
     internal class Customer : ICustomer
     {
-    private int Id;
-    private string Name;
+    private int Id { get; set; }
+    private string Name { get; set; }
 
         public Customer(int id, string name)
         {
@@ -14,8 +14,6 @@ namespace Data
             Name = name;
         }
 
-    int ICustomer.Id { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    string ICustomer.Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
       
         public string GetName
@@ -23,6 +21,11 @@ namespace Data
             get { return Name; }
             set { Name = value; }
         }
+
+        int ICustomer.Id => throw new System.NotImplementedException();
+
+        string ICustomer.Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
         public int GetId()
         {
             return Id;
