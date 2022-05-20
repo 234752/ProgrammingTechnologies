@@ -1,16 +1,21 @@
+using Data.API;
+    using System;
+
 namespace Data.Model
+
 {
-    internal abstract class Event
+
+
+    internal class Event //: IEvent
     {
         public int Id;
         public string Date;
         public bool IsDelivery;
         public int CatalogId;
-        internal abstract string GetEventType();
-       // internal int GetCatalogNumberOfEntry()
-       // {
-            //return Entry.GetCatalogNumber();
-       // }
-
+        internal Event(string date)
+        {
+            Date = date;
+            //Entry = entry;
+        }
     }
 }
