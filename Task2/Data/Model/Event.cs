@@ -6,7 +6,7 @@ namespace Data.Model
 {
 
 
-    internal class Event //: IEvent
+    public class Event //: IEvent
     {
         public int Id;
         public string Date;

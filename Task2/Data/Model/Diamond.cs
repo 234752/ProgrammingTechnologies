@@ -1,6 +1,6 @@
 ﻿namespace Data.Model
 {
-    internal class Diamond 
+    public class Diamond 
     {
         private decimal Price { get; set; }
 		private string Quality { get; set;}

@@ -68,6 +68,8 @@
     <Compile Include="API\ICustomer.cs" />
     <Compile Include="API\IDiamond.cs" />
     <Compile Include="API\IEvent.cs" />
+    <Compile Include="DataAPI.cs" />
+    <Compile Include="DataRepository.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="Model\Diamond.cs" />
