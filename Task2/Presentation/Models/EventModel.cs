@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Presentation.Models.ModelsAPI;
 
 namespace Presentation.Models
 {
-    public class EventModel
+    public class EventModel : IEventModel
     {
         public int Id { get; set; }
         public string Date { get; set; }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
+using Presentation.Models.ModelsAPI;
 
 namespace Presentation.ViewModels
 {
@@ -18,7 +19,7 @@ namespace Presentation.ViewModels
         public DiamondListViewModel()
         {
             _Diamonds = new ObservableCollection<DiamondViewModel>();
-            foreach (DiamondModel diamond in model.Diamonds)
+            foreach (IDiamondModel diamond in model.Diamonds)
             {
                 _Diamonds.Add(new DiamondViewModel(diamond.Id, diamond.Name, diamond.Quality, diamond.Price));
             }

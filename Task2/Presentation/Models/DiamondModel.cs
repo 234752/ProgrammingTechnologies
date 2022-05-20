@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Presentation.Models.ModelsAPI;
 
 namespace Presentation.Models
 {
-    public class DiamondModel
+    public class DiamondModel : IDiamondModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
+using Presentation.Models.ModelsAPI;
 
 namespace Presentation.ViewModels
 {
@@ -18,7 +19,7 @@ namespace Presentation.ViewModels
         public EventListViewModel()
         {
             _Events = new ObservableCollection<EventViewModel>();
-            foreach (EventModel ev in model.Events)
+            foreach (IEventModel ev in model.Events)
             {
                 _Events.Add(new EventViewModel(ev.Id, ev.Date, ev.IsDelivery, ev.CatalogId));
             }

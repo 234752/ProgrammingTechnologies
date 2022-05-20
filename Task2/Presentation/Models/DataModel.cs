@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Presentation.Models.ModelsAPI;
 
 namespace Presentation.Models
 {
-    public class DataModel
+    public class DataModel : IDataModel
     {
         public IEnumerable<CustomerModel> Customers
         {

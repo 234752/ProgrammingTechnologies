@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
+using Presentation.Models.ModelsAPI;
 
 namespace Presentation.ViewModels
 {
@@ -18,7 +19,7 @@ namespace Presentation.ViewModels
         public CustomerListViewModel()
         {
             _Customers = new ObservableCollection<CustomerViewModel>();
-            foreach(CustomerModel customer in model.Customers)
+            foreach(ICustomerModel customer in model.Customers)
             {
                 _Customers.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName));
             }            
