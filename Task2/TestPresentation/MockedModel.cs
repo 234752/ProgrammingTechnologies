@@ -43,31 +43,36 @@ namespace TestPresentation
         }
     }
 
+    public class MockData
+    {
+        public static void GenerateDataMethod1(IDataModel dataModel)
+        {
+            dataModel.Customers.Add(new MockCustomer());
+            dataModel.Diamonds.Add(new MockDiamond());
+            dataModel.Events.Add(new MockEvent());
+        }
+    }
+
     public class MockDataModel : IDataModel
     {
-        public IEnumerable<ICustomerModel> Customers
+
+        public IList<ICustomerModel> Customers
         {
-            get
-            {
-                return Customers;
-            }
+            get { return Customers; }
+            set { Customers = value; }
         }
 
-        public IEnumerable<IDiamondModel> Diamonds
+        public IList<IDiamondModel> Diamonds
         {
-            get
-            {
-                return Diamonds;
-            }
+            get { return Diamonds; }
+            set { Diamonds = value; }
         }
 
-        public IEnumerable<IEventModel> Events
+        public IList<IEventModel> Events
         {
-            get
-            {
-                return Events;
-            }
+            get { return Events; }
+            set { Events = value; }
         }
     }
 }
-}
+

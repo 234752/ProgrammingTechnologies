@@ -9,11 +9,11 @@ namespace Presentation.Models
 {
     public class DataModel : IDataModel
     {
-        public IEnumerable<ICustomerModel> Customers
+        public IList<ICustomerModel> Customers
         {
             get
             {
-                List<CustomerModel> Customers = new List<CustomerModel>()
+                List<ICustomerModel> Customers = new List<ICustomerModel>()
                 {
                     new CustomerModel() { Id = 1, FirstName = "Bob", LastName = "Bob's last name" },
                     new CustomerModel() { Id = 2, FirstName = "Bob2", LastName = "Bob2's last name" },
@@ -23,11 +23,11 @@ namespace Presentation.Models
             }
         }
 
-        public IEnumerable<IDiamondModel> Diamonds
+        public IList<IDiamondModel> Diamonds
         {
             get
             {
-                List<DiamondModel> Diamonds = new List<DiamondModel>()
+                List<IDiamondModel> Diamonds = new List<IDiamondModel>()
                 {
                     new DiamondModel() { Id = 1, Name = "d1", Quality = "q1", Price = 12.12M },
                     new DiamondModel() { Id = 2, Name = "d2", Quality = "q2", Price = 22.12M },
@@ -37,11 +37,11 @@ namespace Presentation.Models
             }
         }
 
-        public IEnumerable<IEventModel> Events
+        public IList<IEventModel> Events
         {
             get
             {
-                List<EventModel> Events = new List<EventModel>()
+                List<IEventModel> Events = new List<IEventModel>()
                 {
                     new EventModel() { Id = 1, Date = "11/11/2011", IsDelivery = true, CatalogId = 1 },
                     new EventModel() { Id = 2, Date = "22/22/2022", IsDelivery = false, CatalogId = 2 },

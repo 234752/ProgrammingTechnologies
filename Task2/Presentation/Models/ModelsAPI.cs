@@ -36,8 +36,8 @@ namespace Presentation.Models.ModelsAPI
 
     public interface IDataModel
     {
-        public IEnumerable<ICustomerModel> Customers { get; }
-        public IEnumerable<IDiamondModel> Diamonds { get; }
-        public IEnumerable<IEventModel> Events { get; }
+        public IList<ICustomerModel> Customers { get; }
+        public IList<IDiamondModel> Diamonds { get; }
+        public IList<IEventModel> Events { get; }
     }
 }
