@@ -3,7 +3,7 @@
 namespace Data.Model
 
 {
-    internal class Customer : ICustomer
+    internal class Customer //: ICustomer z interface tu czy bez??
     {
     private int Id { get; set; }
     private string Name { get; set; }
@@ -22,9 +22,9 @@ namespace Data.Model
             set { Name = value; }
         }
 
-        int ICustomer.Id => throw new System.NotImplementedException();
+        //int ICustomer.Id => throw new System.NotImplementedException();
 
-        string ICustomer.Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        //string ICustomer.Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public int GetId()
         {

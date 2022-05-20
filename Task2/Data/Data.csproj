@@ -66,7 +66,7 @@
     <Compile Include="API\IDiamond.cs" />
     <Compile Include="API\IEvent.cs" />
     <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\DataContext.cs" />
+    <Compile Include="DataContext.cs" />
     <Compile Include="Model\Diamond.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="LINQtoSQL.designer.cs">
