@@ -12,12 +12,21 @@ namespace Presentation.ViewModels
 {
     public class EventListViewModel : BaseViewModel
     {
-        private DataModel model = new DataModel();
+        private IDataModel model = new DataModel();
         private ObservableCollection<EventViewModel> _Events = new ObservableCollection<EventViewModel>();
         private EventViewModel _CurrentEvent;
 
         public EventListViewModel()
         {
+            _Events = new ObservableCollection<EventViewModel>();
+            foreach (IEventModel ev in model.Events)
+            {
+                _Events.Add(new EventViewModel(ev.Id, ev.Date, ev.IsDelivery, ev.CatalogId));
+            }
+        }
+        public EventListViewModel(IDataModel dataModel)
+        {
+            if (dataModel != null) model = dataModel;
             _Events = new ObservableCollection<EventViewModel>();
             foreach (IEventModel ev in model.Events)
             {

@@ -12,12 +12,21 @@ namespace Presentation.ViewModels
 {
     public class DiamondListViewModel : BaseViewModel
     {
-        private DataModel model = new DataModel();
+        private IDataModel model = new DataModel();
         private ObservableCollection<DiamondViewModel> _Diamonds = new ObservableCollection<DiamondViewModel>();
         private DiamondViewModel _CurrentDiamond;
 
         public DiamondListViewModel()
         {
+            _Diamonds = new ObservableCollection<DiamondViewModel>();
+            foreach (IDiamondModel diamond in model.Diamonds)
+            {
+                _Diamonds.Add(new DiamondViewModel(diamond.Id, diamond.Name, diamond.Quality, diamond.Price));
+            }
+        }
+        public DiamondListViewModel(IDataModel dataModel)
+        {
+            if (dataModel != null) model = dataModel;
             _Diamonds = new ObservableCollection<DiamondViewModel>();
             foreach (IDiamondModel diamond in model.Diamonds)
             {

@@ -12,7 +12,7 @@ namespace Presentation.ViewModels
 {
     public class CustomerListViewModel : BaseViewModel
     {
-        private DataModel model = new DataModel();
+        private IDataModel model = new DataModel();
         private ObservableCollection<CustomerViewModel> _Customers = new ObservableCollection<CustomerViewModel>();
         private CustomerViewModel _CurrentCustomer;
         
@@ -23,6 +23,15 @@ namespace Presentation.ViewModels
             {
                 _Customers.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName));
             }            
+        }
+        public CustomerListViewModel(IDataModel dataModel)
+        {
+            if (dataModel != null) model = dataModel;
+            _Customers = new ObservableCollection<CustomerViewModel>();
+            foreach (ICustomerModel customer in model.Customers)
+            {
+                _Customers.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName));
+            }
         }
         public ObservableCollection<CustomerViewModel> Customers
         {
