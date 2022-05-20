@@ -17,20 +17,13 @@ namespace Data
     int ICustomer.Id { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     string ICustomer.Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
-    public override bool Equals(object obj)
+      
+        public string GetName
         {
-            Customer other = obj as Customer;
-            return this.Id == other.Id;
+            get { return Name; }
+            set { Name = value; }
         }
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-        internal int GetId()
+        public int GetId()
         {
             return Id;
         }
