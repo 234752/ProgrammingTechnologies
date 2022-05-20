@@ -29,14 +29,17 @@ namespace Presentation.ViewModels
         public void ChangeViewToCustomers()
         {
             InnerView = new CustomerListView();
+            RaisePropertyChanged(nameof(InnerView));
         }
         public void ChangeViewToDiamonds()
         {
             InnerView = new DiamondListView();
+            RaisePropertyChanged(nameof(InnerView));
         }
         public void ChangeViewToEvents()
         {
             InnerView = new EventListView();
+            RaisePropertyChanged(nameof(InnerView));
         }
     }
 }

@@ -32,6 +32,7 @@ namespace Presentation.ViewModels
             set
             {
                 _Diamonds = value;
+                RaisePropertyChanged(nameof(Diamonds));
             }
         }
         public DiamondViewModel CurrentDiamond

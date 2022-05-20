@@ -32,6 +32,7 @@ namespace Presentation.ViewModels
             set
             {
                 _Customers = value;
+                RaisePropertyChanged(nameof(Customers));
             }
         }
         public CustomerViewModel CurrentCustomer

@@ -23,10 +23,10 @@ namespace Presentation.ViewModels
         }
         public DiamondViewModel() { }
 
-        public int Id { get { return _Id; } set { _Id = value; } }
-        public string Name { get { return _Name; } set { _Name = value; } }
-        public string Quality { get { return _Quality; } set { _Quality = value; } }
-        public decimal Price { get { return _Price; } set { _Price = value; } }
+        public int Id { get { return _Id; } set { _Id = value; RaisePropertyChanged(nameof(Id)); } }
+        public string Name { get { return _Name; } set { _Name = value; RaisePropertyChanged(nameof(Name)); } }
+        public string Quality { get { return _Quality; } set { _Quality = value; RaisePropertyChanged(nameof(Quality)); } }
+        public decimal Price { get { return _Price; } set { _Price = value; RaisePropertyChanged(nameof(Price)); } }
         
     }
 }

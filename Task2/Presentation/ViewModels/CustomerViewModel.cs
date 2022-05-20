@@ -22,39 +22,9 @@ namespace Presentation.ViewModels
             _LastName = last;
         }
         public CustomerViewModel() { }
-        public int Id 
-        { 
-            get 
-            { 
-                return _Id; 
-            }
-            set
-            {
-                _Id = value;
-            }
-        }
-        public string FirstName
-        { 
-            get 
-            { 
-                return _FirstName; 
-            } 
-            set 
-            { 
-                _FirstName = value; 
-            } 
-        }
-        public string LastName
-        {
-            get
-            {
-                return _LastName;
-            }
-            set
-            {
-                _LastName = value;
-            }
-        }
+        public int Id { get { return _Id; } set { _Id = value; RaisePropertyChanged(nameof(Id)); } }
+        public string FirstName { get { return _FirstName; } set { _FirstName = value; RaisePropertyChanged(nameof(FirstName)); } }
+        public string LastName { get { return _LastName; } set { _LastName = value; RaisePropertyChanged(nameof(LastName)); } }
 
     }
 }

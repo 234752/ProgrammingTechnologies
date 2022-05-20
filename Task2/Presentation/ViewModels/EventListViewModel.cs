@@ -32,6 +32,7 @@ namespace Presentation.ViewModels
             set
             {
                 _Events = value;
+                RaisePropertyChanged(nameof(Events));
             }
         }
         public EventViewModel CurrentEvent
