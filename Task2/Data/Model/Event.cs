@@ -7,10 +7,10 @@ namespace Data
         public bool IsDelivery;
         public int CatalogId;
         internal abstract string GetEventType();
-        internal int GetCatalogNumberOfEntry()
-        {
-            return Entry.GetCatalogNumber();
-        }
+       // internal int GetCatalogNumberOfEntry()
+       // {
+            //return Entry.GetCatalogNumber();
+       // }
 
     }
 }

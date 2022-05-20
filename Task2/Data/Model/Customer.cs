@@ -1,16 +1,23 @@
-﻿namespace Data
-{
-    internal class Customer 
-    {
-        private int Id { get; set; }
-        private string Name { get; set; }
+﻿using Data.API;
 
-        internal Customer(int id, string name)
+namespace Data
+
+{
+    internal class Customer : ICustomer
+    {
+    private int Id;
+    private string Name;
+
+        public Customer(int id, string name)
         {
             Id = id;
             Name = name;
         }
-        public override bool Equals(object obj)
+
+    int ICustomer.Id { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    string ICustomer.Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
+    public override bool Equals(object obj)
         {
             Customer other = obj as Customer;
             return this.Id == other.Id;
