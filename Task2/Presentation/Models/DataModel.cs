@@ -9,7 +9,7 @@ namespace Presentation.Models
 {
     public class DataModel : IDataModel
     {
-        public IEnumerable<CustomerModel> Customers
+        public IEnumerable<ICustomerModel> Customers
         {
             get
             {
@@ -23,7 +23,7 @@ namespace Presentation.Models
             }
         }
 
-        public IEnumerable<DiamondModel> Diamonds
+        public IEnumerable<IDiamondModel> Diamonds
         {
             get
             {
@@ -37,7 +37,7 @@ namespace Presentation.Models
             }
         }
 
-        public IEnumerable<EventModel> Events
+        public IEnumerable<IEventModel> Events
         {
             get
             {

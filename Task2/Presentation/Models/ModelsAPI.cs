@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Presentation.Models.ModelsAPI
 {
 
-    interface ICustomerModel
+    public interface ICustomerModel
     {
         int Id { get; set; }
         string FirstName { get; set; }
@@ -15,7 +15,7 @@ namespace Presentation.Models.ModelsAPI
         string ToString();
     }
 
-    interface IDiamondModel
+    public interface IDiamondModel
     {
         int Id { get; set; }
         string Name { get; set; }
@@ -25,7 +25,7 @@ namespace Presentation.Models.ModelsAPI
         string ToString();
     }
 
-    interface IEventModel
+    public interface IEventModel
     {
         int Id { get; set; }
         string Date { get; set; }
@@ -36,8 +36,8 @@ namespace Presentation.Models.ModelsAPI
 
     public interface IDataModel
     {
-        //public IEnumerable<ICustomerModel> Customers { get; }
-        //public IEnumerable<IDiamondModel> Diamonds { get; }
-        //public IEnumerable<IEventModel> Events { get; }
+        public IEnumerable<ICustomerModel> Customers { get; }
+        public IEnumerable<IDiamondModel> Diamonds { get; }
+        public IEnumerable<IEventModel> Events { get; }
     }
 }
