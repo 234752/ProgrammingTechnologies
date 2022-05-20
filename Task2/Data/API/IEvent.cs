@@ -10,7 +10,6 @@ namespace Data.API
     {
         string Date { get; set; }
         int Id { get; set; }
-        string Date { get; set; }
         bool IsDelivery { get; set; }
         int CatalogId { get; set; }
     }
