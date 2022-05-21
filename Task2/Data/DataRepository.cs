@@ -114,7 +114,7 @@ namespace Data
 
         #endregion
 
-       /* #region Event
+        #region Event
 
 
         public IEvent GetEvent(int eventId)
@@ -152,7 +152,7 @@ namespace Data
             return true;
         }
 
-        public bool UpdateEvent(int eventId, string Date,bool Isdelivered int catalogId,int customId )
+        public bool UpdateEvent(int eventId, string Date,bool Isdelivered, int catalogId,int customId )
         {
             var events = context.Events.SingleOrDefault(events => events.id == eventId);
             if (events == null) return false;
@@ -174,6 +174,6 @@ namespace Data
             return true;
         }
 
-        #endregion */
+        #endregion 
     }
 }
