@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
+using System.Windows.Input;
 
 namespace Presentation.ViewModels
 {
@@ -15,6 +16,7 @@ namespace Presentation.ViewModels
         private IDataModel model = new DataModel();
         private ObservableCollection<DiamondViewModel> _Diamonds = new ObservableCollection<DiamondViewModel>();
         private DiamondViewModel _CurrentDiamond;
+        private ICommand _RemoveDiamondCommand;
 
         public DiamondListViewModel()
         {
@@ -23,6 +25,7 @@ namespace Presentation.ViewModels
             {
                 _Diamonds.Add(new DiamondViewModel(diamond.Id, diamond.Name, diamond.Quality, diamond.Price));
             }
+            _RemoveDiamondCommand = new RelayCommand(() => RemoveDiamond());
         }
         public DiamondListViewModel(IDataModel dataModel)
         {
@@ -32,30 +35,17 @@ namespace Presentation.ViewModels
             {
                 _Diamonds.Add(new DiamondViewModel(diamond.Id, diamond.Name, diamond.Quality, diamond.Price));
             }
+            _RemoveDiamondCommand = new RelayCommand(() => RemoveDiamond());
         }
         public ObservableCollection<DiamondViewModel> Diamonds
-        {
-            get
-            {
-                return _Diamonds;
-            }
-            set
-            {
-                _Diamonds = value;
-                RaisePropertyChanged(nameof(Diamonds));
-            }
-        }
+        { get { return _Diamonds; } set { _Diamonds = value; RaisePropertyChanged(nameof(Diamonds)); } }
         public DiamondViewModel CurrentDiamond
+        { get { return _CurrentDiamond; } set { _CurrentDiamond = value; RaisePropertyChanged(nameof(CurrentDiamond)); } }
+        public ICommand RemoveDiamondCommand { get { return _RemoveDiamondCommand; } }
+
+        public void RemoveDiamond()
         {
-            get
-            {
-                return _CurrentDiamond;
-            }
-            set
-            {
-                _CurrentDiamond = value;
-                RaisePropertyChanged(nameof(CurrentDiamond));
-            }
+            Diamonds.Remove(CurrentDiamond);
         }
     }
 }
