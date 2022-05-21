@@ -12,9 +12,9 @@
     </Window.DataContext>
     <Grid>
         <Grid>
-            <Button Content="Customers" Command="{Binding ChangeInnerViewToCustomers}" HorizontalAlignment="Left" Width="256" Margin="70,125,0,459"/>
-            <Button Content="Diamonds" Command="{Binding ChangeInnerViewToDiamonds}" HorizontalAlignment="Left" Width="256" Margin="70,261,0,323"/>
-            <Button Content="Events" Command="{Binding ChangeInnerViewToEvents}" HorizontalAlignment="Left" Width="256" Margin="70,398,0,185"/>
+            <Button Content="Customers" Command="{Binding ChangeViewToCustomersCommand}" HorizontalAlignment="Left" Width="256" Margin="70,125,0,459"/>
+            <Button Content="Diamonds" Command="{Binding ChangeViewToDiamondsCommand}" HorizontalAlignment="Left" Width="256" Margin="70,261,0,323"/>
+            <Button Content="Events" Command="{Binding ChangeViewToEventsCommand}" HorizontalAlignment="Left" Width="256" Margin="70,398,0,185"/>
 
             <UserControl  Content="{Binding InnerView}" Margin="394,180,0,0" />
 
