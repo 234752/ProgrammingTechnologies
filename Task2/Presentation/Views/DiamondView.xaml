@@ -11,7 +11,7 @@
         <VM:DiamondViewModel />
     </UserControl.DataContext>
     <Grid Width="500" Height="100">
-        <TextBox x:Name="DiamondIdTB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Id}"/>
+        <TextBox x:Name="DiamondIdTB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Id}" IsReadOnly="true"/>
         <TextBox x:Name="DiamondNameTB"  TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Name}" Margin="138,0,262,0"/>
         <TextBox x:Name="DiamondQualityTB" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Quality}" Margin="274,0,126,0" />
         <TextBox x:Name="DiamondPriceTB" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Price}" />

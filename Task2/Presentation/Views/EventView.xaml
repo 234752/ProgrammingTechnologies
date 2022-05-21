@@ -11,7 +11,7 @@
         <VM:EventViewModel />
     </UserControl.DataContext>
     <Grid Width="500" Height="100">
-        <TextBox x:Name="EventIdTB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Id}"/>
+        <TextBox x:Name="EventIdTB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Id}" IsReadOnly="true"/>
         <TextBox x:Name="EventDateTB"  TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Date}" Margin="138,0,262,0"/>
         <TextBox x:Name="EventIsDeliveryTB" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding IsDelivery}" Margin="274,0,126,0" />
         <TextBox x:Name="EventCatalogIdTB" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding CatalogId}" />

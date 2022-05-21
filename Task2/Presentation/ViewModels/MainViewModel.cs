@@ -13,19 +13,19 @@ namespace Presentation.ViewModels
     public class MainViewModel : BaseViewModel
     {
         private UserControl _InnerView;
-        private ICommand _ChangeInnerViewToCustomers;
-        private ICommand _ChangeInnerViewToDiamonds;
-        private ICommand _ChangeInnerViewToEvents;
+        private ICommand _ChangeViewToCustomersCommand;
+        private ICommand _ChangeViewToDiamondsCommand;
+        private ICommand _ChangeViewToEventsCommand;
         public MainViewModel()
         {
-            _ChangeInnerViewToCustomers = new RelayCommand(() => ChangeViewToCustomers());
-            _ChangeInnerViewToDiamonds = new RelayCommand(() => ChangeViewToDiamonds());
-            _ChangeInnerViewToEvents = new RelayCommand(() => ChangeViewToEvents());
+            _ChangeViewToCustomersCommand = new RelayCommand(() => ChangeViewToCustomers());
+            _ChangeViewToDiamondsCommand = new RelayCommand(() => ChangeViewToDiamonds());
+            _ChangeViewToEventsCommand = new RelayCommand(() => ChangeViewToEvents());
         }
         public UserControl InnerView { get { return _InnerView; } set { _InnerView = value; RaisePropertyChanged(nameof(InnerView)); } }
-        public ICommand ChangeInnerViewToCustomers { get { return _ChangeInnerViewToCustomers; } }
-        public ICommand ChangeInnerViewToDiamonds { get { return _ChangeInnerViewToDiamonds; } }
-        public ICommand ChangeInnerViewToEvents { get { return _ChangeInnerViewToEvents; } }
+        public ICommand ChangeViewToCustomersCommand { get { return _ChangeViewToCustomersCommand; } }
+        public ICommand ChangeViewToDiamondsCommand { get { return _ChangeViewToDiamondsCommand; } }
+        public ICommand ChangeViewToEventsCommand { get { return _ChangeViewToEventsCommand; } }
         public void ChangeViewToCustomers()
         {
             InnerView = new CustomerListView();
