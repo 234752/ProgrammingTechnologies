@@ -56,6 +56,7 @@ namespace Presentation.ViewModels
         public void AddEvent()
         {
             Events.Add(new EventViewModel() { Id = _NextEventId, CatalogId = 0, Date = "", IsDelivery = true});
+            CurrentEvent = Events.Last();
             _NextEventId++;
         }
     }

@@ -56,6 +56,7 @@ namespace Presentation.ViewModels
         public void AddCustomer()
         {
             Customers.Add(new CustomerViewModel() { Id = _NextCustomerId, FirstName = "", LastName = "" });
+            CurrentCustomer = Customers.Last();
             _NextCustomerId++;
         }
     }

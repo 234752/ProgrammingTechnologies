@@ -56,6 +56,7 @@ namespace Presentation.ViewModels
         public void AddDiamond()
         {
             Diamonds.Add(new DiamondViewModel() { Id = _NextDiamondId, Name = "", Price = 0M, Quality = ""});
+            CurrentDiamond = Diamonds.Last();
             _NextDiamondId++;
         }
     }

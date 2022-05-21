@@ -11,7 +11,7 @@
         <VM:CustomerViewModel />
     </UserControl.DataContext>
     <Grid Width="500" Height="100">
-        <TextBox x:Name="CustomerIdTB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Id}"/>
+        <TextBox x:Name="CustomerIdTB" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding Id}" IsReadOnly="true"/>
         <TextBox x:Name="CustomerFirstNameTB" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding FirstName}"/>
         <TextBox x:Name="CustomerLastNameTB" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="50" Text="{Binding LastName}" />
 
