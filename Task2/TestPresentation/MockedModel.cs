@@ -51,6 +51,13 @@ namespace TestPresentation
             dataModel.Diamonds.Add(new MockDiamond());
             dataModel.Events.Add(new MockEvent());
         }
+
+        public static void GenerateDataMethod2(IDataModel dataModel)
+        {
+            dataModel.Customers.Add(new MockCustomer() { Id = 1 });
+            dataModel.Diamonds.Add(new MockDiamond() { Price = 1M });
+            dataModel.Events.Add(new MockEvent() { Date = "12/12/2022" });
+        }
     }
 
     public class MockDataModel : IDataModel

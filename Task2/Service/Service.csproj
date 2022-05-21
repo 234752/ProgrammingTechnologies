@@ -54,5 +54,11 @@
     <Compile Include="API\ServiceAPI.cs" />
     <Compile Include="Model\DataServices.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{b0a3aef5-ea98-496d-98a1-eb03b989a753}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
