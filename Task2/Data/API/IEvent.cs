@@ -9,7 +9,7 @@ namespace Data.API
      public interface IEvent
     {
         string Date { get; set; }
-        int Id { get; set; }
+        int EventId { get; set; }
         bool IsDelivery { get; set; }
         int CatalogId { get; set; }
        

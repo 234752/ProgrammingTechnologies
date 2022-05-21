@@ -5,12 +5,12 @@ namespace Data.Model
 {
     public class Customer //: ICustomer z interface tu czy bez??
     {
-    private int Id { get; set; }
-    private string Name { get; set; }
+    public int CustomerId { get; set; }
+    public string Name { get; set; }
 
         public Customer(int id, string name)
         {
-            Id = id;
+            CustomerId = id;
             Name = name;
         }
 

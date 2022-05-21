@@ -8,7 +8,7 @@ namespace Data.API
 {
     public interface IDiamond
     {
-        int Id { get; set; }
+        int DiamondId { get; set; }
         decimal Price { get; set; }
         string Quality { get; set; }
     }

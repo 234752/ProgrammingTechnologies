@@ -4,13 +4,13 @@ namespace Data.Model
 {
     public class Diamond //: IDiamond
     {
-        private int Id;
-        private decimal Price { get; set; }
-		private string Quality { get; set;}
+        public int DiamondId;
+        public decimal Price { get; set; }
+		public string Quality { get; set;}
 
-        internal Diamond(int id,decimal price, string quality)
+        public Diamond(int id,decimal price, string quality)
         {
-            Id = id;
+            DiamondId = id;
             Price = price;
             Quality = quality;
         }

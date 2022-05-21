@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DiamondShop" Class="LINQtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="dbo.Customers" Member="Customers">
-    <Type Name="Customer">
+    <Type Name="Customers">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="first_name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="Customer_Event" Member="Events" ThisKey="id" OtherKey="customerid" Type="Event" />
+      <Association Name="Customer_Event" Member="Events" ThisKey="id" OtherKey="customerid" Type="Events" />
     </Type>
   </Table>
   <Table Name="dbo.Events" Member="Events">
-    <Type Name="Event">
+    <Type Name="Events">
       <Column Name="date" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="isdelivered" Type="System.Data.Linq.Binary" DbType="Binary(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="catalogid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="customerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Customer_Event" Member="Customer" ThisKey="customerid" OtherKey="id" Type="Customer" IsForeignKey="true" />
-      <Association Name="Diamond_Event" Member="Diamond" ThisKey="catalogid" OtherKey="id" Type="Diamond" IsForeignKey="true" />
+      <Association Name="Customer_Event" Member="Customers" Storage="_Customer" ThisKey="customerid" OtherKey="id" Type="Customers" IsForeignKey="true" />
+      <Association Name="Diamond_Event" Member="Diamonds" Storage="_Diamond" ThisKey="catalogid" OtherKey="id" Type="Diamonds" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Diamonds" Member="Diamonds">
-    <Type Name="Diamond">
+    <Type Name="Diamonds">
       <Column Name="price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="quality" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Diamond_Event" Member="Events" ThisKey="id" OtherKey="catalogid" Type="Event" />
+      <Association Name="Diamond_Event" Member="Events" ThisKey="id" OtherKey="catalogid" Type="Events" />
     </Type>
   </Table>
 </Database>

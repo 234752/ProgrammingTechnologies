@@ -10,9 +10,12 @@ namespace Data
 {
     public interface IDataAPI
     {
-        IDiamond Transform(Diamond diamond);
-        ICustomer Transform(Customer customer);
-       // IEvent Transform(Event event); nw w czym on ma problem??
+        
+        IDiamond Transform(Diamonds diamond);
+        ICustomer Transform(Customers customer);
+       // IEvent Transform(Events event); //tu ma z czymś problem nie wiem o co mu chodzi :((
+        // a to wszystko dalej psuje...
+
 
         // CRUD DECLARATION
         #region Diamond
@@ -37,8 +40,8 @@ namespace Data
 
         IEvent GetEvent(int eventId);
         bool AddEvent(int eventId);
-        bool AddEvent(int eventId, string Date, int catalogId);
-        bool UpdateEvent(int eventId, string Date, int catalogId);
+        bool AddEvent(int eventId, string Date,bool Isdelivered, int catalogId,int customId );
+        bool UpdateEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId);
         bool DeleteEvent(int eventId);
 
         #endregion

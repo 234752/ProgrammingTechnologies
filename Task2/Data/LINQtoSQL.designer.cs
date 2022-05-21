@@ -30,15 +30,15 @@ namespace Data
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCustomer(Customer instance);
-    partial void UpdateCustomer(Customer instance);
-    partial void DeleteCustomer(Customer instance);
-    partial void InsertEvent(Event instance);
-    partial void UpdateEvent(Event instance);
-    partial void DeleteEvent(Event instance);
-    partial void InsertDiamond(Diamond instance);
-    partial void UpdateDiamond(Diamond instance);
-    partial void DeleteDiamond(Diamond instance);
+    partial void InsertCustomers(Customers instance);
+    partial void UpdateCustomers(Customers instance);
+    partial void DeleteCustomers(Customers instance);
+    partial void InsertEvents(Events instance);
+    partial void UpdateEvents(Events instance);
+    partial void DeleteEvents(Events instance);
+    partial void InsertDiamonds(Diamonds instance);
+    partial void UpdateDiamonds(Diamonds instance);
+    partial void DeleteDiamonds(Diamonds instance);
     #endregion
 		
 		public LINQtoSQLDataContext(string connection) : 
@@ -65,33 +65,33 @@ namespace Data
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Customer> Customers
+		public System.Data.Linq.Table<Customers> Customers
 		{
 			get
 			{
-				return this.GetTable<Customer>();
+				return this.GetTable<Customers>();
 			}
 		}
 		
-		public System.Data.Linq.Table<Event> Events
+		public System.Data.Linq.Table<Events> Events
 		{
 			get
 			{
-				return this.GetTable<Event>();
+				return this.GetTable<Events>();
 			}
 		}
 		
-		public System.Data.Linq.Table<Diamond> Diamonds
+		public System.Data.Linq.Table<Diamonds> Diamonds
 		{
 			get
 			{
-				return this.GetTable<Diamond>();
+				return this.GetTable<Diamonds>();
 			}
 		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customers")]
-	public partial class Customer : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Customers : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -100,7 +100,7 @@ namespace Data
 		
 		private string _first_name;
 		
-		private EntitySet<Event> _Events;
+		private EntitySet<Events> _Events;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -112,9 +112,9 @@ namespace Data
     partial void Onfirst_nameChanged();
     #endregion
 		
-		public Customer()
+		public Customers()
 		{
-			this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
+			this._Events = new EntitySet<Events>(new Action<Events>(this.attach_Events), new Action<Events>(this.detach_Events));
 			OnCreated();
 		}
 		
@@ -159,7 +159,7 @@ namespace Data
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Event", Storage="_Events", ThisKey="id", OtherKey="customerid")]
-		public EntitySet<Event> Events
+		public EntitySet<Events> Events
 		{
 			get
 			{
@@ -191,21 +191,21 @@ namespace Data
 			}
 		}
 		
-		private void attach_Events(Event entity)
+		private void attach_Events(Events entity)
 		{
 			this.SendPropertyChanging();
-			entity.Customer = this;
+			entity.Customers = this;
 		}
 		
-		private void detach_Events(Event entity)
+		private void detach_Events(Events entity)
 		{
 			this.SendPropertyChanging();
-			entity.Customer = null;
+			entity.Customers = null;
 		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Events")]
-	public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Events : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -220,9 +220,9 @@ namespace Data
 		
 		private int _customerid;
 		
-		private EntityRef<Customer> _Customer;
+		private EntityRef<Customers> _Customer;
 		
-		private EntityRef<Diamond> _Diamond;
+		private EntityRef<Diamonds> _Diamond;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -240,10 +240,10 @@ namespace Data
     partial void OncustomeridChanged();
     #endregion
 		
-		public Event()
+		public Events()
 		{
-			this._Customer = default(EntityRef<Customer>);
-			this._Diamond = default(EntityRef<Diamond>);
+			this._Customer = default(EntityRef<Customers>);
+			this._Diamond = default(EntityRef<Diamonds>);
 			OnCreated();
 		}
 		
@@ -356,7 +356,7 @@ namespace Data
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Event", Storage="_Customer", ThisKey="customerid", OtherKey="id", IsForeignKey=true)]
-		public Customer Customer
+		public Customers Customers
 		{
 			get
 			{
@@ -364,7 +364,7 @@ namespace Data
 			}
 			set
 			{
-				Customer previousValue = this._Customer.Entity;
+				Customers previousValue = this._Customer.Entity;
 				if (((previousValue != value) 
 							|| (this._Customer.HasLoadedOrAssignedValue == false)))
 				{
@@ -384,13 +384,13 @@ namespace Data
 					{
 						this._customerid = default(int);
 					}
-					this.SendPropertyChanged("Customer");
+					this.SendPropertyChanged("Customers");
 				}
 			}
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Diamond_Event", Storage="_Diamond", ThisKey="catalogid", OtherKey="id", IsForeignKey=true)]
-		public Diamond Diamond
+		public Diamonds Diamonds
 		{
 			get
 			{
@@ -398,7 +398,7 @@ namespace Data
 			}
 			set
 			{
-				Diamond previousValue = this._Diamond.Entity;
+				Diamonds previousValue = this._Diamond.Entity;
 				if (((previousValue != value) 
 							|| (this._Diamond.HasLoadedOrAssignedValue == false)))
 				{
@@ -418,7 +418,7 @@ namespace Data
 					{
 						this._catalogid = default(int);
 					}
-					this.SendPropertyChanged("Diamond");
+					this.SendPropertyChanged("Diamonds");
 				}
 			}
 		}
@@ -445,7 +445,7 @@ namespace Data
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Diamonds")]
-	public partial class Diamond : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Diamonds : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -456,7 +456,7 @@ namespace Data
 		
 		private int _id;
 		
-		private EntitySet<Event> _Events;
+		private EntitySet<Events> _Events;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -470,9 +470,9 @@ namespace Data
     partial void OnidChanged();
     #endregion
 		
-		public Diamond()
+		public Diamonds()
 		{
-			this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
+			this._Events = new EntitySet<Events>(new Action<Events>(this.attach_Events), new Action<Events>(this.detach_Events));
 			OnCreated();
 		}
 		
@@ -537,7 +537,7 @@ namespace Data
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Diamond_Event", Storage="_Events", ThisKey="id", OtherKey="catalogid")]
-		public EntitySet<Event> Events
+		public EntitySet<Events> Events
 		{
 			get
 			{
@@ -569,16 +569,16 @@ namespace Data
 			}
 		}
 		
-		private void attach_Events(Event entity)
+		private void attach_Events(Events entity)
 		{
 			this.SendPropertyChanging();
-			entity.Diamond = this;
+			entity.Diamonds = this;
 		}
 		
-		private void detach_Events(Event entity)
+		private void detach_Events(Events entity)
 		{
 			this.SendPropertyChanging();
-			entity.Diamond = null;
+			entity.Diamonds = null;
 		}
 	}
 }
