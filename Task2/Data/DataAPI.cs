@@ -8,41 +8,43 @@ using Data.Model;
 
 namespace Data
 {
-    public abstract class DataAPI
+    public interface IDataAPI
     {
-       // public abstract void Connect();
+        IDiamond Transform(Diamond diamond);
+        ICustomer Transform(Customer customer);
+       // IEvent Transform(Event event); ?? nw skąd mu się problem robi
+
+
        
+     
 
-       // public static DataAPI CreateData()
-        //{
-           // DataContext data = new DataContext();
-            //  return new DataRepository(data);
-        //}
+        #region Diamond
 
+       // IDiamond GetDiamond(int diamondId); nw skąd on ma problem
+        bool AddDiamond(int diamondId, decimal price, string quality);
+        bool UpdateDiamond(int diamondId, decimal price, string quality);
+        bool DeleteDiamond(int diamondId);
 
+        #endregion
+        //CRUD:
+        #region Customer
 
-       // public abstract Event CreateEvent();
-        //public abstract Event GetEvent(int Id);
+        ICustomer GetCustomer(int Id);
+        bool AddCustomer(int Id, string Name);
+        bool UpdateCustomer(int Id, string Name);
+        bool DeleteCustomer(int Id);
 
-       // public abstract Event GetEvent();
+        #endregion
 
-       // public abstract void DeleteEvent();
+        #region Event
 
+        IEvent GetEvent(int eventId);
+        bool AddEvent(int eventId);
+        bool AddEvent(int eventId, int userId, int productId);
+        bool UpdateEvent(int eventId, int userId, int productId);
+        bool DeleteEvent(int eventId);
 
-        public abstract void Diamond(string quality, decimal price);
+        #endregion
 
-        public abstract Diamond GetDiamond(int id);
-
-       // public abstract void UpdateProduct();
-
-        //public abstract void DeleteProduct(int id);
-
-        public abstract ICustomer CreateCustomer(string name, int Id);
-        public abstract ICustomer GetCustomer(int Id);
-        public abstract ICustomer GetCustomer(string name);
-
-        public abstract void UpdateCustomer(int Id, string name);
-
-        public abstract void DeleteCustomer(int Id);
     }
 }

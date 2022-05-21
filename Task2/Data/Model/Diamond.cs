@@ -1,6 +1,8 @@
-﻿namespace Data.Model
+﻿using Data.API;
+
+namespace Data.Model
 {
-    public class Diamond 
+    public class Diamond //: IDiamond
     {
         private decimal Price { get; set; }
 		private string Quality { get; set;}
