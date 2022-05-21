@@ -10,6 +10,6 @@ namespace Service.API
     { 
        public int DiamondId { get; }
        public decimal Price { get; }
-        public string Quality { get;}
+       public string Quality { get;}
     }
 }
