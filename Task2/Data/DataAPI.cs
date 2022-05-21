@@ -12,15 +12,12 @@ namespace Data
     {
         IDiamond Transform(Diamond diamond);
         ICustomer Transform(Customer customer);
-       // IEvent Transform(Event event); ?? nw skąd mu się problem robi
+       // IEvent Transform(Event event); nw w czym on ma problem??
 
-
-       
-     
 
         #region Diamond
 
-       // IDiamond GetDiamond(int diamondId); nw skąd on ma problem
+        IDiamond GetDiamond(int diamondId); 
         bool AddDiamond(int diamondId, decimal price, string quality);
         bool UpdateDiamond(int diamondId, decimal price, string quality);
         bool DeleteDiamond(int diamondId);
@@ -40,8 +37,8 @@ namespace Data
 
         IEvent GetEvent(int eventId);
         bool AddEvent(int eventId);
-        bool AddEvent(int eventId, int userId, int productId);
-        bool UpdateEvent(int eventId, int userId, int productId);
+        bool AddEvent(int eventId, string Date, int catalogId);
+        bool UpdateEvent(int eventId, string Date, int catalogId);
         bool DeleteEvent(int eventId);
 
         #endregion

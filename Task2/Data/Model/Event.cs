@@ -12,10 +12,13 @@ namespace Data.Model
         public string Date;
         public bool IsDelivery;
         public int CatalogId;
-        internal Event(string date)
+        internal Event(int id,string date, bool isdelivered, int catalogid)
         {
+            Id = id;
             Date = date;
-            //Entry = entry;
+            IsDelivery = isdelivered;
+            CatalogId = catalogid;
+            
         }
     }
 }
