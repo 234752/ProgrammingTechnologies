@@ -12,5 +12,7 @@ namespace Data.API
         int Id { get; set; }
         bool IsDelivery { get; set; }
         int CatalogId { get; set; }
+       
+        int CustomerId { get; set; }
     }
 }
