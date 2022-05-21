@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
+using System.Windows.Input;
 
 namespace Presentation.ViewModels
 {
@@ -15,6 +16,7 @@ namespace Presentation.ViewModels
         private IDataModel model = new DataModel();
         private ObservableCollection<EventViewModel> _Events = new ObservableCollection<EventViewModel>();
         private EventViewModel _CurrentEvent;
+        private ICommand _RemoveEventCommand;
 
         public EventListViewModel()
         {
@@ -23,6 +25,7 @@ namespace Presentation.ViewModels
             {
                 _Events.Add(new EventViewModel(ev.Id, ev.Date, ev.IsDelivery, ev.CatalogId));
             }
+            _RemoveEventCommand = new RelayCommand(() => RemoveEvent());
         }
         public EventListViewModel(IDataModel dataModel)
         {
@@ -32,30 +35,16 @@ namespace Presentation.ViewModels
             {
                 _Events.Add(new EventViewModel(ev.Id, ev.Date, ev.IsDelivery, ev.CatalogId));
             }
+            _RemoveEventCommand = new RelayCommand(() => RemoveEvent());
         }
         public ObservableCollection<EventViewModel> Events
-        {
-            get
-            {
-                return _Events;
-            }
-            set
-            {
-                _Events = value;
-                RaisePropertyChanged(nameof(Events));
-            }
-        }
+        { get { return _Events; } set { _Events = value; RaisePropertyChanged(nameof(Events)); } }
         public EventViewModel CurrentEvent
+        { get { return _CurrentEvent; } set { _CurrentEvent = value; RaisePropertyChanged(nameof(CurrentEvent)); } }
+        public ICommand RemoveEventCommand { get { return _RemoveEventCommand; } }
+        public void RemoveEvent()
         {
-            get
-            {
-                return _CurrentEvent;
-            }
-            set
-            {
-                _CurrentEvent = value;
-                RaisePropertyChanged(nameof(CurrentEvent));
-            }
+            Events.Remove(CurrentEvent);
         }
     }
 }
