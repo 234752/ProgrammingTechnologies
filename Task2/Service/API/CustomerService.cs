@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.Model
+namespace Service.API
 {
-    internal class DataServices
+    internal class CustomerService
     {
-
-    
     }
 }

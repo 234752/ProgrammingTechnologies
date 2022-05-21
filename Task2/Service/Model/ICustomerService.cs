@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    internal class ServiceAPI
+    internal class ICustomerService
     {
     }
 }

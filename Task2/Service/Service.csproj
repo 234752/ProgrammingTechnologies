@@ -51,14 +51,24 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\ServiceAPI.cs" />
-    <Compile Include="Model\DataServices.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{b0a3aef5-ea98-496d-98a1-eb03b989a753}</Project>
       <Name>Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\DiamondData.cs" />
+    <Compile Include="API\DiamondService.cs" />
+    <Compile Include="API\CustomerData.cs" />
+    <Compile Include="API\CustomerService.cs" />
+    <Compile Include="API\EventService.cs" />
+    <Compile Include="API\EventData.cs" />
+    <Compile Include="Model\ICustomerData.cs" />
+    <Compile Include="Model\ICustomerService.cs" />
+    <Compile Include="Model\IDiamondData.cs" />
+    <Compile Include="Model\IDiamondService.cs" />
+    <Compile Include="Model\IEventData.cs" />
+    <Compile Include="Model\IEventService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
