@@ -12,10 +12,9 @@ namespace Service.Model
         public int CustomerId { get; }
         public string Name { get; set; }
 
-        public CustomerData(int id, string name)
+        public CustomerData(int id)
         {
             CustomerId = id;
-            Name = name;
         }
     }
 }
