@@ -24,6 +24,7 @@
             </ListView.View>
         </ListView>
         <Button Content="Remove" Command="{Binding RemoveCustomerCommand}" Margin="55,290,389,-81" RenderTransformOrigin="0.5,0.5" />
+        <Button Content="Add" Command="{Binding AddCustomerCommand}" Margin="389,290,55,-81" RenderTransformOrigin="0.5,0.5" />
 
 
         <local:CustomerView Margin="-75,336,-75,-186" DataContext="{Binding CurrentCustomer}">

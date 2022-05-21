@@ -17,15 +17,19 @@ namespace Presentation.ViewModels
         private ObservableCollection<CustomerViewModel> _Customers = new ObservableCollection<CustomerViewModel>();
         private CustomerViewModel _CurrentCustomer;
         private ICommand _RemoveCustomerCommand;
-        
+        private ICommand _AddCustomerCommand;
+        private int _NextCustomerId = 0;
+
         public CustomerListViewModel()
         {
             _Customers = new ObservableCollection<CustomerViewModel>();
             foreach(ICustomerModel customer in model.Customers)
             {
-                _Customers.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName));
+                _Customers.Add(new CustomerViewModel(_NextCustomerId, customer.FirstName, customer.LastName));
+                _NextCustomerId++;
             }
             _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
+            _AddCustomerCommand = new RelayCommand(() => AddCustomer());
         }
         public CustomerListViewModel(IDataModel dataModel)
         {
@@ -36,16 +40,23 @@ namespace Presentation.ViewModels
                 _Customers.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName));
             }
             _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
+            _AddCustomerCommand = new RelayCommand(() => AddCustomer());
         }
         public ObservableCollection<CustomerViewModel> Customers
         { get { return _Customers; } set { _Customers = value; RaisePropertyChanged(nameof(Customers)); } }
         public CustomerViewModel CurrentCustomer
         { get { return _CurrentCustomer; } set { _CurrentCustomer = value; RaisePropertyChanged(nameof(CurrentCustomer)); } }
         public ICommand RemoveCustomerCommand { get { return _RemoveCustomerCommand; } }
+        public ICommand AddCustomerCommand { get { return _AddCustomerCommand; } }
 
         public void RemoveCustomer()
         {
             Customers.Remove(CurrentCustomer);
+        }
+        public void AddCustomer()
+        {
+            Customers.Add(new CustomerViewModel() { Id = _NextCustomerId, FirstName = "", LastName = "" });
+            _NextCustomerId++;
         }
     }
 }
