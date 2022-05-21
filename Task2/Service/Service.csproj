@@ -57,18 +57,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\DiamondData.cs" />
-    <Compile Include="API\DiamondService.cs" />
-    <Compile Include="API\CustomerData.cs" />
-    <Compile Include="API\CustomerService.cs" />
-    <Compile Include="API\EventService.cs" />
-    <Compile Include="API\EventData.cs" />
-    <Compile Include="Model\ICustomerData.cs" />
-    <Compile Include="Model\ICustomerService.cs" />
-    <Compile Include="Model\IDiamondData.cs" />
-    <Compile Include="Model\IDiamondService.cs" />
-    <Compile Include="Model\IEventData.cs" />
-    <Compile Include="Model\IEventService.cs" />
+    <Compile Include="Model\DiamondData.cs" />
+    <Compile Include="Model\DiamondService.cs" />
+    <Compile Include="Model\CustomerData.cs" />
+    <Compile Include="Model\CustomerService.cs" />
+    <Compile Include="Model\EventService.cs" />
+    <Compile Include="Model\EventData.cs" />
+    <Compile Include="API\ICustomerData.cs" />
+    <Compile Include="API\ICustomerService.cs" />
+    <Compile Include="API\IDiamondData.cs" />
+    <Compile Include="API\IDiamondService.cs" />
+    <Compile Include="API\IEventData.cs" />
+    <Compile Include="API\IEventService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

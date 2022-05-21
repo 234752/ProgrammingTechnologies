@@ -28,7 +28,7 @@ namespace Data.Model
 
         public int GetId()
         {
-            return Id;
+            return CustomerId;
         }
     }
 }
