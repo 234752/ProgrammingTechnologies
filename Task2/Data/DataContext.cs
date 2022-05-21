@@ -2,7 +2,7 @@
 
 namespace Data.Model
 {
-    internal class DataContext
+    public class DataContext
     {
         internal List<Customer> Customers;
         internal List<Event> Events;    

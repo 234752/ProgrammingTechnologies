@@ -14,7 +14,7 @@ namespace Data
         ICustomer Transform(Customer customer);
        // IEvent Transform(Event event); nw w czym on ma problem??
 
-
+        // CRUD DECLARATION
         #region Diamond
 
         IDiamond GetDiamond(int diamondId); 
@@ -23,7 +23,7 @@ namespace Data
         bool DeleteDiamond(int diamondId);
 
         #endregion
-        //CRUD:
+      
         #region Customer
 
         ICustomer GetCustomer(int Id);
