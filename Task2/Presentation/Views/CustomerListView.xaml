@@ -18,8 +18,8 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="id" Width="200" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="first" Width="200" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="last" Width="200" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="name" Width="200" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="surname" Width="200" DisplayMemberBinding="{Binding LastName}"/>
                 </GridView>
             </ListView.View>
         </ListView>

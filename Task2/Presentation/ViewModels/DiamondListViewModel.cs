@@ -19,6 +19,7 @@ namespace Presentation.ViewModels
         private ICommand _RemoveDiamondCommand;
         private ICommand _AddDiamondCommand;
         private int _NextDiamondId = 0;
+        private ICommand _SaveDiamondsCommand;
 
         public DiamondListViewModel()
         {
@@ -30,6 +31,7 @@ namespace Presentation.ViewModels
             }
             _RemoveDiamondCommand = new RelayCommand(() => RemoveDiamond());
             _AddDiamondCommand = new RelayCommand(() => AddDiamond());
+            _SaveDiamondsCommand = new RelayCommand(() => SaveDiamonds());
         }
         public DiamondListViewModel(IDataModel dataModel)
         {
@@ -41,6 +43,7 @@ namespace Presentation.ViewModels
             }
             _RemoveDiamondCommand = new RelayCommand(() => RemoveDiamond());
             _AddDiamondCommand = new RelayCommand(() => AddDiamond());
+            _SaveDiamondsCommand = new RelayCommand(() => SaveDiamonds());
         }
         public ObservableCollection<DiamondViewModel> Diamonds
         { get { return _Diamonds; } set { _Diamonds = value; RaisePropertyChanged(nameof(Diamonds)); } }
@@ -48,6 +51,7 @@ namespace Presentation.ViewModels
         { get { return _CurrentDiamond; } set { _CurrentDiamond = value; RaisePropertyChanged(nameof(CurrentDiamond)); } }
         public ICommand RemoveDiamondCommand { get { return _RemoveDiamondCommand; } }
         public ICommand AddDiamondCommand { get { return _AddDiamondCommand; } }
+        public ICommand SaveDiamondsCommand { get { return _SaveDiamondsCommand; } }
 
         public void RemoveDiamond()
         {
@@ -58,6 +62,10 @@ namespace Presentation.ViewModels
             Diamonds.Add(new DiamondViewModel() { Id = _NextDiamondId, Name = "", Price = 0M, Quality = ""});
             CurrentDiamond = Diamonds.Last();
             _NextDiamondId++;
+        }
+        public void SaveDiamonds()
+        {
+            //placeholder
         }
     }
 }

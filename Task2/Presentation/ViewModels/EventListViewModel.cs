@@ -19,6 +19,7 @@ namespace Presentation.ViewModels
         private ICommand _RemoveEventCommand;
         private ICommand _AddEventCommand;
         private int _NextEventId = 0;
+        private ICommand _SaveEventsCommand;
 
         public EventListViewModel()
         {
@@ -30,6 +31,7 @@ namespace Presentation.ViewModels
             }
             _RemoveEventCommand = new RelayCommand(() => RemoveEvent());
             _AddEventCommand = new RelayCommand(() => AddEvent());
+            _SaveEventsCommand = new RelayCommand(() => SaveEvents());
         }
         public EventListViewModel(IDataModel dataModel)
         {
@@ -41,6 +43,7 @@ namespace Presentation.ViewModels
             }
             _RemoveEventCommand = new RelayCommand(() => RemoveEvent());
             _AddEventCommand = new RelayCommand(() => AddEvent());
+            _SaveEventsCommand = new RelayCommand(() => SaveEvents());
 
         }
         public ObservableCollection<EventViewModel> Events
@@ -49,6 +52,7 @@ namespace Presentation.ViewModels
         { get { return _CurrentEvent; } set { _CurrentEvent = value; RaisePropertyChanged(nameof(CurrentEvent)); } }
         public ICommand RemoveEventCommand { get { return _RemoveEventCommand; } }
         public ICommand AddEventCommand { get { return _AddEventCommand; } }
+        public ICommand SaveEventsCommand { get { return _SaveEventsCommand; } }
         public void RemoveEvent()
         {
             Events.Remove(CurrentEvent);
@@ -58,6 +62,10 @@ namespace Presentation.ViewModels
             Events.Add(new EventViewModel() { Id = _NextEventId, CatalogId = 0, Date = "", IsDelivery = true});
             CurrentEvent = Events.Last();
             _NextEventId++;
+        }
+        public void SaveEvents()
+        {
+            //placeholder
         }
     }
 }

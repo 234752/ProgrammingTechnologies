@@ -26,6 +26,7 @@
         </ListView>
         <Button Content="Remove" Command="{Binding RemoveDiamondCommand}" Margin="55,290,389,-81" RenderTransformOrigin="0.5,0.5" />
         <Button Content="Add" Command="{Binding AddDiamondCommand}" Margin="389,290,55,-81" RenderTransformOrigin="0.5,0.5" />
+        <Button Content="Save" Command="{Binding SaveDiamondsCommand}" Margin="240,290,240,-81" RenderTransformOrigin="0.5,0.5" />
         <local:DiamondView Margin="-75,336,-75,-186" DataContext="{Binding CurrentDiamond}">
 
         </local:DiamondView>
