@@ -19,6 +19,7 @@ namespace Presentation.ViewModels
         private ICommand _RemoveCustomerCommand;
         private ICommand _AddCustomerCommand;
         private int _NextCustomerId = 0;
+        private ICommand _SaveCustomersCommand;
 
         public CustomerListViewModel()
         {
@@ -30,6 +31,7 @@ namespace Presentation.ViewModels
             }
             _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
             _AddCustomerCommand = new RelayCommand(() => AddCustomer());
+            _SaveCustomersCommand = new RelayCommand(() => SaveCustomers());
         }
         public CustomerListViewModel(IDataModel dataModel)
         {
@@ -41,6 +43,7 @@ namespace Presentation.ViewModels
             }
             _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
             _AddCustomerCommand = new RelayCommand(() => AddCustomer());
+            _SaveCustomersCommand = new RelayCommand(() => SaveCustomers());
         }
         public ObservableCollection<CustomerViewModel> Customers
         { get { return _Customers; } set { _Customers = value; RaisePropertyChanged(nameof(Customers)); } }
@@ -48,6 +51,7 @@ namespace Presentation.ViewModels
         { get { return _CurrentCustomer; } set { _CurrentCustomer = value; RaisePropertyChanged(nameof(CurrentCustomer)); } }
         public ICommand RemoveCustomerCommand { get { return _RemoveCustomerCommand; } }
         public ICommand AddCustomerCommand { get { return _AddCustomerCommand; } }
+        public ICommand SaveCustomersCommand { get { return _SaveCustomersCommand; } }
 
         public void RemoveCustomer()
         {
@@ -58,6 +62,10 @@ namespace Presentation.ViewModels
             Customers.Add(new CustomerViewModel() { Id = _NextCustomerId, FirstName = "", LastName = "" });
             CurrentCustomer = Customers.Last();
             _NextCustomerId++;
+        }
+        public void SaveCustomers()
+        {
+            //placeholder
         }
     }
 }

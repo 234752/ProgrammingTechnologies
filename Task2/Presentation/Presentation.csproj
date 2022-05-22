@@ -162,12 +162,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Service\Service.csproj">
-      <Project>{0dcd1843-ba13-47ff-a461-9b4408a5b09d}</Project>
-      <Name>Service</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
