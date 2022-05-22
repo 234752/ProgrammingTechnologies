@@ -11,7 +11,7 @@ using Service.API;
 
 namespace Service.Model
 {
-    public class DiamondService
+    internal class DiamondService
     {
         private readonly DataRepository _dataRepository;
 
@@ -27,7 +27,7 @@ namespace Service.Model
 
         public IDiamondData GetProduct(int diamondId)
         {
-            return Transform(_dataRepository.GetDiamond(diamondId));
+            return Transform(_dataRepository.GetDiamond(diamondId)); //czemu inaccessible??
         }
 
         public bool AddDiamond(int diamondId, decimal price, string quality)
