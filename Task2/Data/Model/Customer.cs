@@ -3,7 +3,7 @@
 namespace Data.Model
 
 {
-    public class Customer //: ICustomer z interface tu czy bez??
+    public class Customer : ICustomer // z interface tu czy bez??
     {
     public int CustomerId { get; set; }
     public string Name { get; set; }

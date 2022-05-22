@@ -2,9 +2,9 @@
 
 namespace Data.Model
 {
-    public class Diamond //: IDiamond
+    public class Diamond : IDiamond
     {
-        public int DiamondId;
+        public int DiamondId { get;set; }
         public decimal Price { get; set; }
 		public string Quality { get; set;}
 
