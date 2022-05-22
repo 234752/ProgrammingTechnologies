@@ -10,26 +10,26 @@ using System.Threading.Tasks;
 namespace Data
 {
     public class DataRepository : IDataAPI
-    { 
-       private readonly LINQtoSQLDataContext context;
+    {
+        private readonly LINQtoSQLDataContext context;
         public DataRepository(LINQtoSQLDataContext data)
         {
-           context = data;
+            context = data;
         }
 
-    
-       public IDiamond Transform(Diamonds diamond)
+
+        public IDiamond Transform(Diamonds diamond)
         {
             return new Diamond(diamond.price, diamond.quality, diamond.id);
         }
-       public ICustomer Transform(Customers customer)
+        public ICustomer Transform(Customers customer)
         {
             return new Customer(customer.id, customer.first_name);
         }
-       /* public IEvent Transform(Events event);
-        {
-            return new Event(event.date,event.id,event.isdelivered,event.catalogid,event.customerid);
-        }  */
+        /* public IEvent Transform(Events event);
+         {
+             return new Event(event.date,event.id,event.isdelivered,event.catalogid,event.customerid);
+         }  */
 
         // CRUD implementation
         #region Diamond
@@ -88,7 +88,7 @@ namespace Data
             {
                 id = Id,
                 first_name = Name
-              
+
             };
             context.Customers.InsertOnSubmit(newReader);
             context.SubmitChanges();
@@ -116,51 +116,32 @@ namespace Data
 
         #region Event
 
-
-        public IEvent GetEvent(int eventId)
-        {
-            var eventDatabase = (from events in context.Events where events.id == eventId select events).FirstOrDefault();
-            return eventDatabase != null ? Transform(eventDatabase) : null;
-        }
-
-        public bool AddEvent(int eventId)
-        {
-            if (GetEvent(eventId) != null) return false;
-            var newReader = new Events
-            {
-                id = eventId
-            };
-            context.Events.InsertOnSubmit(newReader);
-            context.SubmitChanges();
-            return true;
-        }
-
+         public IEvent GetEvent(int eventId)
+         {
+            var evDatabase = (from events in context.Events where events.id == eventId select events).FirstOrDefault();
+            return evDatabase != null ? Transform(evDatabase) : null;
+          }
         public bool AddEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId)
         {
-            if (GetEvent(eventId) != null) return false;
+            if (GetEvent(eventId) == null) return false;
             var newReader = new Events
             {
-                id = eventId;
-            date = Date;
-            isdelivered = Isdelivered;
-            customerid = customId;
-            catalogid = catalogId;
+                id= eventId,
+                date= Date,
+                isdelivered= Isdelivered,
+                catalogid= catalogId,
+                customerid=customId
+            };
         }
-
-            context.Events.InsertOnSubmit(newReader);
-            context.SubmitChanges();
-            return true;
-        }
-
-        public bool UpdateEvent(int eventId, string Date,bool Isdelivered, int catalogId,int customId )
+        public bool UpdateEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId)
         {
-            var events = context.Events.SingleOrDefault(events => events.id == eventId);
-            if (events == null) return false;
-            events.id = eventId;
-            events.date = Date;
-            events.isdelivered = Isdelivered;
-            events.customerid = customId;
-            events.catalogid = catalogId;
+            var ev = context.Events.SingleOrDefault(ev => ev.id == eventId);
+            if (ev == null) return false;
+            ev.id = eventId;
+            ev.date = Date;
+            ev.isdelivered = Isdelivered;
+            ev.customerid = customId;
+            ev.catalogid = catalogId;
             context.SubmitChanges();
             return true;
         }
@@ -173,7 +154,22 @@ namespace Data
             context.SubmitChanges();
             return true;
         }
+        /*public bool AddEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId)
+        {
+            if (GetEvent(eventId) != null) return false;
+            var newReader = new Events
+            {
+                id = eventId;
+            date = Date;
+            isdelivered = Isdelivered;
+            customerid = customId;
+            catalogid = catalogId;
+        }
+        context.Events.InsertOnSubmit(newReader);
+            context.SubmitChanges();
+            return true;
+         } */
+        #endregion
 
-        #endregion 
     }
 }
