@@ -158,7 +158,7 @@ namespace Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Event", Storage="_Events", ThisKey="id", OtherKey="customerid")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customers_Events", Storage="_Events", ThisKey="id", OtherKey="customerid")]
 		public EntitySet<Events> Events
 		{
 			get
@@ -214,7 +214,7 @@ namespace Data
 		
 		private int _id;
 		
-		private System.Data.Linq.Binary _isdelivered;
+		private string _isdelivered;
 		
 		private int _catalogid;
 		
@@ -232,7 +232,7 @@ namespace Data
     partial void OndateChanged();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OnisdeliveredChanging(System.Data.Linq.Binary value);
+    partial void OnisdeliveredChanging(string value);
     partial void OnisdeliveredChanged();
     partial void OncatalogidChanging(int value);
     partial void OncatalogidChanged();
@@ -287,8 +287,8 @@ namespace Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isdelivered", DbType="Binary(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary isdelivered
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isdelivered", DbType="VarChar(255) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string isdelivered
 		{
 			get
 			{
@@ -355,7 +355,7 @@ namespace Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Event", Storage="_Customer", ThisKey="customerid", OtherKey="id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customers_Events", Storage="_Customer", ThisKey="customerid", OtherKey="id", IsForeignKey=true)]
 		public Customers Customers
 		{
 			get
@@ -389,7 +389,7 @@ namespace Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Diamond_Event", Storage="_Diamond", ThisKey="catalogid", OtherKey="id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Diamonds_Events", Storage="_Diamond", ThisKey="catalogid", OtherKey="id", IsForeignKey=true)]
 		public Diamonds Diamonds
 		{
 			get
@@ -536,7 +536,7 @@ namespace Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Diamond_Event", Storage="_Events", ThisKey="id", OtherKey="catalogid")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Diamonds_Events", Storage="_Events", ThisKey="id", OtherKey="catalogid")]
 		public EntitySet<Events> Events
 		{
 			get

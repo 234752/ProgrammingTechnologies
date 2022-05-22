@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class DataRepository : IDataAPI
+    public class DataRepository 
     {
         private readonly LINQtoSQLDataContext context;
         public DataRepository(LINQtoSQLDataContext data)
@@ -20,16 +20,17 @@ namespace Data
 
         public IDiamond Transform(Diamonds diamond)
         {
-            return new Diamond(diamond.price, diamond.quality, diamond.id);
+            return new Diamond(diamond.id, diamond.price, diamond.quality);
         }
         public ICustomer Transform(Customers customer)
         {
             return new Customer(customer.id, customer.first_name);
         }
-        /* public IEvent Transform(Events event);
-         {
-             return new Event(event.date,event.id,event.isdelivered,event.catalogid,event.customerid);
-         }  */
+       
+        public IEvent Transform(Events ev)
+        {
+            return new Event(ev.id,ev.date,ev.isdelivered,ev.catalogid,ev.customerid);
+        }
 
         // CRUD implementation
         #region Diamond
@@ -54,11 +55,11 @@ namespace Data
         }
         bool UpdateDiamond(int diamondId, decimal price, string quality)
         {
-            var diamond = context.Diamonds.SingleOrDefault(diamond => diamond.id == diamondId);
-            if (diamond == null) return false;
-            diamond.id = diamondId;
-            diamond.price = price;
-            diamond.quality = quality;
+            var diam = context.Diamonds.SingleOrDefault(diam => diam.id == diamondId);
+            if (diam == null) return false;
+            diam.id = diamondId;
+            diam.price = price;
+            diam.quality = quality;
             context.SubmitChanges();
             return true;
 
@@ -121,19 +122,20 @@ namespace Data
             var evDatabase = (from events in context.Events where events.id == eventId select events).FirstOrDefault();
             return evDatabase != null ? Transform(evDatabase) : null;
           }
-        public bool AddEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId)
+        public bool AddEvent(int eventId, string Date, string IsDelivered, int catalogId, int customId)
         {
             if (GetEvent(eventId) == null) return false;
             var newReader = new Events
             {
                 id= eventId,
                 date= Date,
-                isdelivered= Isdelivered,
+                isdelivered= IsDelivered,
                 catalogid= catalogId,
                 customerid=customId
             };
+            return true;
         }
-        public bool UpdateEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId)
+        public bool UpdateEvent(int eventId, string Date, string Isdelivered, int catalogId, int customId)
         {
             var ev = context.Events.SingleOrDefault(ev => ev.id == eventId);
             if (ev == null) return false;

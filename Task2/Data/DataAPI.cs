@@ -39,8 +39,8 @@ namespace Data
         #region Event
 
         IEvent GetEvent(int eventId);
-        bool AddEvent(int eventId, string Date,bool Isdelivered, int catalogId,int customId );
-        bool UpdateEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId);
+        bool AddEvent(int eventId, string Date,string Isdelivered, int catalogId,int customId );
+        bool UpdateEvent(int eventId, string Date, string Isdelivered, int catalogId, int customId);
         bool DeleteEvent(int eventId);
 
         #endregion
