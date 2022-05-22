@@ -11,12 +11,12 @@ namespace Service.Model
     {
        public string Date { get; set; }
         public int EventId { get; set; }
-        public bool IsDelivery { get; set; }
+        public string IsDelivery { get; set; }
        public  int CatalogId { get; set; }
 
        public int CustomerId { get; set; }
 
-        public EventData(int id, string date, bool isdelivered, int catalogid, int customerid)
+        public EventData(int id, string date, string isdelivered, int catalogid, int customerid)
         {
             EventId = id;
             Date = date;
@@ -24,9 +24,6 @@ namespace Service.Model
             CatalogId = catalogid;
             CustomerId = customerid;
         }
-        public EventData(int id)
-        {
-            EventId = id;
-        }
+     
     }
 }

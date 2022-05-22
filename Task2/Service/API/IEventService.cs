@@ -10,8 +10,8 @@ namespace Service.API
     {
         IEventData GetEvent(int eventId);
         bool AddEvent(int eventId);
-        bool AddEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId);
-        bool UpdateEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId);
+        bool AddEvent(int eventId, string Date, string Isdelivered, int catalogId, int customId);
+        bool UpdateEvent(int eventId, string Date, string Isdelivered, int catalogId, int customId);
         bool DeleteEvent(int eventId);
     }
 }

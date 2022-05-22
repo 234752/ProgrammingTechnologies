@@ -23,7 +23,7 @@ namespace Service.Model
 
         private static IEventData Transform(IEvent @event)
         {
-            return @event == null ? null : new EventData(@event.EventId);
+            return @event == null ? null : new EventData(@event.EventId,@event.Date,@event.IsDelivery,@event.CatalogId, @event.CustomerId);
         }
 
         public IEventData GetEvent(int eventId)
@@ -31,17 +31,14 @@ namespace Service.Model
             return Transform(_dataRepository.GetEvent(eventId));
         }
 
-        public bool AddEvent(int eventId)
-        {
-            return _dataRepository.AddEvent(eventId);
-        }
+    
 
-        public bool AddEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId)
+        public bool AddEvent(int eventId, string Date, string Isdelivered, int catalogId, int customId)
         {
             return _dataRepository.AddEvent(eventId, Date, Isdelivered, catalogId, customId);
         }
 
-        public bool UpdateEvent(int eventId, string Date, bool Isdelivered, int catalogId, int customId)
+        public bool UpdateEvent(int eventId, string Date, string Isdelivered, int catalogId, int customId)
         {
             return _dataRepository.UpdateEvent(eventId,Date,Isdelivered,catalogId, customId);
         }

@@ -10,7 +10,7 @@ namespace Service.API
     {
         public string Date { get; }
         public int EventId { get; }
-        public bool IsDelivery { get; }
+        public string IsDelivery { get; }
         public int CatalogId { get; }
 
         public int CustomerId { get;  }
