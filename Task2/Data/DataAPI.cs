@@ -13,7 +13,7 @@ namespace Data
         
         IDiamond Transform(Diamonds diamond);
         ICustomer Transform(Customers customer);
-       // IEvent Transform(Events event); //tu ma z czymś problem nie wiem o co mu chodzi :((
+        IEvent Transform(Events ev); //tu ma z czymś problem nie wiem o co mu chodzi :((
         // a to wszystko dalej psuje...
 
 

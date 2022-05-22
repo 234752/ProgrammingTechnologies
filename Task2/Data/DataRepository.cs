@@ -140,12 +140,12 @@ namespace Data
             if (GetEvent(eventId) != null) return false;
             var newReader = new Events
             {
-            id = eventId;
+                id = eventId;
             date = Date;
             isdelivered = Isdelivered;
             customerid = customId;
             catalogid = catalogId;
-             }; 
+        }
 
             context.Events.InsertOnSubmit(newReader);
             context.SubmitChanges();
