@@ -8,7 +8,7 @@
       <Column Name="catalogid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="customerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Customers_Events" Member="Customers" Storage="_Customer" ThisKey="customerid" OtherKey="id" Type="Customers" IsForeignKey="true" />
-      <Association Name="Diamond_Events" Member="Diamonds" Storage="_Diamond" ThisKey="catalogid" OtherKey="id" Type="Diamonds" IsForeignKey="true" />
+      <Association Name="Diamonds_Events" Member="Diamonds" Storage="_Diamond" ThisKey="catalogid" OtherKey="id" Type="Diamonds" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Customers" Member="Customers">
@@ -25,7 +25,7 @@
       <Column Name="quality" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Diamond_Events" Member="Events" ThisKey="id" OtherKey="catalogid" Type="Events" />
+      <Association Name="Diamonds_Events" Member="Events" ThisKey="id" OtherKey="catalogid" Type="Events" />
     </Type>
   </Table>
 </Database>

@@ -346,6 +346,8 @@ namespace Data
 		private string _quality;
 		
 		private int _id;
+
+		private string _name;
 		
 		private EntitySet<Events> _Events;
 		
@@ -439,8 +441,10 @@ namespace Data
 				this._Events.Assign(value);
 			}
 		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
+
+        public string name { get; internal set; }
+
+        public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
 		
