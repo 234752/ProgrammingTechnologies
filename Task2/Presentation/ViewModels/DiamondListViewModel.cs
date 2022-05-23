@@ -28,11 +28,9 @@ namespace Presentation.ViewModels
         {
             _Diamonds = new ObservableCollection<DiamondViewModel>();
             _Service = new DiamondService();
-            foreach (IDiamondModel diamond in model.Diamonds)
-            {
-                _Diamonds.Add(new DiamondViewModel(_NextDiamondId, diamond.Name, diamond.Quality, diamond.Price));
-                _NextDiamondId++;
-            }
+
+            Task.Run(() => FetchDiamondsFromDatabase());
+
             _RemoveDiamondCommand = new RelayCommand(() => RemoveDiamond());
             _AddDiamondCommand = new RelayCommand(() => AddDiamond());
             _SaveDiamondsCommand = new RelayCommand(() => SaveDiamonds());
@@ -69,14 +67,14 @@ namespace Presentation.ViewModels
         }
         public void SaveDiamonds()
         {
-            //placeholder
+            Task.Run(() => SaveDiamondsToDatabase());
         }
         private void FetchDiamondsFromDatabase()
         {
             _NextDiamondId = 0;
             for (int i = 0; _Service.GetProduct(i) != null; i++)
             {
-                _Diamonds.Add(new DiamondViewModel(_NextDiamondId, _Service.GetProduct(i).Name, _Service.GetProduct(i).Quality, _Service.GetProduct(i).Price ));
+                _Diamonds.Add(new DiamondViewModel(_NextDiamondId, _Service.GetProduct(i).Name, _Service.GetProduct(i).Quality, _Service.GetProduct(i).Price));
                 _NextDiamondId++;
             }
         }
@@ -84,7 +82,7 @@ namespace Presentation.ViewModels
         {
             foreach (DiamondViewModel d in Diamonds)
             {
-                _Service.UpdateProduct(d.Id, d.Price, d.Quality);
+                _Service.UpdateProduct(d.Id, d.Price, d.Quality, d.Name);
             }
         }
     }
