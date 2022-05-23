@@ -29,7 +29,7 @@ namespace Service.Model
             return diamond == null ? null : new DiamondData(diamond.DiamondId, diamond.Price, diamond.Quality, diamond.Name);
         }
 
-        public IDiamondData GetProduct(int diamondId)
+        public IDiamondData GetDiamond(int diamondId)
         {
             return Transform(_dataRepository.GetDiamond(diamondId)); //czemu inaccessible??
         }
@@ -41,12 +41,12 @@ namespace Service.Model
 
       
 
-        public bool UpdateProduct(int diamondId, decimal price, string quality, string name)
+        public bool UpdateDiamond(int diamondId, decimal price, string quality, string name)
         {
             return _dataRepository.UpdateDiamond(diamondId, price, quality, name);
         }
 
-        public bool DeleteProduct(int diamondId)
+        public bool DeleteDiamond(int diamondId)
         {
             return _dataRepository.DeleteDiamond(diamondId);
         }

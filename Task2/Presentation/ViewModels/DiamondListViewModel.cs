@@ -72,9 +72,9 @@ namespace Presentation.ViewModels
         private void FetchDiamondsFromDatabase()
         {
             _NextDiamondId = 0;
-            for (int i = 0; _Service.GetProduct(i) != null; i++)
+            for (int i = 0; _Service.GetDiamond(i) != null; i++)
             {
-                _Diamonds.Add(new DiamondViewModel(_NextDiamondId, _Service.GetProduct(i).Name, _Service.GetProduct(i).Quality, _Service.GetProduct(i).Price));
+                _Diamonds.Add(new DiamondViewModel(_NextDiamondId, _Service.GetDiamond(i).Name, _Service.GetDiamond(i).Quality, _Service.GetDiamond(i).Price));
                 _NextDiamondId++;
             }
         }
@@ -82,7 +82,7 @@ namespace Presentation.ViewModels
         {
             foreach (DiamondViewModel d in Diamonds)
             {
-                _Service.UpdateProduct(d.Id, d.Price, d.Quality, d.Name);
+                _Service.UpdateDiamond(d.Id, d.Price, d.Quality, d.Name);
             }
         }
     }

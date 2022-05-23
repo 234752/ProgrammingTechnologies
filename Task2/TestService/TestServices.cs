@@ -33,6 +33,8 @@ namespace TestService
             Assert.IsTrue(diamService.AddDiamond(1, 13.37M, "Highest Quality", "Very Big Diamond"));
             dataLayer.AddDiamond(1, 13.37M, "Highest Quality", "Very Big Diamond").Returns(false);
             Assert.IsFalse(diamService.AddDiamond(1, 13.37M, "Highest Quality", "Very Big Diamond"));
+            dataLayer.UpdateDiamond(1, 15.37M, "Highest Quality", "Very Big Diamond").Returns(true);
+            Assert.IsTrue(diamService.UpdateDiamond(1, 15.37M, "Highest Quality", "Very Big Diamond"));
         }
         public void TestEvents()
         {
