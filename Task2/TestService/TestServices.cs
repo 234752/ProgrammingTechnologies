@@ -22,6 +22,9 @@ namespace TestService
             Assert.IsTrue(custService.AddCustomer(1, "Piotr", "Makin"));
             dataLayer.AddCustomer(1, "Piotr", "Makin").Returns(false);
             Assert.IsFalse(custService.AddCustomer(1, "Piotr", "Makin"));
+            dataLayer.UpdateCustomer(1, "Kamil", "Makin").Returns(true);
+            Assert.IsTrue(custService.UpdateCustomer(1, "Kamil", "Makin"));
+
         }
         public void TestDiamonds()
         {
@@ -30,6 +33,8 @@ namespace TestService
             Assert.IsTrue(diamService.AddDiamond(1, 13.37M, "Highest Quality", "Very Big Diamond"));
             dataLayer.AddDiamond(1, 13.37M, "Highest Quality", "Very Big Diamond").Returns(false);
             Assert.IsFalse(diamService.AddDiamond(1, 13.37M, "Highest Quality", "Very Big Diamond"));
+            dataLayer.UpdateDiamond(1, 15.37M, "Highest Quality", "Very Big Diamond").Returns(true);
+            Assert.IsTrue(diamService.UpdateDiamond(1, 15.37M, "Highest Quality", "Very Big Diamond"));
         }
         public void TestEvents()
         {
