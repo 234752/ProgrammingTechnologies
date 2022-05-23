@@ -18,11 +18,10 @@ namespace TestProject2
         public void TestCustomers()
         {
             CustomerService custService = new CustomerService(dataLayer);
+            dataLayer.AddCustomer(1, "Piotr", "Makin").Returns(true);
             Assert.IsTrue(custService.AddCustomer(1, "Piotr", "Makin"));
-            Assert.AreEqual(custService.GetCustomer(1).Name,"Piotr");
-            Assert.IsTrue(custService.UpdateCustomer(1, "Kamil", "Makin"));
-            Assert.AreEqual(custService.GetCustomer(1).Name, "Kamil");
-            Assert.IsTrue(custService.DeleteCustomer(1));
+            dataLayer.AddCustomer(1, "Piotr", "Makin").Returns(false);
+            Assert.IsFalse(custService.AddCustomer(1, "Piotr", "Makin"));
 
         }
         public void TestDiamonds()
