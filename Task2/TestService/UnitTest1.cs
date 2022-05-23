@@ -1,4 +1,4 @@
-using Data;
+﻿using Data;
 using Service;
 using Service.API;
 using Service.Model;
@@ -12,12 +12,12 @@ namespace TestProject2
     public class UnitTest1
     {
 
-      private readonly IDataAPI dataLayer = Substitute.For<IDataAPI>();
-      [TestMethod]
+        private readonly IDataAPI dataLayer = Substitute.For<IDataAPI>();
+        [TestMethod]
         public void AddCustomers()
         {
-             //private CustomerService custService;
-        //custService = CustomerService();
+            CustomerService custService = new CustomerService(dataLayer);
+
         }
     }
 }
