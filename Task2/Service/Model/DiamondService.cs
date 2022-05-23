@@ -13,15 +13,15 @@ namespace Service.Model
 {
     public class DiamondService
     {
-        private readonly IDataAPI _dataRepository;
+        private readonly AbstractDataAPI _dataRepository;
 
-        public DiamondService(IDataAPI dataRepository)
+        public DiamondService(AbstractDataAPI dataRepository)
         {
             _dataRepository = dataRepository;
         }
         public DiamondService()
         {
-            _dataRepository = IDataAPI.CreateLayer();
+            _dataRepository = AbstractDataAPI.CreateLayer();
         }
 
         private static IDiamondData Transform(IDiamond diamond)

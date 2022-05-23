@@ -8,14 +8,14 @@ using Data.Model;
 
 namespace Data
 {
-    public abstract class IDataAPI
+    public abstract class AbstractDataAPI
     {
 
-        public static IDataAPI CreateLayer(string sqlString)
+        public static AbstractDataAPI CreateLayer(string sqlString)
         {
             return new DataRepository(sqlString);
         }
-        public static IDataAPI CreateLayer()
+        public static AbstractDataAPI CreateLayer()
         {
             return new DataRepository();
         }
@@ -53,7 +53,7 @@ namespace Data
 
         #endregion
 
-        public class DataRepository : IDataAPI
+        public class DataRepository : AbstractDataAPI
         {
             private LINQtoSQLDataContext context;
            

@@ -11,15 +11,15 @@ namespace Service.Model
 {
     public class CustomerService //: ICustomerService
     {
-        private readonly IDataAPI _dataRepository;
+        private readonly AbstractDataAPI _dataRepository;
 
-        public CustomerService(IDataAPI dataRepository)
+        public CustomerService(AbstractDataAPI dataRepository)
         {
             _dataRepository = dataRepository;
         }
         public CustomerService()
         {
-            _dataRepository = IDataAPI.CreateLayer();
+            _dataRepository = AbstractDataAPI.CreateLayer();
         }
 
         private static ICustomerData Transform(ICustomer customer)

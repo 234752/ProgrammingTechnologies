@@ -6,13 +6,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 using System.Collections.Generic;
 
-namespace TestProject2
+namespace TestService
 {
     [TestClass]
-    public class UnitTest1
+    public class TestServices
     {
 
-        private readonly IDataAPI dataLayer = Substitute.For<IDataAPI>();
+        private readonly AbstractDataAPI dataLayer = Substitute.For<AbstractDataAPI>();
 
         [TestMethod]
         public void TestCustomers()

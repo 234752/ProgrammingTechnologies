@@ -16,7 +16,7 @@ namespace TestData
         [TestMethod]
         public void TestConnection()
         {
-            IDataAPI dataLayer = IDataAPI.CreateLayer("Data Source=LAPTOP-6CIA6OPN;Initial Catalog=DiamondShop;Integrated Security=True");
+            AbstractDataAPI dataLayer = AbstractDataAPI.CreateLayer("Data Source=LAPTOP-6CIA6OPN;Initial Catalog=DiamondShop;Integrated Security=True");
             dataLayer.AddCustomer(0, "bob", "surname");
             Assert.AreEqual(dataLayer.GetCustomer(0).Name, "bob");
 
@@ -30,7 +30,7 @@ namespace TestData
         [TestMethod]
         public void TestRemove()
         {
-            IDataAPI dataLayer = IDataAPI.CreateLayer("Data Source=LAPTOP-6CIA6OPN;Initial Catalog=DiamondShop;Integrated Security=True");
+            AbstractDataAPI dataLayer = AbstractDataAPI.CreateLayer("Data Source=LAPTOP-6CIA6OPN;Initial Catalog=DiamondShop;Integrated Security=True");
             dataLayer.AddCustomer(0, "bob", "surname");
             Assert.AreEqual(dataLayer.GetCustomer(0).Name, "bob");
 

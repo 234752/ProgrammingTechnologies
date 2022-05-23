@@ -46,7 +46,7 @@
     <Compile Include="API\IDiamond.cs" />
     <Compile Include="API\IEvent.cs" />
     <Compile Include="DataContext.cs" />
-    <Compile Include="IDataAPI.cs" />
+    <Compile Include="AbstractDataAPI.cs" />
     <Compile Include="LINQtoSQL.cs" />
     <Compile Include="LINQtoSQL.designer.cs">
       <DependentUpon>LINQtoSQL.cs</DependentUpon>

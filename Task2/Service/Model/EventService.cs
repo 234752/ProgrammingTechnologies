@@ -14,15 +14,15 @@ namespace Service.Model
 {
     public class EventService
     {
-        private readonly IDataAPI _dataRepository;
+        private readonly AbstractDataAPI _dataRepository;
 
-        public EventService(IDataAPI dataRepository)
+        public EventService(AbstractDataAPI dataRepository)
         {
             _dataRepository = dataRepository;
         }
         public EventService()
         {
-            _dataRepository = IDataAPI.CreateLayer();
+            _dataRepository = AbstractDataAPI.CreateLayer();
         }
 
         private static IEventData Transform(IEvent @event)
