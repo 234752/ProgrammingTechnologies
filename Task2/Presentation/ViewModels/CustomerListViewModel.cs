@@ -28,11 +28,9 @@ namespace Presentation.ViewModels
         {
             _Customers = new ObservableCollection<CustomerViewModel>();
             _Service = new CustomerService();
-            for(int i =0; _Service.GetCustomer(i) != null; i++)
-            {
-                _Customers.Add(new CustomerViewModel(_NextCustomerId, _Service.GetCustomer(i).Name, _Service.GetCustomer(i).Surname));
-                _NextCustomerId++;
-            }
+            
+            Task.Run(() => FetchCustomersFromDatabase());
+
             _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
             _AddCustomerCommand = new RelayCommand(() => AddCustomer());
             _SaveCustomersCommand = new RelayCommand(() => SaveCustomers());
@@ -69,7 +67,23 @@ namespace Presentation.ViewModels
         }
         public void SaveCustomers()
         {
-            //placeholder
+            Task.Run(() => SaveCustomersToDatabase());
+        }
+        private void FetchCustomersFromDatabase()
+        {
+            _NextCustomerId=0;
+            for (int i = 0; _Service.GetCustomer(i) != null; i++)
+            {
+                _Customers.Add(new CustomerViewModel(_NextCustomerId, _Service.GetCustomer(i).Name, _Service.GetCustomer(i).Surname));
+                _NextCustomerId++;
+            }
+        }
+        private void SaveCustomersToDatabase()
+        {
+            foreach (CustomerViewModel c in Customers)
+            {
+                _Service.UpdateCustomer(c.Id, c.FirstName, c.LastName);
+            }
         }
     }
 }
