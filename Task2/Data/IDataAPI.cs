@@ -15,6 +15,10 @@ namespace Data
         {
             return new DataRepository(sqlString);
         }
+        public static IDataAPI CreateLayer()
+        {
+            return new DataRepository();
+        }
         public abstract IDiamond Transform(Diamonds diamond);
         public abstract ICustomer Transform(Customers customer);
         public abstract IEvent Transform(Events ev); //tu ma z czymś problem nie wiem o co mu chodzi :((
@@ -59,11 +63,11 @@ namespace Data
                 context = new LINQtoSQLDataContext(sqlString);
             }
           
-            /*public DataRepository()
+            public DataRepository()
             {
-                context = new LINQtoSQLDataContext(); 
+                context = new LINQtoSQLDataContext("Data Source=LAPTOP-6CIA6OPN;Initial Catalog=DiamondShop;Integrated Security=True"); 
             }
-            */
+            
 
             public override IDiamond Transform(Diamonds diamond)
             {

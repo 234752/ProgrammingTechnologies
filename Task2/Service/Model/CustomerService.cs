@@ -9,13 +9,17 @@ using Service.API;
 
 namespace Service.Model
 {
-    internal class CustomerService //: ICustomerService
+    public class CustomerService //: ICustomerService
     {
         private readonly IDataAPI _dataRepository;
 
         public CustomerService(IDataAPI dataRepository)
         {
             _dataRepository = dataRepository;
+        }
+        public CustomerService()
+        {
+            _dataRepository = IDataAPI.CreateLayer();
         }
 
         private static ICustomerData Transform(ICustomer customer)

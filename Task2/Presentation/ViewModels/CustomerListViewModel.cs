@@ -8,6 +8,8 @@ using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
 using System.Windows.Input;
+using Service.API;
+using Service.Model;
 
 namespace Presentation.ViewModels
 {
@@ -20,13 +22,15 @@ namespace Presentation.ViewModels
         private ICommand _AddCustomerCommand;
         private int _NextCustomerId = 0;
         private ICommand _SaveCustomersCommand;
+        private CustomerService _Service;
 
         public CustomerListViewModel()
         {
             _Customers = new ObservableCollection<CustomerViewModel>();
-            foreach(ICustomerModel customer in model.Customers)
+            _Service = new CustomerService();
+            for(int i =0; _Service.GetCustomer(i) != null; i++)
             {
-                _Customers.Add(new CustomerViewModel(_NextCustomerId, customer.FirstName, customer.LastName));
+                _Customers.Add(new CustomerViewModel(_NextCustomerId, _Service.GetCustomer(i).Name, _Service.GetCustomer(i).Surname));
                 _NextCustomerId++;
             }
             _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());

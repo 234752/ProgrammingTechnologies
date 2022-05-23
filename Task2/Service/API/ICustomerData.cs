@@ -10,5 +10,6 @@ namespace Service.API
     {
         int CustomerId { get; }
         string Name { get; }
+        string Surname { get; }
     }
 }
