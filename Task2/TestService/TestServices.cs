@@ -22,6 +22,9 @@ namespace TestService
             Assert.IsTrue(custService.AddCustomer(1, "Piotr", "Makin"));
             dataLayer.AddCustomer(1, "Piotr", "Makin").Returns(false);
             Assert.IsFalse(custService.AddCustomer(1, "Piotr", "Makin"));
+            dataLayer.UpdateCustomer(1, "Kamil", "Makin").Returns(true);
+            Assert.IsTrue(custService.UpdateCustomer(1, "Kamil", "Makin"));
+
         }
         public void TestDiamonds()
         {
