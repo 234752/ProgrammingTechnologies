@@ -20,6 +20,10 @@ namespace Service.Model
         {
             _dataRepository = dataRepository;
         }
+        public EventService()
+        {
+            _dataRepository = IDataAPI.CreateLayer();
+        }
 
         private static IEventData Transform(IEvent @event)
         {

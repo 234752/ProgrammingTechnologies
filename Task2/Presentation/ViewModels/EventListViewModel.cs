@@ -8,6 +8,8 @@ using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
 using System.Windows.Input;
+using Service.API;
+using Service.Model;
 
 namespace Presentation.ViewModels
 {
@@ -20,15 +22,15 @@ namespace Presentation.ViewModels
         private ICommand _AddEventCommand;
         private int _NextEventId = 0;
         private ICommand _SaveEventsCommand;
+        private EventService _Service;
 
         public EventListViewModel()
         {
             _Events = new ObservableCollection<EventViewModel>();
-            foreach (IEventModel ev in model.Events)
-            {
-                _Events.Add(new EventViewModel(_NextEventId, ev.Date, ev.IsDelivery, ev.CatalogId));
-                _NextEventId++;
-            }
+            _Service = new EventService();
+
+            Task.Run(() => FetchEventsFromDatabase());
+
             _RemoveEventCommand = new RelayCommand(() => RemoveEvent());
             _AddEventCommand = new RelayCommand(() => AddEvent());
             _SaveEventsCommand = new RelayCommand(() => SaveEvents());
@@ -65,7 +67,23 @@ namespace Presentation.ViewModels
         }
         public void SaveEvents()
         {
-            //placeholder
+            Task.Run(() => SaveEventsToDatabase());
+        }
+        private void FetchEventsFromDatabase()
+        {
+            _NextEventId = 0;
+            for (int i = 0; _Service.GetEvent(i) != null; i++)
+            {
+                _Events.Add(new EventViewModel(_NextEventId, _Service.GetEvent(i).Date, Boolean.Parse(_Service.GetEvent(i).IsDelivery), _Service.GetEvent(i).CatalogId));
+                _NextEventId++;
+            }
+        }
+        private void SaveEventsToDatabase()
+        {
+            foreach (EventViewModel e in Events)
+            {
+                _Service.UpdateEvent(e.Id, e.Date, e.IsDelivery.ToString(), e.CatalogId, e.CatalogId);
+            }
         }
     }
 }
