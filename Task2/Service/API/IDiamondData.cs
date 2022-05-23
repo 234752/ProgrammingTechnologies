@@ -11,5 +11,6 @@ namespace Service.API
         int DiamondId { get; }
         decimal Price { get; }
         string Quality { get;}
+        string Name { get; }
     }
 }

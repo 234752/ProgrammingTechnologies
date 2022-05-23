@@ -11,13 +11,17 @@ using Service.API;
 
 namespace Service.Model
 {
-    internal class DiamondService
+    public class DiamondService
     {
         private readonly IDataAPI _dataRepository;
 
         public DiamondService(IDataAPI dataRepository)
         {
             _dataRepository = dataRepository;
+        }
+        public DiamondService()
+        {
+            _dataRepository = IDataAPI.CreateLayer();
         }
 
         private static IDiamondData Transform(IDiamond diamond)
