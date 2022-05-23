@@ -3,7 +3,7 @@
 namespace Data.Model
 
 {
-    public class Customer : ICustomer // z interface tu czy bez??
+    public class Customer : ICustomer
     {
     public int CustomerId { get; set; }
     public string Name { get; set; }
@@ -23,10 +23,6 @@ namespace Data.Model
             get { return Name; }
             set { Name = value; }
         }
-
-        //int ICustomer.Id => throw new System.NotImplementedException();
-
-        //string ICustomer.Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public int GetId()
         {

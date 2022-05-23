@@ -10,7 +10,6 @@ namespace Data.Model
     {
         public int EventId { get; set; }
         public string Date { get; set; }
-       // public bool IsDelivery { get; set; }
        public string IsDelivery { get; set; }  
         public int CatalogId { get; set; }
         public int CustomerId { get; set; }

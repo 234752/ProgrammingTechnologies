@@ -12,7 +12,7 @@ using Service.API;
 
 namespace Service.Model
 {
-    public class EventService
+    public class EventService : IEventService
     {
         private readonly AbstractDataAPI _dataRepository;
 

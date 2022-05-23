@@ -9,7 +9,7 @@ using Service.API;
 
 namespace Service.Model
 {
-    public class CustomerService //: ICustomerService
+    public class CustomerService : ICustomerService
     {
         private readonly AbstractDataAPI _dataRepository;
 

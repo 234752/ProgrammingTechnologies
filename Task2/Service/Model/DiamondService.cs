@@ -11,7 +11,7 @@ using Service.API;
 
 namespace Service.Model
 {
-    public class DiamondService
+    public class DiamondService : IDiamondService
     {
         private readonly AbstractDataAPI _dataRepository;
 

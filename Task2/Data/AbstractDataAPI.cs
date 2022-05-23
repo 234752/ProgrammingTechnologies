@@ -21,8 +21,7 @@ namespace Data
         }
         public abstract IDiamond Transform(Diamonds diamond);
         public abstract ICustomer Transform(Customers customer);
-        public abstract IEvent Transform(Events ev); //tu ma z czymś problem nie wiem o co mu chodzi :((
-        // a to wszystko dalej psuje...
+        public abstract IEvent Transform(Events ev); 
 
 
         // CRUD DECLARATION
