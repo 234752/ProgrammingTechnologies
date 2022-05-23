@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0DCD1843-BA13-47FF-A461-9B4408A5B09D}</ProjectGuid>
-    <OutputType>library</OutputType>
+    <ProjectGuid>{6782EE16-8CE8-4843-AE46-550834B07D1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Service</RootNamespace>
     <AssemblyName>Service</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,44 +31,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{b0a3aef5-ea98-496d-98a1-eb03b989a753}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Model\DiamondData.cs" />
-    <Compile Include="Model\DiamondService.cs" />
-    <Compile Include="Model\CustomerData.cs" />
-    <Compile Include="Model\CustomerService.cs" />
-    <Compile Include="Model\EventService.cs" />
-    <Compile Include="Model\EventData.cs" />
     <Compile Include="API\ICustomerData.cs" />
     <Compile Include="API\ICustomerService.cs" />
     <Compile Include="API\IDiamondData.cs" />
     <Compile Include="API\IDiamondService.cs" />
     <Compile Include="API\IEventData.cs" />
     <Compile Include="API\IEventService.cs" />
+    <Compile Include="Model\CustomerData.cs" />
+    <Compile Include="Model\CustomerService.cs" />
+    <Compile Include="Model\DiamondData.cs" />
+    <Compile Include="Model\DiamondService.cs" />
+    <Compile Include="Model\EventData.cs" />
+    <Compile Include="Model\EventService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{bc1efc89-22fb-4303-b36e-eac8a2afd5e3}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

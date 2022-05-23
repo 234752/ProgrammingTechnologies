@@ -43,42 +43,87 @@ namespace TestPresentation
         }
     }
 
-    public class MockData
+    public class MockDataModel1 : IDataModel
     {
-        public static void GenerateDataMethod1(IDataModel dataModel)
-        {
-            dataModel.Customers.Add(new MockCustomer());
-            dataModel.Diamonds.Add(new MockDiamond());
-            dataModel.Events.Add(new MockEvent());
-        }
-
-        public static void GenerateDataMethod2(IDataModel dataModel)
-        {
-            dataModel.Customers.Add(new MockCustomer() { Id = 1 });
-            dataModel.Diamonds.Add(new MockDiamond() { Price = 1M });
-            dataModel.Events.Add(new MockEvent() { Date = "12/12/2022" });
-        }
-    }
-
-    public class MockDataModel : IDataModel
-    {
-
         public IList<ICustomerModel> Customers
         {
-            get { return Customers; }
-            set { Customers = value; }
+            get
+            {
+                List<ICustomerModel> Customers = new List<ICustomerModel>()
+                {
+                    new MockCustomer(),
+                    new MockCustomer(),
+                    new MockCustomer()
+                };
+                return Customers;
+            }
         }
 
         public IList<IDiamondModel> Diamonds
         {
-            get { return Diamonds; }
-            set { Diamonds = value; }
+            get
+            {
+                List<IDiamondModel> Diamonds = new List<IDiamondModel>()
+                {
+                    new MockDiamond(),
+                    new MockDiamond(),
+                    new MockDiamond()
+                };
+                return Diamonds;
+            }
         }
 
         public IList<IEventModel> Events
         {
-            get { return Events; }
-            set { Events = value; }
+            get
+            {
+                List<IEventModel> Events = new List<IEventModel>()
+                {
+                    new MockEvent(),
+                    new MockEvent(),
+                    new MockEvent()
+                };
+                return Events;
+            }
+        }
+    }
+
+    public class MockDataModel2 : IDataModel
+    {
+        public IList<ICustomerModel> Customers
+        {
+            get
+            {
+                List<ICustomerModel> Customers = new List<ICustomerModel>()
+                {
+                    new MockCustomer()
+                };
+                return Customers;
+            }
+        }
+
+        public IList<IDiamondModel> Diamonds
+        {
+            get
+            {
+                List<IDiamondModel> Diamonds = new List<IDiamondModel>()
+                {
+                    new MockDiamond()
+                };
+                return Diamonds;
+            }
+        }
+
+        public IList<IEventModel> Events
+        {
+            get
+            {
+                List<IEventModel> Events = new List<IEventModel>()
+                {
+                    new MockEvent()
+                };
+                return Events;
+            }
         }
     }
 }

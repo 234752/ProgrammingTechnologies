@@ -16,7 +16,12 @@ namespace TestData
     [TestClass]
     public class RepositoryTest
     {
-        IDataAPI dataLayer = IDataAPI.CreateLayer("DiamondShop");
+        [TestMethod]
+        public void test1()
+        {
+            IDataAPI dataLayer = IDataAPI.CreateLayer("DiamondShop");
+        }
+        
 
     }
 }
