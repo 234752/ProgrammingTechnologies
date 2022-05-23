@@ -1,6 +1,4 @@
 ﻿using Data;
-using Service;
-using Service.API;
 using Service.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;

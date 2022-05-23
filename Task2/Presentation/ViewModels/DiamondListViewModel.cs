@@ -8,7 +8,6 @@ using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
 using System.Windows.Input;
-using Service.API;
 using Service.Model;
 
 namespace Presentation.ViewModels
