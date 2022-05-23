@@ -13,11 +13,25 @@ namespace TestProject2
     {
 
         private readonly IDataAPI dataLayer = Substitute.For<IDataAPI>();
+
         [TestMethod]
-        public void AddCustomers()
+        public void TestCustomers()
         {
             CustomerService custService = new CustomerService(dataLayer);
+            Assert.IsTrue(custService.AddCustomer(1, "Piotr", "Makin"));
+            Assert.AreEqual(custService.GetCustomer(1).Name,"Piotr");
 
+        }
+        public void TestDiamonds()
+        {
+            DiamondService diamService = new DiamondService(dataLayer);
+           
+
+        }
+        public void TestEvents()
+        {
+            EventService evService = new EventService(dataLayer);
+            
         }
     }
 }

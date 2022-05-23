@@ -20,7 +20,7 @@ namespace TestData
             dataLayer.AddCustomer(0, "bob", "surname");
             Assert.AreEqual(dataLayer.GetCustomer(0).Name, "bob");
 
-            dataLayer.AddDiamond(0, 102.20M, "Very Good");
+            dataLayer.AddDiamond(0, 102.20M, "Very Good","Diam");
             Assert.AreEqual(dataLayer.GetDiamond(0).Price, 201.2M);
 
             dataLayer.AddEvent(0, "20/05/2022", "True", 0, 0);
