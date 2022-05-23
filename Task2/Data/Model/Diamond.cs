@@ -7,6 +7,7 @@ namespace Data.Model
         public int DiamondId { get;set; }
         public decimal Price { get; set; }
 		public string Quality { get; set;}
+        
 
         public Diamond(int id,decimal price, string quality)
         {

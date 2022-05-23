@@ -30,15 +30,15 @@ namespace Data
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCustomers(Customers instance);
-    partial void UpdateCustomers(Customers instance);
-    partial void DeleteCustomers(Customers instance);
     partial void InsertEvents(Events instance);
     partial void UpdateEvents(Events instance);
     partial void DeleteEvents(Events instance);
     partial void InsertDiamonds(Diamonds instance);
     partial void UpdateDiamonds(Diamonds instance);
     partial void DeleteDiamonds(Diamonds instance);
+    partial void InsertCustomers(Customers instance);
+    partial void UpdateCustomers(Customers instance);
+    partial void DeleteCustomers(Customers instance);
     #endregion
 		
 		public LINQtoSQLDataContext(string connection) : 
@@ -65,14 +65,6 @@ namespace Data
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Customers> Customers
-		{
-			get
-			{
-				return this.GetTable<Customers>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Events> Events
 		{
 			get
@@ -88,119 +80,13 @@ namespace Data
 				return this.GetTable<Diamonds>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customers")]
-	public partial class Customers : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _first_name;
-		
-		private EntitySet<Events> _Events;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Onfirst_nameChanging(string value);
-    partial void Onfirst_nameChanged();
-    #endregion
-		
-		public Customers()
-		{
-			this._Events = new EntitySet<Events>(new Action<Events>(this.attach_Events), new Action<Events>(this.detach_Events));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id
+		public System.Data.Linq.Table<Customers> Customers
 		{
 			get
 			{
-				return this._id;
+				return this.GetTable<Customers>();
 			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_first_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string first_name
-		{
-			get
-			{
-				return this._first_name;
-			}
-			set
-			{
-				if ((this._first_name != value))
-				{
-					this.Onfirst_nameChanging(value);
-					this.SendPropertyChanging();
-					this._first_name = value;
-					this.SendPropertyChanged("first_name");
-					this.Onfirst_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customers_Events", Storage="_Events", ThisKey="id", OtherKey="customerid")]
-		public EntitySet<Events> Events
-		{
-			get
-			{
-				return this._Events;
-			}
-			set
-			{
-				this._Events.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Events(Events entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customers = this;
-		}
-		
-		private void detach_Events(Events entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customers = null;
 		}
 	}
 	
@@ -220,9 +106,9 @@ namespace Data
 		
 		private int _customerid;
 		
-		private EntityRef<Customers> _Customer;
-		
 		private EntityRef<Diamonds> _Diamond;
+		
+		private EntityRef<Customers> _Customer;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -242,8 +128,8 @@ namespace Data
 		
 		public Events()
 		{
-			this._Customer = default(EntityRef<Customers>);
 			this._Diamond = default(EntityRef<Diamonds>);
+			this._Customer = default(EntityRef<Customers>);
 			OnCreated();
 		}
 		
@@ -355,40 +241,6 @@ namespace Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customers_Events", Storage="_Customer", ThisKey="customerid", OtherKey="id", IsForeignKey=true)]
-		public Customers Customers
-		{
-			get
-			{
-				return this._Customer.Entity;
-			}
-			set
-			{
-				Customers previousValue = this._Customer.Entity;
-				if (((previousValue != value) 
-							|| (this._Customer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Customer.Entity = null;
-						previousValue.Events.Remove(this);
-					}
-					this._Customer.Entity = value;
-					if ((value != null))
-					{
-						value.Events.Add(this);
-						this._customerid = value.id;
-					}
-					else
-					{
-						this._customerid = default(int);
-					}
-					this.SendPropertyChanged("Customers");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Diamonds_Events", Storage="_Diamond", ThisKey="catalogid", OtherKey="id", IsForeignKey=true)]
 		public Diamonds Diamonds
 		{
@@ -419,6 +271,40 @@ namespace Data
 						this._catalogid = default(int);
 					}
 					this.SendPropertyChanged("Diamonds");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Events", Storage="_Customer", ThisKey="customerid", OtherKey="id", IsForeignKey=true)]
+		public Customers Customers
+		{
+			get
+			{
+				return this._Customer.Entity;
+			}
+			set
+			{
+				Customers previousValue = this._Customer.Entity;
+				if (((previousValue != value) 
+							|| (this._Customer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Customer.Entity = null;
+						previousValue.Events.Remove(this);
+					}
+					this._Customer.Entity = value;
+					if ((value != null))
+					{
+						value.Events.Add(this);
+						this._customerid = value.id;
+					}
+					else
+					{
+						this._customerid = default(int);
+					}
+					this.SendPropertyChanged("Customers");
 				}
 			}
 		}
@@ -579,6 +465,144 @@ namespace Data
 		{
 			this.SendPropertyChanging();
 			entity.Diamonds = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customers")]
+	public partial class Customers : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _first_name;
+		
+		private string _last_name;
+		
+		private EntitySet<Events> _Events;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onfirst_nameChanging(string value);
+    partial void Onfirst_nameChanged();
+    partial void Onlast_nameChanging(string value);
+    partial void Onlast_nameChanged();
+    #endregion
+		
+		public Customers()
+		{
+			this._Events = new EntitySet<Events>(new Action<Events>(this.attach_Events), new Action<Events>(this.detach_Events));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_first_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string first_name
+		{
+			get
+			{
+				return this._first_name;
+			}
+			set
+			{
+				if ((this._first_name != value))
+				{
+					this.Onfirst_nameChanging(value);
+					this.SendPropertyChanging();
+					this._first_name = value;
+					this.SendPropertyChanged("first_name");
+					this.Onfirst_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_last_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string last_name
+		{
+			get
+			{
+				return this._last_name;
+			}
+			set
+			{
+				if ((this._last_name != value))
+				{
+					this.Onlast_nameChanging(value);
+					this.SendPropertyChanging();
+					this._last_name = value;
+					this.SendPropertyChanged("last_name");
+					this.Onlast_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Events", Storage="_Events", ThisKey="id", OtherKey="customerid")]
+		public EntitySet<Events> Events
+		{
+			get
+			{
+				return this._Events;
+			}
+			set
+			{
+				this._Events.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Events(Events entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customers = this;
+		}
+		
+		private void detach_Events(Events entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customers = null;
 		}
 	}
 }

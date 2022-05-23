@@ -24,7 +24,7 @@ namespace Data
         }
         public ICustomer Transform(Customers customer)
         {
-            return new Customer(customer.id, customer.first_name);
+            return new Customer(customer.id, customer.first_name, customer.last_name);
         }
        
         public IEvent Transform(Events ev)

@@ -30,8 +30,8 @@ namespace Data
         #region Customer
 
         ICustomer GetCustomer(int Id);
-        bool AddCustomer(int Id, string Name);
-        bool UpdateCustomer(int Id, string Name);
+        bool AddCustomer(int Id, string Name,string surname);
+        bool UpdateCustomer(int Id, string Name, string surname);
         bool DeleteCustomer(int Id);
 
         #endregion
