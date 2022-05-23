@@ -8,9 +8,9 @@ namespace Service.API
 {
     public interface IDiamondService
     {
-        IDiamondData GetProduct(int diamondId);
+        IDiamondData GetDiamond(int diamondId);
         bool AddDiamond(int diamondId, decimal price, string quality, string name);
-        bool UpdateProduct(int diamondId, decimal price, string quality, string name);
-        bool DeleteProduct(int diamondId);
+        bool UpdateDiamond(int diamondId, decimal price, string quality, string name);
+        bool DeleteDiamond(int diamondId);
     }
 }
