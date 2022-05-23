@@ -70,6 +70,9 @@
     <Compile Include="API\IEvent.cs" />
     <Compile Include="DataAPI.cs" />
     <Compile Include="DataRepository.cs" />
+    <Compile Include="LINQtoSQL.cs">
+      <DependentUpon>LINQtoSQL.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Customer.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="Model\Diamond.cs" />

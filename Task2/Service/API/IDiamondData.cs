@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    public abstract class IDiamondData
+    public interface IDiamondData
     { 
-       public int DiamondId { get; }
-       public decimal Price { get; }
-       public string Quality { get;}
+        int DiamondId { get; }
+        decimal Price { get; }
+        string Quality { get;}
     }
 }

@@ -35,12 +35,12 @@ namespace Data
         // CRUD implementation
         #region Diamond
 
-        IDiamond GetDiamond(int diamondId)
+        public IDiamond GetDiamond(int diamondId)
         {
             var diamondDatabase = (from diamond in context.Diamonds where diamond.id == diamondId select diamond).FirstOrDefault();
             return diamondDatabase != null ? Transform(diamondDatabase) : null;
         }
-        bool AddDiamond(int diamondId, decimal price, string quality)
+        public bool AddDiamond(int diamondId, decimal price, string quality)
         {
             if (GetDiamond(diamondId) != null) return false;
             var newReader = new Diamonds
@@ -53,9 +53,9 @@ namespace Data
             context.SubmitChanges();
             return true;
         }
-        bool UpdateDiamond(int diamondId, decimal price, string quality)
+        public bool UpdateDiamond(int diamondId, decimal price, string quality)
         {
-            var diam = context.Diamonds.SingleOrDefault(diam => diam.id == diamondId);
+            var diam = context.Diamonds.SingleOrDefault(d => d.id == diamondId);
             if (diam == null) return false;
             diam.id = diamondId;
             diam.price = price;
@@ -64,9 +64,9 @@ namespace Data
             return true;
 
         }
-        bool DeleteDiamond(int diamondId)
+        public bool DeleteDiamond(int diamondId)
         {
-            var diamond = context.Diamonds.SingleOrDefault(diamond => diamond.id == diamondId);
+            var diamond = context.Diamonds.SingleOrDefault(d => d.id == diamondId);
             if (diamond == null) return false;
             context.Diamonds.DeleteOnSubmit(diamond);
             context.SubmitChanges();
@@ -77,12 +77,12 @@ namespace Data
 
         #region Customer
 
-        ICustomer GetCustomer(int Id)
+       public ICustomer GetCustomer(int Id)
         {
             var customerDatabase = (from customer in context.Customers where customer.id == Id select customer).FirstOrDefault();
             return customerDatabase != null ? Transform(customerDatabase) : null;
         }
-        bool AddCustomer(int Id, string Name)
+        public bool AddCustomer(int Id, string Name)
         {
             if (GetCustomer(Id) != null) return false;
             var newReader = new Customers
@@ -95,18 +95,18 @@ namespace Data
             context.SubmitChanges();
             return true;
         }
-        bool UpdateCustomer(int Id, string Name)
+        public bool UpdateCustomer(int Id, string Name)
         {
-            var customer = context.Customers.SingleOrDefault(customer => customer.id == Id);
+            var customer = context.Customers.SingleOrDefault(cust => cust.id == Id);
             if (customer == null) return false;
             customer.id = Id;
             customer.first_name = Name;
             context.SubmitChanges();
             return true;
         }
-        bool DeleteCustomer(int Id)
+        public bool DeleteCustomer(int Id)
         {
-            var customer = context.Customers.SingleOrDefault(customer => customer.id == Id);
+            var customer = context.Customers.SingleOrDefault(cust => cust.id == Id);
             if (customer == null) return false;
             context.Customers.DeleteOnSubmit(customer);
             context.SubmitChanges();
@@ -137,7 +137,7 @@ namespace Data
         }
         public bool UpdateEvent(int eventId, string Date, string Isdelivered, int catalogId, int customId)
         {
-            var ev = context.Events.SingleOrDefault(ev => ev.id == eventId);
+            var ev = context.Events.SingleOrDefault(evt => evt.id == eventId);
             if (ev == null) return false;
             ev.id = eventId;
             ev.date = Date;
@@ -150,7 +150,7 @@ namespace Data
 
         public bool DeleteEvent(int eventId)
         {
-            var events = context.Events.SingleOrDefault(events => events.id == eventId);
+            var events = context.Events.SingleOrDefault(ev => ev.id == eventId);
             if (events == null) return false;
             context.Events.DeleteOnSubmit(events);
             context.SubmitChanges();

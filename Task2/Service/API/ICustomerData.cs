@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Service.API
 {
-    public abstract class ICustomerData
+    public interface ICustomerData
     {
-        public int CustomerId { get; }
-        public string Name { get; }
+        int CustomerId { get; }
+        string Name { get; }
     }
 }
