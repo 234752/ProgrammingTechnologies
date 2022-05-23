@@ -39,8 +39,13 @@ namespace Data
     partial void InsertCustomers(Customers instance);
     partial void UpdateCustomers(Customers instance);
     partial void DeleteCustomers(Customers instance);
-    #endregion
-		
+		#endregion
+
+	/*	public LINQtoSQLDataContext() :
+				base(global::Data.Properties.Settings.Default.DBConnectionString, mappingSource)
+		{
+			OnCreated();
+		}*/
 		public LINQtoSQLDataContext(string connection) : 
 				base(connection, mappingSource)
 		{

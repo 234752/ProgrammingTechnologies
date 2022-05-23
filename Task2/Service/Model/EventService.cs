@@ -14,7 +14,7 @@ namespace Service.Model
 {
     internal class EventService
     {
-        private readonly DataRepository _dataRepository;
+        /*private readonly DataRepository _dataRepository;
 
         public EventService(DataRepository dataRepository)
         {
@@ -46,6 +46,6 @@ namespace Service.Model
         public bool DeleteEvent(int eventId)
         {
             return _dataRepository.DeleteEvent(eventId);
-        }
+        }*/
     }
 }

@@ -9,9 +9,9 @@ using Service.API;
 
 namespace Service.Model
 {
-    internal class CustomerService : ICustomerService
+    internal class CustomerService //: ICustomerService
     {
-        private readonly DataRepository _dataRepository;
+        /*private readonly DataRepository _dataRepository;
 
         public CustomerService(DataRepository dataRepository)
         {
@@ -28,19 +28,19 @@ namespace Service.Model
             return Transform(_dataRepository.GetCustomer(custId));
         }
 
-        public bool AddCustomer(int Id, string Name)
+        public bool AddCustomer(int Id, string Name, string Surname)
         {
-            return _dataRepository.AddCustomer(Id, Name);
+            return _dataRepository.AddCustomer(Id, Name,Surname);
         }
 
-        public bool UpdateCustomer(int Id, string Name)
+        public bool UpdateCustomer(int Id, string Name, string Surname)
         {
-            return _dataRepository.UpdateCustomer(Id, Name);
+            return _dataRepository.UpdateCustomer(Id, Name, Surname);
         }
 
         public bool DeleteCustomer(int custId)
         {
             return _dataRepository.DeleteCustomer(custId);
-        }
+        }*/
     }
 }

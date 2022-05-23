@@ -13,7 +13,7 @@ namespace Service.Model
 {
     internal class DiamondService
     {
-        private readonly DataRepository _dataRepository;
+       /* private readonly DataRepository _dataRepository;
 
         public DiamondService(DataRepository dataRepository)
         {
@@ -45,6 +45,6 @@ namespace Service.Model
         public bool DeleteProduct(int diamondId)
         {
             return _dataRepository.DeleteDiamond(diamondId);
-        }
+        }*/
     }
 }

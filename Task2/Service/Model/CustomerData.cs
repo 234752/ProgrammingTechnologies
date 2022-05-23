@@ -11,6 +11,7 @@ namespace Service.Model
     {
         public int CustomerId { get; }
         public string Name { get; set; }
+        public string Surname { get; set; }
 
         public CustomerData(int id)
         {
