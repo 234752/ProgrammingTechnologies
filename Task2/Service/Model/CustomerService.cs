@@ -11,9 +11,9 @@ namespace Service.Model
 {
     internal class CustomerService //: ICustomerService
     {
-        /*private readonly DataRepository _dataRepository;
+        private readonly IDataAPI _dataRepository;
 
-        public CustomerService(DataRepository dataRepository)
+        public CustomerService(IDataAPI dataRepository)
         {
             _dataRepository = dataRepository;
         }
@@ -41,6 +41,6 @@ namespace Service.Model
         public bool DeleteCustomer(int custId)
         {
             return _dataRepository.DeleteCustomer(custId);
-        }*/
+        }
     }
 }
