@@ -8,6 +8,8 @@ using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
 using System.Windows.Input;
+using Service.API;
+using Service.Model;
 
 namespace Presentation.ViewModels
 {
@@ -20,10 +22,12 @@ namespace Presentation.ViewModels
         private ICommand _AddDiamondCommand;
         private int _NextDiamondId = 0;
         private ICommand _SaveDiamondsCommand;
+        private DiamondService _Service;
 
         public DiamondListViewModel()
         {
             _Diamonds = new ObservableCollection<DiamondViewModel>();
+            _Service = new DiamondService();
             foreach (IDiamondModel diamond in model.Diamonds)
             {
                 _Diamonds.Add(new DiamondViewModel(_NextDiamondId, diamond.Name, diamond.Quality, diamond.Price));
@@ -66,6 +70,22 @@ namespace Presentation.ViewModels
         public void SaveDiamonds()
         {
             //placeholder
+        }
+        private void FetchDiamondsFromDatabase()
+        {
+            _NextDiamondId = 0;
+            for (int i = 0; _Service.GetProduct(i) != null; i++)
+            {
+                _Diamonds.Add(new DiamondViewModel(_NextDiamondId, _Service.GetProduct(i).Name, _Service.GetProduct(i).Quality, _Service.GetProduct(i).Price ));
+                _NextDiamondId++;
+            }
+        }
+        private void SaveDiamondsToDatabase()
+        {
+            foreach (DiamondViewModel d in Diamonds)
+            {
+                _Service.UpdateProduct(d.Id, d.Price, d.Quality);
+            }
         }
     }
 }
