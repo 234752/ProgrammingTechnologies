@@ -26,7 +26,7 @@ namespace Service.Model
 
         private static IDiamondData Transform(IDiamond diamond)
         {
-            return diamond == null ? null : new DiamondData(diamond.DiamondId, diamond.Price, diamond.Quality);
+            return diamond == null ? null : new DiamondData(diamond.DiamondId, diamond.Price, diamond.Quality, diamond.Name);
         }
 
         public IDiamondData GetProduct(int diamondId)
@@ -34,16 +34,16 @@ namespace Service.Model
             return Transform(_dataRepository.GetDiamond(diamondId)); //czemu inaccessible??
         }
 
-        public bool AddDiamond(int diamondId, decimal price, string quality)
+        public bool AddDiamond(int diamondId, decimal price, string quality, string name)
         {
-            return _dataRepository.AddDiamond( diamondId, price, quality);
+            return _dataRepository.AddDiamond( diamondId, price, quality, name);
         }
 
       
 
-        public bool UpdateProduct(int diamondId, decimal price, string quality)
+        public bool UpdateProduct(int diamondId, decimal price, string quality, string name)
         {
-            return _dataRepository.UpdateDiamond(diamondId, price, quality);
+            return _dataRepository.UpdateDiamond(diamondId, price, quality, name);
         }
 
         public bool DeleteProduct(int diamondId)

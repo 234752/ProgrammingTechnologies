@@ -12,11 +12,13 @@ namespace Service.Model
         public int DiamondId { get; }
         public decimal Price { get; }
         public string Quality { get; }
-        public DiamondData(int id, decimal price, string quality)
+        public string Name { get; }
+        public DiamondData(int id, decimal price, string quality, string name)
         {
             DiamondId = id;
             Price = price;
             Quality = quality;
+            Name = name;
         }
     }
 

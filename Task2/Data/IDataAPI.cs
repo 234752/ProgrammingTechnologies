@@ -29,8 +29,8 @@ namespace Data
         #region Diamond
 
         public abstract IDiamond GetDiamond(int diamondId);
-        public abstract bool AddDiamond(int diamondId, decimal price, string quality);
-        public abstract bool UpdateDiamond(int diamondId, decimal price, string quality);
+        public abstract bool AddDiamond(int diamondId, decimal price, string quality, string name);
+        public abstract bool UpdateDiamond(int diamondId, decimal price, string quality, string name);
         public abstract bool DeleteDiamond(int diamondId);
 
         #endregion
@@ -71,7 +71,7 @@ namespace Data
 
             public override IDiamond Transform(Diamonds diamond)
             {
-                return new Diamond(diamond.id, diamond.price, diamond.quality);
+                return new Diamond(diamond.id, diamond.price, diamond.quality, diamond.name);
             }
             public override ICustomer Transform(Customers customer)
             {
@@ -91,26 +91,28 @@ namespace Data
                 var diamondDatabase = (from diamond in context.Diamonds where diamond.id == diamondId select diamond).FirstOrDefault();
                 return diamondDatabase != null ? Transform(diamondDatabase) : null;
             }
-            public override bool AddDiamond(int diamondId, decimal price, string quality)
+            public override bool AddDiamond(int diamondId, decimal price, string quality, string name)
             {
                 if (GetDiamond(diamondId) != null) return false;
                 var newReader = new Diamonds
                 {
                     id = diamondId,
                     price = price,
-                    quality = quality
+                    quality = quality,
+                    name=name
                 };
                 context.Diamonds.InsertOnSubmit(newReader);
                 context.SubmitChanges();
                 return true;
             }
-            public override bool UpdateDiamond(int diamondId, decimal price, string quality)
+            public override bool UpdateDiamond(int diamondId, decimal price, string quality, string name)
             {
                 var diam = context.Diamonds.SingleOrDefault(d => d.id == diamondId);
                 if (diam == null) return false;
                 diam.id = diamondId;
                 diam.price = price;
                 diam.quality = quality;
+                diam.name = name;
                 context.SubmitChanges();
                 return true;
 

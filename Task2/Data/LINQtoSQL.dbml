@@ -8,7 +8,7 @@
       <Column Name="catalogid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="customerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Customers_Events" Member="Customers" Storage="_Customer" ThisKey="customerid" OtherKey="id" Type="Customers" IsForeignKey="true" />
-      <Association Name="Diamond_Events" Member="Diamond" ThisKey="catalogid" OtherKey="id" Type="Diamond" IsForeignKey="true" />
+      <Association Name="Diamond_Events" Member="Diamonds" Storage="_Diamond" ThisKey="catalogid" OtherKey="id" Type="Diamonds" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Customers" Member="Customers">
@@ -20,7 +20,7 @@
     </Type>
   </Table>
   <Table Name="dbo.Diamonds" Member="Diamonds">
-    <Type Name="Diamond">
+    <Type Name="Diamonds">
       <Column Name="price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="quality" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

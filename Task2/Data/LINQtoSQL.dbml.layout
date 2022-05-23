@@ -14,7 +14,7 @@
         <elementListCompartment Id="2c42b79b-33b6-4335-9115-fed66be092d6" absoluteBounds="4.015, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.4687495 : 1.8862939453125); (5.4687495 : 3.45599559375); (4.25 : 3.45599559375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.4687495 : 1.8862939453125); (5.4687495 : 3.45599559375); (4.25 : 3.45599559375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LINQtoSQLDataContext/Customers/Customers_Events" />
       <nodes>
         <classShapeMoniker Id="e0ea2ff7-2c19-4eda-b2df-18b539886fe1" />
@@ -22,13 +22,13 @@
       </nodes>
     </associationConnector>
     <classShape Id="c2b3d8a6-a3f2-4ed3-af58-3f5a85452fe2" absoluteBounds="0.625, 0.5, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/LINQtoSQLDataContext/Diamond" />
+      <DataClassMoniker Name="/LINQtoSQLDataContext/Diamonds" />
       <nestedChildShapes>
         <elementListCompartment Id="2a12b0a1-48a5-46f3-841d-7265893f7f36" absoluteBounds="0.64000000000000012, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.4375 : 2.07859537760417); (2.4375 : 2.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LINQtoSQLDataContext/Diamond/Diamond_Events" />
+    <associationConnector edgePoints="[(2.4375 : 2.07859537760417); (2.4375 : 2.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LINQtoSQLDataContext/Diamonds/Diamond_Events" />
       <nodes>
         <classShapeMoniker Id="c2b3d8a6-a3f2-4ed3-af58-3f5a85452fe2" />
         <classShapeMoniker Id="ff8a222a-abb0-425f-9e2e-501751285e5f" />
