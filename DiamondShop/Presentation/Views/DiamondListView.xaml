@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Presentation.Views.DiamondListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentation.Views"
+             xmlns:VM="clr-namespace:Presentation.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" Height="500">
+    <UserControl.DataContext>
+        <VM:DiamondListViewModel />
+    </UserControl.DataContext>
+    <Grid Height="250" VerticalAlignment="Top" HorizontalAlignment="Center" Width="610">
+        <ListView 
+                  ItemsSource="{Binding Diamonds}" 
+            SelectedItem="{Binding CurrentDiamond}"
+            >
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="id" Width="150" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="name" Width="150" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="quality" Width="150" DisplayMemberBinding="{Binding Quality}"/>
+                    <GridViewColumn Header="price" Width="150" DisplayMemberBinding="{Binding Price}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Remove" Command="{Binding RemoveDiamondCommand}" Margin="55,290,389,-81" RenderTransformOrigin="0.5,0.5" />
+        <Button Content="Add" Command="{Binding AddDiamondCommand}" Margin="389,290,55,-81" RenderTransformOrigin="0.5,0.5" />
+        <Button Content="Save" Command="{Binding SaveDiamondsCommand}" Margin="240,290,240,-81" RenderTransformOrigin="0.5,0.5" />
+        <local:DiamondView Margin="-75,336,-75,-186" DataContext="{Binding CurrentDiamond}">
+
+        </local:DiamondView>
+    </Grid>
+</UserControl>
