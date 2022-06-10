@@ -13,7 +13,7 @@ public abstract class AbstractDataAPI
     {
         return new DataLayer(new DataContext());
     }
-
+    public abstract void ClearDatabase();
     public abstract void AddCustomer(int id, string name, string surname);
     public abstract IEnumerable<ICustomer> GetCustomers();
 
@@ -23,6 +23,12 @@ public abstract class AbstractDataAPI
         internal DataLayer(DataContext c)
         {
             context = c;
+        }
+        public override void ClearDatabase()
+        {
+            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Events");
+            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Diamonds");
+            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Customers");
         }
         public override void AddCustomer(int id, string name, string surname)
         {
