@@ -17,4 +17,5 @@ internal class Event : IEvent
         DiamondId = diamondId;
         CustomerId = customerid;
     }
+    internal Event() { }
 }        

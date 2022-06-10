@@ -16,5 +16,6 @@ internal class Diamond : IDiamond
         Quality = quality;
         Name = name;
     }
+    internal Diamond() { }
 }
 
