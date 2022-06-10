@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Model;
 
 namespace Data.API;
 
@@ -13,7 +14,7 @@ public abstract class AbstractDataAPI
         return new DataLayer(new DataContext());
     }
 
-    public abstract void AddCustomer(ICustomer c);
+    public abstract void AddCustomer(int id, string name, string surname);
     public abstract IEnumerable<ICustomer> GetCustomers();
 
     internal class DataLayer : AbstractDataAPI
@@ -23,9 +24,10 @@ public abstract class AbstractDataAPI
         {
             context = c;
         }
-        public override void AddCustomer(ICustomer c)
+        public override void AddCustomer(int id, string name, string surname)
         {
-            context.Customers.Add(new Model.Customer(c.CustomerId, c.Name, c.Surname));
+            context.Customers.Add(new Customer(id, name, surname));
+            context.SaveChanges();
         }
 
         public override IEnumerable<ICustomer> GetCustomers()

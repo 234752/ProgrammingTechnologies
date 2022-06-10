@@ -1,4 +1,4 @@
-using Data;
+using Data.API;
 using System.Linq;
 
 namespace TestData;
@@ -9,11 +9,12 @@ public class UnitTest1
     [TestMethod]
     public void TestMethod1()
     {
-        DataContext db = new DataContext();
-        db.Customers.Add(new Data.Model.Customer(1, "bob", "bob's surname"));
-        Assert.AreEqual(1, db.Customers.Count());
-        var name = db.Customers.Where(x => x.CustomerId == 1).Select(x => x.Name).ToArray();
-        Assert.AreEqual("bob", name[0]);
-        db.SaveChanges();
+        
+        AbstractDataAPI testedDataLayer = AbstractDataAPI.createLayer();
+        testedDataLayer.AddCustomer(1, "bob", "bob2");
+        Assert.AreEqual(1, testedDataLayer.GetCustomers().Count());
+        IEnumerable<ICustomer> fetchedCustomers = testedDataLayer.GetCustomers();
+        Assert.AreEqual("bob", fetchedCustomers.ElementAt(0).Name);
+
     }
 }

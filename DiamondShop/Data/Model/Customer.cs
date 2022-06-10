@@ -13,4 +13,5 @@ public class Customer : ICustomer
         Name = name;
         Surname = surname; 
     }
+    public Customer() { }
 }
