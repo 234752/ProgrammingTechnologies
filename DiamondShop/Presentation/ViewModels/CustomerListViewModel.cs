@@ -31,7 +31,8 @@ public class CustomerListViewModel : BaseViewModel
         //_Service = new CustomerService();
         dataLayer = AbstractDataAPI.createLayer();
 
-        Task.Run(() => FetchCustomersFromDatabase());
+        //Task.Run(() => FetchCustomersFromDatabase());
+        FetchCustomersFromDatabase();
 
         _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
         _AddCustomerCommand = new RelayCommand(() => AddCustomer());
@@ -83,7 +84,7 @@ public class CustomerListViewModel : BaseViewModel
         IEnumerable<ICustomer> fetchedCustomers = dataLayer.GetCustomers();
         foreach (ICustomer c in fetchedCustomers)
         {
-            //_Customers.Add(new CustomerViewModel(_NextCustomerId,"bob", "bop"));
+            _Customers.Add(new CustomerViewModel(c.CustomerId, c.Name, c.Surname));
             _NextCustomerId++;
         }
     }
@@ -95,6 +96,7 @@ public class CustomerListViewModel : BaseViewModel
         }*/
         foreach (CustomerViewModel c in Customers)
         {
+            dataLayer.ClearDatabase();
             dataLayer.AddCustomer(c.Id, c.FirstName, c.LastName);
         }
     }
