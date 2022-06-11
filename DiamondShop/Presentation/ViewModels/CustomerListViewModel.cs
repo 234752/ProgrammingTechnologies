@@ -9,80 +9,94 @@ using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
 using System.Windows.Input;
 //using Service.Model;
+using Data.API;
 
-namespace Presentation.ViewModels
+namespace Presentation.ViewModels;
+
+public class CustomerListViewModel : BaseViewModel
 {
-    public class CustomerListViewModel : BaseViewModel
+    private IDataModel model = new DataModel();
+    private ObservableCollection<CustomerViewModel> _Customers = new ObservableCollection<CustomerViewModel>();
+    private CustomerViewModel _CurrentCustomer;
+    private ICommand _RemoveCustomerCommand;
+    private ICommand _AddCustomerCommand;
+    private int _NextCustomerId = 0;
+    private ICommand _SaveCustomersCommand;
+    //private CustomerService _Service;
+    private AbstractDataAPI dataLayer;
+
+    public CustomerListViewModel()
     {
-        private IDataModel model = new DataModel();
-        private ObservableCollection<CustomerViewModel> _Customers = new ObservableCollection<CustomerViewModel>();
-        private CustomerViewModel _CurrentCustomer;
-        private ICommand _RemoveCustomerCommand;
-        private ICommand _AddCustomerCommand;
-        private int _NextCustomerId = 0;
-        private ICommand _SaveCustomersCommand;
-        //private CustomerService _Service;
+        _Customers = new ObservableCollection<CustomerViewModel>();
+        //_Service = new CustomerService();
+        dataLayer = AbstractDataAPI.createLayer();
 
-        public CustomerListViewModel()
-        {
-            _Customers = new ObservableCollection<CustomerViewModel>();
-            //_Service = new CustomerService();
-            
-            Task.Run(() => FetchCustomersFromDatabase());
+        Task.Run(() => FetchCustomersFromDatabase());
 
-            _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
-            _AddCustomerCommand = new RelayCommand(() => AddCustomer());
-            _SaveCustomersCommand = new RelayCommand(() => SaveCustomers());
-        }
-        public CustomerListViewModel(IDataModel dataModel)
+        _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
+        _AddCustomerCommand = new RelayCommand(() => AddCustomer());
+        _SaveCustomersCommand = new RelayCommand(() => SaveCustomers());
+    }
+    public CustomerListViewModel(IDataModel dataModel)
+    {
+        if (dataModel != null) model = dataModel;
+        _Customers = new ObservableCollection<CustomerViewModel>();
+        foreach (ICustomerModel customer in model.Customers)
         {
-            if (dataModel != null) model = dataModel;
-            _Customers = new ObservableCollection<CustomerViewModel>();
-            foreach (ICustomerModel customer in model.Customers)
-            {
-                _Customers.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName));
-            }
-            _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
-            _AddCustomerCommand = new RelayCommand(() => AddCustomer());
-            _SaveCustomersCommand = new RelayCommand(() => SaveCustomers());
+            _Customers.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName));
         }
-        public ObservableCollection<CustomerViewModel> Customers
-        { get { return _Customers; } set { _Customers = value; RaisePropertyChanged(nameof(Customers)); } }
-        public CustomerViewModel CurrentCustomer
-        { get { return _CurrentCustomer; } set { _CurrentCustomer = value; RaisePropertyChanged(nameof(CurrentCustomer)); } }
-        public ICommand RemoveCustomerCommand { get { return _RemoveCustomerCommand; } }
-        public ICommand AddCustomerCommand { get { return _AddCustomerCommand; } }
-        public ICommand SaveCustomersCommand { get { return _SaveCustomersCommand; } }
+        _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
+        _AddCustomerCommand = new RelayCommand(() => AddCustomer());
+        _SaveCustomersCommand = new RelayCommand(() => SaveCustomers());
+    }
+    public ObservableCollection<CustomerViewModel> Customers
+    { get { return _Customers; } set { _Customers = value; RaisePropertyChanged(nameof(Customers)); } }
+    public CustomerViewModel CurrentCustomer
+    { get { return _CurrentCustomer; } set { _CurrentCustomer = value; RaisePropertyChanged(nameof(CurrentCustomer)); } }
+    public ICommand RemoveCustomerCommand { get { return _RemoveCustomerCommand; } }
+    public ICommand AddCustomerCommand { get { return _AddCustomerCommand; } }
+    public ICommand SaveCustomersCommand { get { return _SaveCustomersCommand; } }
 
-        public void RemoveCustomer()
+    public void RemoveCustomer()
+    {
+        Customers.Remove(CurrentCustomer);
+    }
+    public void AddCustomer()
+    {
+        Customers.Add(new CustomerViewModel() { Id = _NextCustomerId, FirstName = "", LastName = "" });
+        CurrentCustomer = Customers.Last();
+        _NextCustomerId++;
+    }
+    public void SaveCustomers()
+    {
+        Task.Run(() => SaveCustomersToDatabase());
+    }
+    private void FetchCustomersFromDatabase()
+    {
+/*            _NextCustomerId=0;
+        for (int i = 0; _Service.GetCustomer(i) != null; i++)
         {
-            Customers.Remove(CurrentCustomer);
-        }
-        public void AddCustomer()
+            _Customers.Add(new CustomerViewModel(_NextCustomerId, _Service.GetCustomer(i).Name, _Service.GetCustomer(i).Surname));
+            _NextCustomerId++;
+        }*/
+        _NextCustomerId = 0;
+        IEnumerable<ICustomer> fetchedCustomers = dataLayer.GetCustomers();
+        foreach (ICustomer c in fetchedCustomers)
         {
-            Customers.Add(new CustomerViewModel() { Id = _NextCustomerId, FirstName = "", LastName = "" });
-            CurrentCustomer = Customers.Last();
+            //_Customers.Add(new CustomerViewModel(_NextCustomerId,"bob", "bop"));
             _NextCustomerId++;
         }
-        public void SaveCustomers()
+    }
+    private void SaveCustomersToDatabase()
+    {
+        /*foreach (CustomerViewModel c in Customers)
         {
-            Task.Run(() => SaveCustomersToDatabase());
-        }
-        private void FetchCustomersFromDatabase()
+            _Service.UpdateCustomer(c.Id, c.FirstName, c.LastName);
+        }*/
+        foreach (CustomerViewModel c in Customers)
         {
-/*            _NextCustomerId=0;
-            for (int i = 0; _Service.GetCustomer(i) != null; i++)
-            {
-                _Customers.Add(new CustomerViewModel(_NextCustomerId, _Service.GetCustomer(i).Name, _Service.GetCustomer(i).Surname));
-                _NextCustomerId++;
-            }*/
-        }
-        private void SaveCustomersToDatabase()
-        {
-            /*foreach (CustomerViewModel c in Customers)
-            {
-                _Service.UpdateCustomer(c.Id, c.FirstName, c.LastName);
-            }*/
+            dataLayer.AddCustomer(c.Id, c.FirstName, c.LastName);
         }
     }
 }
+
