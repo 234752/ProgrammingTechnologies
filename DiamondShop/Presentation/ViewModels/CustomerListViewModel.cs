@@ -20,7 +20,7 @@ public class CustomerListViewModel : BaseViewModel
     private CustomerViewModel _CurrentCustomer;
     private ICommand _RemoveCustomerCommand;
     private ICommand _AddCustomerCommand;
-    private int _NextCustomerId = 0;
+    //private int _NextCustomerId = 0;
     private ICommand _SaveCustomersCommand;
     //private CustomerService _Service;
     private AbstractDataAPI dataLayer;
@@ -64,9 +64,9 @@ public class CustomerListViewModel : BaseViewModel
     }
     public void AddCustomer()
     {
-        Customers.Add(new CustomerViewModel() { Id = _NextCustomerId, FirstName = "", LastName = "" });
+        Customers.Add(new CustomerViewModel() { Id = 0, FirstName = "", LastName = "" });
         CurrentCustomer = Customers.Last();
-        _NextCustomerId++;
+        //_NextCustomerId++;
     }
     public void SaveCustomers()
     {
@@ -80,12 +80,12 @@ public class CustomerListViewModel : BaseViewModel
             _Customers.Add(new CustomerViewModel(_NextCustomerId, _Service.GetCustomer(i).Name, _Service.GetCustomer(i).Surname));
             _NextCustomerId++;
         }*/
-        _NextCustomerId = 0;
+        //_NextCustomerId = 0;
         IEnumerable<ICustomer> fetchedCustomers = dataLayer.GetCustomers();
         foreach (ICustomer c in fetchedCustomers)
         {
             _Customers.Add(new CustomerViewModel(c.CustomerId, c.Name, c.Surname));
-            _NextCustomerId++;
+            //_NextCustomerId++;
         }
     }
     private void SaveCustomersToDatabase()
@@ -94,9 +94,11 @@ public class CustomerListViewModel : BaseViewModel
         {
             _Service.UpdateCustomer(c.Id, c.FirstName, c.LastName);
         }*/
+        dataLayer.ClearDatabase();
+        dataLayer = AbstractDataAPI.createLayer();
+        //FetchCustomersFromDatabase();
         foreach (CustomerViewModel c in Customers)
-        {
-            dataLayer.ClearDatabase();
+        {          
             dataLayer.AddCustomer(c.Id, c.FirstName, c.LastName);
         }
     }
