@@ -20,19 +20,15 @@ public class CustomerListViewModel : BaseViewModel
     private CustomerViewModel _CurrentCustomer;
     private ICommand _RemoveCustomerCommand;
     private ICommand _AddCustomerCommand;
-    //private int _NextCustomerId = 0;
     private ICommand _SaveCustomersCommand;
-    //private CustomerService _Service;
     private AbstractDataAPI dataLayer;
 
     public CustomerListViewModel()
     {
         _Customers = new ObservableCollection<CustomerViewModel>();
-        //_Service = new CustomerService();
         dataLayer = AbstractDataAPI.createLayer();
 
-        //Task.Run(() => FetchCustomersFromDatabase());
-        FetchCustomersFromDatabase();
+        Task.Run(() => FetchCustomersFromDatabase());
 
         _RemoveCustomerCommand = new RelayCommand(() => RemoveCustomer());
         _AddCustomerCommand = new RelayCommand(() => AddCustomer());
@@ -66,7 +62,6 @@ public class CustomerListViewModel : BaseViewModel
     {
         Customers.Add(new CustomerViewModel() { Id = 0, FirstName = "", LastName = "" });
         CurrentCustomer = Customers.Last();
-        //_NextCustomerId++;
     }
     public void SaveCustomers()
     {
@@ -74,29 +69,19 @@ public class CustomerListViewModel : BaseViewModel
     }
     private void FetchCustomersFromDatabase()
     {
-/*            _NextCustomerId=0;
-        for (int i = 0; _Service.GetCustomer(i) != null; i++)
-        {
-            _Customers.Add(new CustomerViewModel(_NextCustomerId, _Service.GetCustomer(i).Name, _Service.GetCustomer(i).Surname));
-            _NextCustomerId++;
-        }*/
-        //_NextCustomerId = 0;
         List<ICustomer> fetchedCustomers = dataLayer.GetCustomers();
         foreach (ICustomer c in fetchedCustomers)
         {
-            Customers.Add(new CustomerViewModel(c.CustomerId, c.Name, c.Surname));
-            //_NextCustomerId++;
+            App.Current.Dispatcher.Invoke((Action)delegate
+            { 
+                _Customers.Add(new CustomerViewModel(c.CustomerId, c.Name, c.Surname));
+            });          
         }
     }
     private void SaveCustomersToDatabase()
     {
-        /*foreach (CustomerViewModel c in Customers)
-        {
-            _Service.UpdateCustomer(c.Id, c.FirstName, c.LastName);
-        }*/
         dataLayer.ClearDatabase();
         dataLayer = AbstractDataAPI.createLayer();
-        //FetchCustomersFromDatabase();
         foreach (CustomerViewModel c in Customers)
         {          
             dataLayer.AddCustomer(c.Id, c.FirstName, c.LastName);
