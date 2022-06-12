@@ -8,7 +8,6 @@ using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
 using System.Windows.Input;
-//using Service.Model;
 using Data.API;
 
 namespace Presentation.ViewModels;
@@ -63,12 +62,17 @@ public class CustomerListViewModel : BaseViewModel
         Customers.Add(new CustomerViewModel() { Id = 0, FirstName = "", LastName = "" });
         CurrentCustomer = Customers.Last();
     }
-    public void SaveCustomers()
-    {
-        Task.Run(() => SaveCustomersToDatabase());
+    public async void SaveCustomers()
+    {        
+        await Task.Run(() => SaveCustomersToDatabase());
+        Task.Run(() => FetchCustomersFromDatabase());
     }
     private void FetchCustomersFromDatabase()
     {
+        App.Current.Dispatcher.Invoke((Action)delegate
+        {
+            _Customers.Clear();
+        });
         List<ICustomer> fetchedCustomers = dataLayer.GetCustomers();
         foreach (ICustomer c in fetchedCustomers)
         {
@@ -81,7 +85,6 @@ public class CustomerListViewModel : BaseViewModel
     private void SaveCustomersToDatabase()
     {
         dataLayer.ClearDatabase();
-        dataLayer = AbstractDataAPI.createLayer();
         foreach (CustomerViewModel c in Customers)
         {          
             dataLayer.AddCustomer(c.Id, c.FirstName, c.LastName);
