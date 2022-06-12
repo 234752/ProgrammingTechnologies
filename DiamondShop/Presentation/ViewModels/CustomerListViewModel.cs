@@ -81,10 +81,10 @@ public class CustomerListViewModel : BaseViewModel
             _NextCustomerId++;
         }*/
         //_NextCustomerId = 0;
-        IEnumerable<ICustomer> fetchedCustomers = dataLayer.GetCustomers();
+        List<ICustomer> fetchedCustomers = dataLayer.GetCustomers();
         foreach (ICustomer c in fetchedCustomers)
         {
-            _Customers.Add(new CustomerViewModel(c.CustomerId, c.Name, c.Surname));
+            Customers.Add(new CustomerViewModel(c.CustomerId, c.Name, c.Surname));
             //_NextCustomerId++;
         }
     }

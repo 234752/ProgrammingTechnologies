@@ -12,35 +12,39 @@ public abstract class AbstractDataAPI
 {
     public static AbstractDataAPI createLayer()
     {
-        return new DataLayer(new DataContext());
+        return new DataLayer();
     }
     public abstract void ClearDatabase();
     public abstract void AddCustomer(int id, string name, string surname);
-    public abstract IEnumerable<ICustomer> GetCustomers();
+    public abstract List<ICustomer> GetCustomers();
 
     internal class DataLayer : AbstractDataAPI
     {
-        private DataContext context;
-        internal DataLayer(DataContext c)
-        {
-            context = c;
-        }
         public override void ClearDatabase()
         {
-            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Events");
-            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Diamonds");
-            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Customers");
+            using(DataContext context = new DataContext())
+            {
+                context.Database.ExecuteSqlCommand("TRUNCATE TABLE Events");
+                context.Database.ExecuteSqlCommand("TRUNCATE TABLE Diamonds");
+                context.Database.ExecuteSqlCommand("TRUNCATE TABLE Customers");
+            }            
         }
         public override void AddCustomer(int id, string name, string surname)
         {
-            context.Customers.Add(new Customer(id, name, surname));
-            context.SaveChanges();
+            using (DataContext context = new DataContext())
+            {
+                context.Customers.Add(new Customer(id, name, surname));
+                context.SaveChanges();
+            }            
         }
 
-        public override IEnumerable<ICustomer> GetCustomers()
+        public override List<ICustomer> GetCustomers()
         {
-            IEnumerable<ICustomer> customers = context.Customers.AsEnumerable();
-            return customers;
+            using (DataContext context = new DataContext())
+            {
+                List<ICustomer> customers = context.Customers.ToList<ICustomer>();
+                return customers;
+            }                      
         }
     }
 }
