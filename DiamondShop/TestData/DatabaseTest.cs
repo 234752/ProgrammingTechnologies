@@ -9,7 +9,7 @@ public class DatabaseTest
     public void TestMethod1()
     {
         AbstractDataAPI testedDataLayer = AbstractDataAPI.createLayer();
-        testedDataLayer.ClearDatabase();
+        testedDataLayer.DropTableCustomers();
         testedDataLayer.AddCustomer(10, "bob", "bob2");
         testedDataLayer.AddCustomer(10, "bob", "bob2");
         Assert.AreEqual(2, testedDataLayer.GetCustomers().Count());

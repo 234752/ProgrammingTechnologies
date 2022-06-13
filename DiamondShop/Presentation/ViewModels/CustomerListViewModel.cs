@@ -63,7 +63,7 @@ public class CustomerListViewModel : BaseViewModel
         CurrentCustomer = Customers.Last();
     }
     public async void SaveCustomers()
-    {        
+    {
         await Task.Run(() => SaveCustomersToDatabase());
         Task.Run(() => FetchCustomersFromDatabase());
     }
@@ -84,7 +84,7 @@ public class CustomerListViewModel : BaseViewModel
     }
     private void SaveCustomersToDatabase()
     {
-        dataLayer.ClearDatabase();
+        dataLayer.DropTableCustomers();
         foreach (CustomerViewModel c in Customers)
         {          
             dataLayer.AddCustomer(c.Id, c.FirstName, c.LastName);

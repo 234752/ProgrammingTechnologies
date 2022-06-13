@@ -14,20 +14,36 @@ public abstract class AbstractDataAPI
     {
         return new DataLayer();
     }
-    public abstract void ClearDatabase();
+    public abstract void DropTableCustomers();
+    public abstract void DropTableDiamonds();
+    public abstract void DropTableEvents();
     public abstract void AddCustomer(int id, string name, string surname);
+    public abstract void AddDiamond(int id, string name, decimal price, string quality);
     public abstract List<ICustomer> GetCustomers();
+    public abstract List<IDiamond> GetDiamonds();
 
     internal class DataLayer : AbstractDataAPI
     {
-        public override void ClearDatabase()
+        public override void DropTableCustomers()
         {
             using(DataContext context = new DataContext())
             {
-                context.Database.ExecuteSqlCommand("TRUNCATE TABLE Events");
-                context.Database.ExecuteSqlCommand("TRUNCATE TABLE Diamonds");
-                context.Database.ExecuteSqlCommand("TRUNCATE TABLE Customers");
+                context.Database.ExecuteSqlCommand("TRUNCATE TABLE Customers");               
             }            
+        }
+        public override void DropTableDiamonds()
+        {
+            using (DataContext context = new DataContext())
+            {
+                context.Database.ExecuteSqlCommand("TRUNCATE TABLE Diamonds");
+            }
+        }
+        public override void DropTableEvents()
+        {
+            using (DataContext context = new DataContext())
+            {
+                context.Database.ExecuteSqlCommand("TRUNCATE TABLE Events");
+            }
         }
         public override void AddCustomer(int id, string name, string surname)
         {
@@ -37,7 +53,14 @@ public abstract class AbstractDataAPI
                 context.SaveChanges();
             }            
         }
-
+        public override void AddDiamond(int id, string name, decimal price, string quality)
+        {
+            using (DataContext context = new DataContext())
+            {
+                context.Diamonds.Add(new Diamond(id, price, quality, name));
+                context.SaveChanges();
+            }
+        }
         public override List<ICustomer> GetCustomers()
         {
             using (DataContext context = new DataContext())
@@ -45,6 +68,14 @@ public abstract class AbstractDataAPI
                 List<ICustomer> customers = context.Customers.ToList<ICustomer>();
                 return customers;
             }                      
+        }
+        public override List<IDiamond> GetDiamonds()
+        {
+            using (DataContext context = new DataContext())
+            {
+                List<IDiamond> diamonds = context.Diamonds.ToList<IDiamond>();
+                return diamonds;
+            }
         }
     }
 }
