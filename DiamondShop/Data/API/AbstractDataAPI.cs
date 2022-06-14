@@ -19,8 +19,10 @@ public abstract class AbstractDataAPI
     public abstract void DropTableEvents();
     public abstract void AddCustomer(int id, string name, string surname);
     public abstract void AddDiamond(int id, string name, decimal price, string quality);
+    public abstract void AddEvent(int id, string date, string isDelivery, int diamondId, int customerId);
     public abstract List<ICustomer> GetCustomers();
     public abstract List<IDiamond> GetDiamonds();
+    public abstract List<IEvent> GetEvents();
 
     internal class DataLayer : AbstractDataAPI
     {
@@ -61,6 +63,14 @@ public abstract class AbstractDataAPI
                 context.SaveChanges();
             }
         }
+        public override void AddEvent(int id, string date, string isDelivery, int diamondId, int customerId)
+        {
+            using (DataContext context = new DataContext())
+            {
+                context.Events.Add(new Event(id, date, isDelivery, diamondId, customerId));
+                context.SaveChanges();
+            }
+        }
         public override List<ICustomer> GetCustomers()
         {
             using (DataContext context = new DataContext())
@@ -75,6 +85,15 @@ public abstract class AbstractDataAPI
             {
                 List<IDiamond> diamonds = context.Diamonds.ToList<IDiamond>();
                 return diamonds;
+            }
+        }       
+
+        public override List<IEvent> GetEvents()
+        {
+            using (DataContext context = new DataContext())
+            {
+                List<IEvent> events = context.Events.ToList<IEvent>();
+                return events;
             }
         }
     }
