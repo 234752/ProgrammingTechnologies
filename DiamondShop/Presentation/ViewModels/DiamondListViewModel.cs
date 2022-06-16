@@ -8,7 +8,7 @@ using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
 using System.Windows.Input;
-//using Service.Model;
+using Data.API;
 
 namespace Presentation.ViewModels
 {
@@ -19,14 +19,13 @@ namespace Presentation.ViewModels
         private DiamondViewModel _CurrentDiamond;
         private ICommand _RemoveDiamondCommand;
         private ICommand _AddDiamondCommand;
-        private int _NextDiamondId = 0;
         private ICommand _SaveDiamondsCommand;
-        //private DiamondService _Service;
+        private AbstractDataAPI dataLayer;
 
         public DiamondListViewModel()
         {
             _Diamonds = new ObservableCollection<DiamondViewModel>();
-            //_Service = new DiamondService();
+            dataLayer = AbstractDataAPI.createLayer();
 
             Task.Run(() => FetchDiamondsFromDatabase());
 
@@ -60,9 +59,8 @@ namespace Presentation.ViewModels
         }
         public void AddDiamond()
         {
-            Diamonds.Add(new DiamondViewModel() { Id = _NextDiamondId, Name = "", Price = 0M, Quality = ""});
+            Diamonds.Add(new DiamondViewModel() { Id = 0, Name = "", Price = 0M, Quality = ""});
             CurrentDiamond = Diamonds.Last();
-            _NextDiamondId++;
         }
         public void SaveDiamonds()
         {
@@ -70,19 +68,26 @@ namespace Presentation.ViewModels
         }
         private void FetchDiamondsFromDatabase()
         {
-            /*_NextDiamondId = 0;
-            for (int i = 0; _Service.GetDiamond(i) != null; i++)
+            App.Current.Dispatcher.Invoke((Action)delegate
             {
-                _Diamonds.Add(new DiamondViewModel(_NextDiamondId, _Service.GetDiamond(i).Name, _Service.GetDiamond(i).Quality, _Service.GetDiamond(i).Price));
-                _NextDiamondId++;
-            }*/
+                _Diamonds.Clear();
+            });
+            List<IDiamond> fetchedDiamonds = dataLayer.GetDiamonds();
+            foreach (IDiamond d in fetchedDiamonds)
+            {
+                App.Current.Dispatcher.Invoke((Action)delegate
+                {
+                    _Diamonds.Add(new DiamondViewModel(d.DiamondId, d.Name, d.Quality, d.Price));
+                });
+            }
         }
         private void SaveDiamondsToDatabase()
         {
-            /*foreach (DiamondViewModel d in Diamonds)
+            dataLayer.DropTableDiamonds();
+            foreach (DiamondViewModel d in Diamonds)
             {
-                _Service.UpdateDiamond(d.Id, d.Price, d.Quality, d.Name);
-            }*/
+                dataLayer.AddDiamond(d.Id, d.Name, d.Price, d.Quality);
+            }
         }
     }
 }
