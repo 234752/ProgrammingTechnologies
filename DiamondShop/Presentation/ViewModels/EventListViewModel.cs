@@ -8,7 +8,7 @@ using Presentation.Models;
 using Presentation.ViewModels.MVVMLight;
 using Presentation.Models.ModelsAPI;
 using System.Windows.Input;
-//using Service.Model;
+using Data.API;
 
 namespace Presentation.ViewModels
 {
@@ -19,14 +19,13 @@ namespace Presentation.ViewModels
         private EventViewModel _CurrentEvent;
         private ICommand _RemoveEventCommand;
         private ICommand _AddEventCommand;
-        private int _NextEventId = 0;
         private ICommand _SaveEventsCommand;
-        //private EventService _Service;
+        private AbstractDataAPI dataLayer;
 
         public EventListViewModel()
         {
             _Events = new ObservableCollection<EventViewModel>();
-            //_Service = new EventService();
+            dataLayer = AbstractDataAPI.createLayer();
 
             Task.Run(() => FetchEventsFromDatabase());
 
@@ -60,9 +59,8 @@ namespace Presentation.ViewModels
         }
         public void AddEvent()
         {
-            Events.Add(new EventViewModel() { Id = _NextEventId, CatalogId = 0, Date = "", IsDelivery = true});
+            Events.Add(new EventViewModel() { Id = 0, CatalogId = 0, Date = "", IsDelivery = true});
             CurrentEvent = Events.Last();
-            _NextEventId++;
         }
         public void SaveEvents()
         {
@@ -70,19 +68,26 @@ namespace Presentation.ViewModels
         }
         private void FetchEventsFromDatabase()
         {
-            /*_NextEventId = 0;
-            for (int i = 0; _Service.GetEvent(i) != null; i++)
+            App.Current.Dispatcher.Invoke((Action)delegate
             {
-                _Events.Add(new EventViewModel(_NextEventId, _Service.GetEvent(i).Date, Boolean.Parse(_Service.GetEvent(i).IsDelivery), _Service.GetEvent(i).CatalogId));
-                _NextEventId++;
-            }*/
+                _Events.Clear();
+            });
+            List<IEvent> fetchedEvents = dataLayer.GetEvents();
+            foreach (IEvent e in fetchedEvents)
+            {
+                App.Current.Dispatcher.Invoke((Action)delegate
+                {
+                    _Events.Add(new EventViewModel(e.EventId, e.Date, Boolean.Parse(e.IsDelivery), e.DiamondId));
+                });
+            }
         }
         private void SaveEventsToDatabase()
         {
-            /*foreach (EventViewModel e in Events)
+            dataLayer.DropTableEvents();
+            foreach (EventViewModel e in Events)
             {
-                _Service.UpdateEvent(e.Id, e.Date, e.IsDelivery.ToString(), e.CatalogId, e.CatalogId);
-            }*/
+                dataLayer.AddEvent(e.Id, e.Date, e.IsDelivery.ToString(), e.CatalogId, e.CatalogId);
+            }
         }
     }
 }
